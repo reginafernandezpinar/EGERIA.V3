@@ -14,8 +14,6 @@ function loginUser(req, res) {
                 const pwd = req.body.password;
                 const dbPwd = user.password; //user.password gets the password from the DB, then it is compared against the one introduced
                 const cryptPasswd = crypt.encrypt(pwd);
-                console.log("dbPwd:" + dbPwd);
-                console.log("crPwd:" + cryptPasswd);
                 if (cryptPasswd !== dbPwd) {
                     res.status(401).send({ message: { type: 'error', text: 'bad credentials' } });
                 } else {

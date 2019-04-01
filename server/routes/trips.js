@@ -19,7 +19,7 @@ router.get('/:id', tripController.findOne);
 //============== Protected routes ======================
 
 // Get all trips from an user
-router.get('/user', Token.verifyToken, tripController.getUserTrips);
+router.get('/user/trips', Token.verifyToken, tripController.getUserTrips);
 // Delete a trip from an user
 router.delete('/:id', Token.verifyToken, tripController.deleteOne);
 // Update a trip from an user

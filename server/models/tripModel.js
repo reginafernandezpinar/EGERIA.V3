@@ -73,7 +73,7 @@ const deleteTripById = (tripId, userId) => {
 //const removeTripById = id => trips.splice(trips.findIndex(trip => trip.id == id), 1)
 // Update a trip
 const updateTripById = (trip, id, userId) => {
-    let sql = `UPDATE trip SET name = '${trip.name}', description = '${trip.description}', companionship = '${trip.companionship}', photo = '${trip.photo}' WHERE id = '${id}' AND user_id = ${userId}`;
+    let sql = `UPDATE trip SET public = '${trip.public}', name = '${trip.name}', description = '${trip.description}', companionship = '${trip.companionship}', category = '${trip.category}', photo = '${trip.photo}' WHERE id = '${id}' AND user_id = ${userId}`;
     // console.log(trip.name);
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {

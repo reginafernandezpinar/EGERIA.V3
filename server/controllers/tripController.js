@@ -11,6 +11,7 @@ function findAll (req, res) {
 }
 // Get a trip
 function findOne(req, res) {
+    console.log('findOne');
     const id = req.params.id;
     tripModel.findTripById(id)
     .then(result => {res.send(result); //=> Promise: resolve
@@ -22,12 +23,11 @@ function findOne(req, res) {
 
 
 //============== Protected routes ======================
-// user object is saved as req.user in token
+// user object is saved as req.user in token.
 
 // Get all trips from an user
 function getUserTrips (req, res) {
     const userId = req.user.id;
-    console.log(userId);
     tripModel.getUserTrips(userId)
     .then(result => { // result is an array of user trips
         res.send(result);
@@ -38,7 +38,7 @@ function getUserTrips (req, res) {
 }
 // Create new trip 
 function save(req, res) {
-    console.log(req.body);
+    console.log('save req.body', req.body);
     const trip = req.body;
     const userId = req.user.id;
     tripModel.save(trip, userId, (err, result) => {
