@@ -9,7 +9,7 @@ const Token = require('../util/auth/token');
 //========== Public routes =====================
 
 // Get featured/all trips
-router.get('/',  tripController.findAll);
+router.get('/', tripController.findAll);
 // Get a trip
 router.get('/:id', tripController.findOne);
 
@@ -19,7 +19,7 @@ router.get('/:id', tripController.findOne);
 //============== Protected routes ======================
 
 // Get all trips from an user
-router.get('/userTrips', Token.verifyToken, tripController.getUserTrips);
+router.get('/user', Token.verifyToken, tripController.getUserTrips);
 // Delete a trip from an user
 router.delete('/:id', Token.verifyToken, tripController.deleteOne);
 // Update a trip from an user

@@ -21,7 +21,12 @@ function loginUser(req, res) {
                 } else {
                     let token = Token.buildToken(user); // create token with the entire object(user) 
                     console.log("token:" + token);
-                    res.send({ ...user, token }); // corregir!! devolver los campos del objeto user excepto la password!
+                    let userData = {
+                        username: user.username,
+                        email: user.email,
+                        token: token
+                    }
+                    res.send(userData); 
                 }
             }
         })
@@ -40,25 +45,13 @@ function registerUser (req, res) {
             res.send(result);
         })
         .catch(err => {
-            res.render('error', { message: { color: 'red', text: 'something failed' }, error: err });
+            res.status(500).send({ message: { color: 'red', text: 'something failed' }, error: err });
         });
 }
 
-
-function whoAmI (req, res) {
-    console.log('request', req.user); // user is injected in the req object by the verifyToken middleware
-    userModel.findUserByEmail(req.user.email)
-        .then(result => { // result is an array whose first position is the user object.
-            let user = result[0]; 
-            res.send(user.username);
-        }).catch(err => {
-            res.send({ message: { color: 'red', text: 'something failed' }, error: err });
-        });
-}
 
 
 module.exports = {
     loginUser,
     registerUser,
-    whoAmI
 }

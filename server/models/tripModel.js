@@ -40,7 +40,7 @@ const getUserTrips = userId => {
 
 // Create new trip
 const save = (trip, userId, cb) => {
-    let sql = `INSERT INTO trip (user_id, name, description, companionship, photo) VALUES ('${userId}', '${trip.name}', '${trip.description}', '${trip.companionship}', '${trip.photo}')`;
+    let sql = `INSERT INTO trip (user_id, public, name, description, companionship, category, photo) VALUES ('${userId}', '${trip.public}', '${trip.name}', '${trip.description}', '${trip.companionship}', '${trip.category}', '${trip.photo}')`;
     // console.log(trip.name);
     dbConn.query(sql, function (err, result) {
         if (err) {
@@ -49,9 +49,11 @@ const save = (trip, userId, cb) => {
             let newTrip = {
                 id: result.insertId,
                 userId: userId,
+                public: trip.public,
                 name: trip.name,
                 description: trip.description,
                 companionship: trip.companionship,
+                category: trip.category,
                 photo: trip.photo
             }
             cb(null, newTrip);

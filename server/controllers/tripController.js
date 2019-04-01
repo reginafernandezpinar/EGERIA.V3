@@ -17,15 +17,17 @@ function findOne(req, res) {
     })
     .catch(err => { //=> Promise: reject
         res.send({message:'something failed', error: err});
-    })  
+    })
 }
 
 
 //============== Protected routes ======================
+// user object is saved as req.user in token
 
 // Get all trips from an user
 function getUserTrips (req, res) {
-    const userId = req.user.id
+    const userId = req.user.id;
+    console.log(userId);
     tripModel.getUserTrips(userId)
     .then(result => { // result is an array of user trips
         res.send(result);
@@ -34,13 +36,14 @@ function getUserTrips (req, res) {
         res.send({message:'something failed', error: err});
     });
 }
-// Create new trip
+// Create new trip 
 function save(req, res) {
+    console.log(req.body);
     const trip = req.body;
     const userId = req.user.id;
     tripModel.save(trip, userId, (err, result) => {
         if (err) res.send({message: 'something failed', error: err});
-        res.send(result);
+        else res.send(result);
     });
 }
 // Delete a trip

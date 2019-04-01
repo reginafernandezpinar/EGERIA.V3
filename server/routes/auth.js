@@ -7,7 +7,6 @@ const Token = require('../util/auth/token')
 
 router.post('/register', userController.registerUser);
 router.post('/login', userController.loginUser);
-// router.get('/', Token.verifyToken, userController.whoAmI); en el /login traemos la info del usuario
 
 
 // fake logout
