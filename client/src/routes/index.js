@@ -1,2 +1,2 @@
 // Router
-export * from './router';
+export * from './Router';

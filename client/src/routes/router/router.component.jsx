@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // Import global resources
 import { Store } from '@Models';
-import MainPage from '../../containers/MainPage';
+import MainPage from '../../components/layout/MainPage';
 
 // Import local resources
 import './styles.css';
