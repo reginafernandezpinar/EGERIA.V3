@@ -13,7 +13,6 @@
     "url": "https://github.com/reginafernandezpinar/EGERIA.V3"
   },
   "alias": {
-    "@Components": "./src/components/",
     "@Tools": "./src/tools/",
     "@Models": "./src/models/",
     "@Routes": "./src/routes/",
