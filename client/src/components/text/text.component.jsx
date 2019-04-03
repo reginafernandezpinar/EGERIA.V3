@@ -6,9 +6,7 @@ import { changeAction } from '@Models'; // importo la accion. Para usarla en el 
 
 ///////////// Component ////////////////
 export class Text extends Component {
-  // componentDidMount () {
-  //   this.props.aaaaaa('adasada')
-  // }
+
   render() {
     return (
       <div>
@@ -30,9 +28,9 @@ const mapStateToProps = state => ({
 // esto va al payload
 
 const mapDispatchToProps = {
-  aaaaaa: changeAction, // se podria poner unicamente 'changeAction'.
+  changeAction
 };
-// Esto es un objeto. Para pasar acciones a traves de una propiedad. Conecta la prop q crees aqui a la accion, changeAction en este caso
+// Esto es un objeto. Para pasar acciones a traves de una propiedad. Conecta la prop a la accion, changeAction en este caso
 // Es una prop de escritura.
 
 export const TextConnected = connect(

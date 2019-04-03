@@ -1,2 +1,0 @@
-# bootcam-redux-codespace
-
