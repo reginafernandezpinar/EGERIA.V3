@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { rootReducer } from './root.reducer';
+import { tripReducer } from './trips/trip.reducer';
 
-export const allReducers = combineReducers ({
-    rootReducer, 
-})
-
-// Aqui puedo añadir otross tipos de reducers
+export const allReducers = combineReducers({
+    trips: tripReducer
+});

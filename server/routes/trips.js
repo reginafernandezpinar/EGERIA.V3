@@ -9,9 +9,11 @@ const Token = require('../util/auth/token');
 //========== Public routes =====================
 
 // Get featured/all trips
-router.get('/', tripController.findAll);
+router.get('/', tripController.getAll);
 // Get a trip
-router.get('/:id', tripController.findOne);
+router.get('/:id', tripController.getTripById);
+// Get all trips by category
+// router.get('/category/:category', tripController.getTripsByCategory);
 
 
 

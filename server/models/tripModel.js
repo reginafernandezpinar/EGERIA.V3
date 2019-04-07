@@ -4,24 +4,39 @@ const dbConn = require('../config/db/mysql');
 
 //=============== Public routes =====================
 
-// Get featured/all trips
-const findAll = (limit, cb) => {
-    let sql = `SELECT * FROM trip`;
+// Get all trips
+const getAll = (limit, category, cb) => {
+    let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id)`;
+    // get all trips by category (limit)
+    if (category) {
+        sql += ` WHERE t.category = '${category}'`;
+    }
+    // get featured trips
     if (limit) {
         sql += ` LIMIT ${limit}`;
     }
     dbConn.query (sql, (err, res) => cb (err, res));
 };
 // Get a trip
-const findTripById = id => {
-    let sql = `SELECT * FROM trip WHERE id = ${id}`;
+const getTripById = id => {
+    let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id) WHERE t.id = ${id}`;
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {
             if (err) reject(err);
-            resolve(result);
+            resolve(result[0]);
         })
     });
 }
+// // Get all trips by category
+// const getTripsByCategory = category => {
+//     let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id) WHERE t.category = '${category}'`;
+//     return new Promise ((resolve, reject) => {
+//         dbConn.query(sql, (err, result) => {
+//             if (err) reject(err);
+//             resolve(result);
+//         })
+//     });
+// }
 
 
 
@@ -85,8 +100,9 @@ const updateTripById = (trip, id, userId) => {
 
 
 module.exports = {
-    findAll,
-    findTripById, 
+    getAll,
+    getTripById,
+    // getTripsByCategory, 
     save,
     deleteTripById,
     updateTripById,

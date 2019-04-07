@@ -1,9 +1,18 @@
 import { connect } from 'react-redux';
 
-// component
+// Import component
 import carouselTrip from './carouselTrip.component';
 
+// Add Redux State to Component props
+const mapStateToProps = (state) => {
+    return {
+        tripList: state.trips.list.slice(0, 4),
+        tripLoading: state.trips.loading,
+        tripError: state.trips.error
+    };
+};
+
 export default connect(
-    null,
+    mapStateToProps,
     null
 )(carouselTrip);

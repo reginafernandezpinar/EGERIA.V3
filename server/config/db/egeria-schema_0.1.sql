@@ -21,7 +21,7 @@ CREATE TABLE trip (
     name VARCHAR(255) NOT NULL,
     description VARCHAR(400) NULL,
     companionship VARCHAR(20) NOT NULL, -- solo, couple, family
-    category VARCHAR(11) NOT NULL, -- monumental, nature, gastro, rural, urban
+    category VARCHAR(11) NOT NULL, -- monumental, nature, gastro, rural, urban, family, relax
     photo VARCHAR(200) null, -- url
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id),

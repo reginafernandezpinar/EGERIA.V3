@@ -15,5 +15,3 @@ function MainLayout(props) {
   );
 }
 export default MainLayout;
-
-// layout will rarely be updated, same for footer and header

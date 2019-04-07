@@ -2,24 +2,38 @@ const tripModel = require("../models/tripModel");
 
 //=============== Public routes =====================
 
-// Get featured/all trips
-function findAll (req, res) {
-    tripModel.findAll(req.query.limit, (err, result) => {
+// Get all trips
+function getAll (req, res) {
+    const limit = req.query.limit;
+    // get all trips limit by category
+    const category = req.query.category
+    tripModel.getAll(limit, category, (err, result) => {
         if (err) res.send({message: 'something failed', error: err});
         res.send(result);
     });
-}
+};
 // Get a trip
-function findOne(req, res) {
-    console.log('findOne');
+function getTripById(req, res) {
     const id = req.params.id;
-    tripModel.findTripById(id)
+    tripModel.getTripById(id)
     .then(result => {res.send(result); //=> Promise: resolve
     })
     .catch(err => { //=> Promise: reject
         res.send({message:'something failed', error: err});
     })
-}
+};
+
+// function getTripsByCategory(req, res) {
+//     const category = req.params.category;
+//     tripModel.getTripsByCategory(category)
+//     .then(result => {res.send(result); //=> Promise: resolve
+//     })
+//     .catch(err => { //=> Promise: reject
+//         res.send({message:'something failed', error: err});
+//     })
+// };
+
+
 
 
 //============== Protected routes ======================
@@ -72,8 +86,9 @@ function update(req,res){
 
 
 module.exports = {
-    findAll,
-    findOne,
+    getAll,
+    getTripById,
+    // getTripsByCategory,
     save,
     deleteOne,
     update,
