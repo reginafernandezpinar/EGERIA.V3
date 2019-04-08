@@ -25,7 +25,7 @@ app.use('/api/auth', authRouter);
 // app.use('/api/mytrips', tripsRouter);
 
 
-// DEPLOYMENT TO PRODUCTION: (client: npm run build)
+// DEPLOYMENT TO PRODUCTION: (client: npm run start)
 if (process.env.NODE_ENV === 'production') {
   console.log("This is serious! You are in production mode")
   app.use(express.static(path.join(__dirname, '../client/build')));
@@ -33,6 +33,8 @@ if (process.env.NODE_ENV === 'production') {
     console.log(req.path)
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
+} else {
+  console.log("You are in development mode. Do not expect to receive anything updated from React. User dev server for your frontend!!!")
 }
 
 

@@ -19,11 +19,11 @@
     "@Assets": "./src/assets/"
   },
   "scripts": {
-    "start": "rimraf build/ && npm run parcel-dev",
+    "build": "rimraf build/ && npm run parcel-dev",
     "clear": "rimraf .cache/ build/ yarn-error.log",
     "clear:all": "rimraf .cache/ build/ node_modules/ yarn-error.log yarn.lock package-lock.json",
     "format": "prettier --write './src/**/*.{js,jsx}'",
-    "parcel-dev": "parcel src/index.html -d build/ --open"
+    "start": "parcel src/index.html -d build/ --open"
   },
   "proxy": "http://localhost:3000",
   "devDependencies": {
