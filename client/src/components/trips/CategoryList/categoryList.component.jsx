@@ -14,7 +14,7 @@ class CategoryList extends Component {
         if (categoryError) {
             return <p>Sorry! There was an error loading the trips</p>;
         }
-        if (categoryLoading) {
+        if (categoryLoading || !Array.isArray(categoryList)) {
             return <p>Loading…</p>;
         }
         return (
@@ -31,7 +31,6 @@ class CategoryList extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }

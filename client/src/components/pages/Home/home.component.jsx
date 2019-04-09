@@ -1,6 +1,6 @@
 import React from 'react';
 import CarouselTrip from '../../trips/CarouselTrip';
-import Categories from '../../trips/Categories/categories.component';
+import Categories from '../../trips/Categories';
 import PropTypes from 'prop-types';
 
 
@@ -8,6 +8,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.getAllTrips();
+    this.props.getCategories();
   }
 
   render() {

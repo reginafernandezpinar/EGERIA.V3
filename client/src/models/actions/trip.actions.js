@@ -4,6 +4,8 @@ const API_BASE_URL = '/api/'; // si tenemos el proxi tendremos q dejar este endp
 const API_GET_ALL_TRIPS_URL = 'trips';
 const API_GET_TRIP_URL = 'trips/';
 
+
+
 // ------------------------- GET FEATURED/ALL TRIPS -----------------------
 
 // ACTION CREATORs
@@ -19,7 +21,7 @@ export const getAllTrips = filters => dispatch => {
   // Now we perform the Axios request:
   getTripsRequest(filters)
     .then(response => {
-      dispatch(getAllTripsSuccess(response));
+      dispatch(getAllTripsSuccess(response.data)); // we just need the key data from axios response 
     })
     .catch(error => {
       dispatch(getAllTripsError(error));
@@ -28,7 +30,7 @@ export const getAllTrips = filters => dispatch => {
 
 // ----------------------------- GET ALL TRIPS BY CATEGORY --------------------------------
 
-// // ACTION CREATORs
+// ACTION CREATORs
 export const getCategoryLoading = payload => ({ payload, type: 'GET_CATEGORY_LOADING' });
 export const getCategoryError = payload => ({ payload, type: 'GET_CATEGORY_ERROR' });
 export const getCategorySuccess = payload => ({ payload, type: 'GET_CATEGORY_SUCCESS' }); //will be called when the data has been successfully fetched
@@ -38,7 +40,7 @@ export const getCategory = filters => dispatch => {
   dispatch(getCategoryLoading(true));
   getTripsRequest(filters)
     .then(response => {
-      dispatch(getCategorySuccess(response));
+      dispatch(getCategorySuccess(response.data));
     })
     .catch(error => {
       dispatch(getCategoryError(error));
@@ -48,7 +50,9 @@ export const getCategory = filters => dispatch => {
 // ----------------------------- GET A TRIP --------------------------------
 
 // ACTION CREATORs
-export const getTripSuccess = payload => ({ payload, type: 'GET_TRIP_SUCCESS' });
+export function getTripSuccess(payload) { 
+  return { payload, type: 'GET_TRIP_SUCCESS' }; 
+}
 export const getTripLoading = payload => ({ payload, type: 'GET_TRIP_LOADING' });
 export const getTripError = payload => ({ payload, type: 'GET_TRIP_ERROR' });
 
@@ -58,7 +62,7 @@ export const getTrip = tripId => dispatch => {
   axios
     .get(`${API_BASE_URL}${API_GET_TRIP_URL}${tripId}`)
     .then(response => {
-      dispatch(getTripSuccess(response));
+      dispatch(getTripSuccess(response.data));
     })
     .catch(error => {
       dispatch(getTripError(error));
@@ -84,13 +88,31 @@ Thunk allows you to write action creators that return a function instead of an a
 The inner function can receive the store methods dispatch and getState as parameters, but we'll just use dispatch.
  */
 
+
+
+// ======================= AXIOS REQUEST FUNCTION =============================
 function getTripsRequest(filters = {}) {
   const url = `${API_BASE_URL}${API_GET_ALL_TRIPS_URL}?`;
   let urlParams = Object.keys(filters).reduce((total, param) => {
     return `${total}${param}=${filters[param]}&`;
   }, '');
   urlParams = urlParams.substr(0, urlParams.length - 1);
-  console.log(urlParams, 'asdf', url);
-
   return axios.get(`${url}${urlParams}`);
 }
+
+
+const moduleDefinition = {
+  getAllTripsSuccess,
+  getAllTripsLoading,
+  getAllTripsError,
+  getTrip,
+  getAllTrips,
+  getCategoryLoading,
+  getCategoryError,
+  getCategorySuccess,
+  getCategory,
+  getTripSuccess,
+  getTripLoading,
+  getTripError,
+}
+export default moduleDefinition;

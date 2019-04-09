@@ -1,2 +1,0 @@
-// Router
-export * from './Router';

@@ -1,1 +1,2 @@
-export * from './config.store';
+import { Store } from './configure.store'
+export default Store ;

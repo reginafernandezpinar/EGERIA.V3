@@ -4,13 +4,18 @@ import { connect } from 'react-redux';
 import Home from './home.component';
 
 // Import action creator
-import { getAllTrips } from '@Models';
+import tripActions from '../../../models/actions';
+import { getCategories } from '../../../models/actions/categories.actions';
+
 
 // Add Redux State to Component props
 // const mapStateToProps = () => ({});
 
 // Add Redux dispatch to Component props
-const mapDispatchToProps = { getAllTrips };
+const mapDispatchToProps = { 
+  getAllTrips: tripActions.getAllTrips,
+  getCategories 
+};
 
 export default connect(
   null,

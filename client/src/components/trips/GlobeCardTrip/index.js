@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CardTrip from './globeCardTrip.component';
 
 // Import action creator
-import { getTrip } from '@Models';
+import { getTrip } from '../../../models';
 
 // Add Redux State to Component props
 const mapStateToProps = (state) => {

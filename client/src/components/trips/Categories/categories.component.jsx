@@ -11,7 +11,6 @@ class Categories extends Component {
         <img
           src="https://mova.io/images/blog/travel_booking/1.jpg"
           className="card-img"
-          alt="..."
         />
         <div className="card-img-overlay">
           <Link to="/category">
@@ -24,6 +23,7 @@ class Categories extends Component {
           <p className="card-text">Last updated 3 mins ago</p>
         </div>
       </div>
+      
     );
   }
 }

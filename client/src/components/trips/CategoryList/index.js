@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import CategoryList from './categoryList.component';
 
 // Import action creator
-import { getCategory } from '@Models';
+import tripActions from '../../../models/actions';
 
 // Add Redux State to Component props
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        categoryList: state.trips.category.list,
-        categoryLoading: state.trips.category.loading,
-        categoryError: state.trips.category.error
+      categoryList: Array.isArray(state.trips.category.list) ? state.trips.category.list: [],
+      categoryLoading: state.trips.category.loading,
+      categoryError: state.trips.category.error,
     };
 };
 
 // Add Redux dispatch to Component props
-const mapDispatchToProps = { getCategory };
+const mapDispatchToProps = { getCategory: tripActions.getCategory };
 
 export default connect(
     mapStateToProps,
