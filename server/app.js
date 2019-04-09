@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 
 // routes
-// app.use(express.static(path.join(__dirname, 'public')));//En produccion sustituir esta ruta por el 'if' de abajo.
+app.use(express.static(path.join(__dirname, 'public')));//En produccion sustituir esta ruta por el 'if' de abajo.
 app.use('/api/trips', tripsRouter);
 app.use('/api/auth', authRouter);
 
@@ -26,16 +26,16 @@ app.use('/api/auth', authRouter);
 
 
 // DEPLOYMENT TO PRODUCTION: (client: npm run start)
-if (process.env.NODE_ENV === 'production') {
-  console.log("This is serious! You are in production mode")
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('*', function(req, res) {
-    console.log(req.path)
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  });
-} else {
-  console.log("You are in development mode. Do not expect to receive anything updated from React. User dev server for your frontend!!!")
-}
+// if (process.env.NODE_ENV === 'production') {
+//   console.log("This is serious! You are in production mode")
+//   app.use(express.static(path.join(__dirname, '../client/build')));
+//   app.get('*', function(req, res) {
+//     console.log(req.path)
+//     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+//   });
+// } else {
+//   console.log("You are in development mode. Do not expect to receive anything updated from React. User dev server for your frontend!!!")
+// }
 
 
 // catch 404 and forward to error handler
