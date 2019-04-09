@@ -10,11 +10,13 @@ export function tripReducer(state = initialTripState, action) { //recibe el esta
     case 'GET_ALL_TRIPS_SUCCESS':
       return {
         ...state,
+        loading: false,
         list: action.payload
       };
     case 'GET_ALL_TRIPS_ERROR':
       return {
         ...state,
+        loading: false,
         error: action.payload
       };
     case 'GET_TRIP_LOADING':
@@ -25,12 +27,12 @@ export function tripReducer(state = initialTripState, action) { //recibe el esta
     case 'GET_TRIP_SUCCESS':
       return {
         ...state,
-        selected: { ...state.selected, trip: action.payload }
+        selected: { ...state.selected, loading: false, trip: action.payload }
       };
     case 'GET_TRIP_ERROR':
       return {
         ...state,
-        selected: { ...state.selected, error: action.payload }
+        selected: { ...state.selected, loading: false, error: action.payload }
       };
     case 'GET_CATEGORY_LOADING':
       return {
@@ -40,12 +42,12 @@ export function tripReducer(state = initialTripState, action) { //recibe el esta
     case 'GET_CATEGORY_SUCCESS':
       return {
         ...state,
-        category: { ...state.category, list: action.payload }
+        category: { ...state.category, loading: false, list: action.payload }
       };
     case 'GET_CATEGORY_ERROR':
       return {
         ...state,
-        category: { ...state.category, error: action.payload }
+        category: { ...state.category, loading: false, error: action.payload }
       };
 
 

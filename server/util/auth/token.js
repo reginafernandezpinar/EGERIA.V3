@@ -4,7 +4,6 @@ const salt = require('./salt').secret;
 
 function verifyToken(req, res, next) {
     // check header for token
-    console.log('asfasfasdfasdfasdfas');
     var token = req.header('Authorization');
     if (!token)
         return res.status(403).send({ auth: false, message: 'Bad credentials' });

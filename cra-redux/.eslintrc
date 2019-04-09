@@ -19,5 +19,12 @@
     "prefer-arrow-callback": 2,
     "strict": ["error", "global"],
     "curly": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
   }
 }

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 // Import global resources
-import { Store } from './models';
+import Store from './models/store';
 import MainPage from './components/layout/MainPage';
 
 // Styles

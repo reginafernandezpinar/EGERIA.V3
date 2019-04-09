@@ -4,8 +4,6 @@ const tripModel = require("../models/tripModel");
 
 // Get all trips
 function getAll (req, res) {
-    console.log('req', req);
-    
     const limit = req.query.limit;
     // get all trips limit by category
     const category = req.query.category

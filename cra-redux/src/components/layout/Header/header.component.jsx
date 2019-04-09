@@ -12,7 +12,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
-import { isAuth } from 'components/tools';
+import { isAuth } from '../../../tools';
 
 class Header extends React.Component {
   constructor(props) {

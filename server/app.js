@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 
 // routes
-app.use(express.static(path.join(__dirname, 'public')));//En produccion sustituir esta ruta por el 'if' de abajo.
+app.use(express.static(path.join(__dirname, 'public'))); //En produccion sustituir esta ruta por el 'if' de abajo.
 app.use('/api/trips', tripsRouter);
 app.use('/api/auth', authRouter);
 

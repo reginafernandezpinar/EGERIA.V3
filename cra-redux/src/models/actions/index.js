@@ -1,1 +1,2 @@
-export * from './trip.actions';
+import tripActions from './trip.actions';
+export default tripActions;
