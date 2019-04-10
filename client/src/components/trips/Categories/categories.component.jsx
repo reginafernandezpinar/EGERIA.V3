@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 
 class Categories extends Component {
@@ -14,9 +14,9 @@ class Categories extends Component {
               <Col key={category.id} className="card text-white" xs="6" sm="4">
                 <img src={category.picture} alt="category picture" className="card-img" />
                 <div className="card-img-overlay">
-                  <NavLink to={`/category/${category.id}`}>
+                  <Link to={`/category/${category.id}`}>
                     <h5 className="card-title">{category.label}</h5>
-                  </NavLink>
+                  </Link>
                   <p className="card-text">
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content.

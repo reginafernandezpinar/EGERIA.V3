@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import TripsCategory from '../../trips/TripsCategory';
+import MainLayout from '../../layout/MainLayout';
+
 
 class CategoryPage extends Component {
+  
   componentDidMount() {
    this.props.getTripsCategory({category:'nature'});
   }
 
   render() {
     return (
-      <div>
-        <h3>Category Page</h3>
-        {/* {
-          // <TripsCategory />
-        } */}
-      </div>
+      <MainLayout>
+        <div>
+          <h3>Category Page</h3>
+          {/* {
+            // <TripsCategory />
+          } */}
+        </div>
+      </MainLayout>
     );
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import CarouselTrip from '../../trips/CarouselTrip';
 import Categories from '../../trips/Categories';
 import PropTypes from 'prop-types';
+import MainLayout from '../../layout/MainLayout';
 
 
 class Home extends React.Component {
@@ -13,12 +14,14 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Home Page</h3>
-        <CarouselTrip />
-        <Categories />
+      <MainLayout>
+        <div>
+          <h3>Home Page</h3>
+          <CarouselTrip />
+          <Categories />
 
-      </div>
+        </div>
+      </MainLayout>
     );
   }
 }
