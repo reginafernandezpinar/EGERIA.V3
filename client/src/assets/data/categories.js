@@ -2,32 +2,32 @@ let categories = [
     {
         id: 'monumental',
         label: 'Monumental',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: "https://mova.io/images/blog/travel_booking/1.jpg"
     },
     {
         id: 'urban',
         label: 'Urban',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
     },
     {
         id: 'nature',
         label: 'Nature',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: 'http://mova.io/images/blog/travel_booking/1.jpg'
     },
     {
         id: 'gastro',
         label: 'Gastro',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
     },
     {
         id: 'rural',
         label: 'Rural',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
     },
     {
         id: 'family',
         label: 'Family',
-        picture: 'http:adsljfa/aldflkasd'
+        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
     }
 ];
 export default categories;

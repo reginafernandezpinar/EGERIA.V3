@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import Categories from './categories.component';
 
 // Add Redux State to Component props
-// const mapStateToProps = state => {
-//     return {
-//     };
-// };
+const mapStateToProps = state => {
+    return {
+        categoriesList: state.categories.list
+    };
+};
 
 export default connect(
-    null,
+    mapStateToProps,
     null,
 )(Categories);

@@ -24,7 +24,8 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  getAllTrips: PropTypes.func.isRequired
+  getAllTrips: PropTypes.func.isRequired,
+  getCategories: PropTypes.func.isRequired
 };
 
 export default Home;

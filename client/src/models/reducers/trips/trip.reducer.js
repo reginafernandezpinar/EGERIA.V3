@@ -34,17 +34,17 @@ export function tripReducer(state = initialTripState, action) { //recibe el esta
         ...state,
         selected: { ...state.selected, loading: false, error: action.payload }
       };
-    case 'GET_CATEGORY_LOADING':
+    case 'GET_TRIPS_CATEGORY_LOADING':
       return {
         ...state,
         category: { ...state.category, loading: true }
       };
-    case 'GET_CATEGORY_SUCCESS':
+    case 'GET_TRIPS_CATEGORY_SUCCESS':
       return {
         ...state,
         category: { ...state.category, loading: false, list: action.payload }
       };
-    case 'GET_CATEGORY_ERROR':
+    case 'GET_TRIPS_CATEGORY_ERROR':
       return {
         ...state,
         category: { ...state.category, loading: false, error: action.payload }

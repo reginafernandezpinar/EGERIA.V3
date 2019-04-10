@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import CategoryList from '../../trips/CategoryList';
+import TripsCategory from '../../trips/TripsCategory';
 
 class CategoryPage extends Component {
   componentDidMount() {
-    // this.props.getAllTrips();
+   this.props.getTripsCategory({category:'nature'});
   }
 
   render() {
     return (
       <div>
         <h3>Category Page</h3>
-        <CategoryList />
+        {/* {
+          // <TripsCategory />
+        } */}
       </div>
     );
   }
 }
 
-CategoryPage.propTypes = {
-  //   getAllTrips: PropTypes.func.isRequired,
-};
 
 export default CategoryPage;
 

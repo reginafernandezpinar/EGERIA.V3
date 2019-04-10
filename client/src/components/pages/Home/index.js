@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Home from './home.component';
 
 // Import action creator
-import tripActions from '../../../models/actions';
+import { getAllTrips } from '../../../models/actions/trip.actions';
 import { getCategories } from '../../../models/actions/categories.actions';
 
 
@@ -13,7 +13,7 @@ import { getCategories } from '../../../models/actions/categories.actions';
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
-  getAllTrips: tripActions.getAllTrips,
+  getAllTrips,
   getCategories 
 };
 

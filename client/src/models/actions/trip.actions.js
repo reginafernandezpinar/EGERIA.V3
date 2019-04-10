@@ -9,19 +9,20 @@ const API_GET_TRIP_URL = 'trips/';
 // ------------------------- GET FEATURED/ALL TRIPS -----------------------
 
 // ACTION CREATORs
-export const getAllTripsSuccess = payload => ({ payload, type: 'GET_ALL_TRIPS_SUCCESS' }); //will be called when the data has been successfully fetched
+export function getAllTripsSuccess (payload) {
+  return { payload, type: 'GET_ALL_TRIPS_SUCCESS' }
+}; //will be called when the data has been successfully fetched
 export const getAllTripsLoading = payload => ({ payload, type: 'GET_ALL_TRIPS_LOADING' });
 export const getAllTripsError = payload => ({ payload, type: 'GET_ALL_TRIPS_ERROR' });
 
 // THUNK
 // action creator that returns(dispatch) the other action creators(functions instead of an object) after an API call
 export const getAllTrips = filters => dispatch => {
-  // First we set loading to true
   dispatch(getAllTripsLoading(true));
-  // Now we perform the Axios request:
+  //Axios request:
   getTripsRequest(filters)
     .then(response => {
-      dispatch(getAllTripsSuccess(response.data)); // we just need the key data from axios response 
+      dispatch(getAllTripsSuccess(response.data)); // we just need the 'data' key from axios response
     })
     .catch(error => {
       dispatch(getAllTripsError(error));
@@ -31,28 +32,27 @@ export const getAllTrips = filters => dispatch => {
 // ----------------------------- GET ALL TRIPS BY CATEGORY --------------------------------
 
 // ACTION CREATORs
-export const getCategoryLoading = payload => ({ payload, type: 'GET_CATEGORY_LOADING' });
-export const getCategoryError = payload => ({ payload, type: 'GET_CATEGORY_ERROR' });
-export const getCategorySuccess = payload => ({ payload, type: 'GET_CATEGORY_SUCCESS' }); //will be called when the data has been successfully fetched
+export const getTripsCategoryLoading = payload => ({ payload, type: 'GET_TRIPS_CATEGORY_LOADING' });
+export const getTripsCategoryError = payload => ({ payload, type: 'GET_TRIPS_CATEGORY_ERROR' });
+export const getTripsCategorySuccess = payload => ({ payload, type: 'GET_TRIPS_CATEGORY_SUCCESS' }); //will be called when the data has been successfully fetched
 
 // THUNK
-export const getCategory = filters => dispatch => {
-  dispatch(getCategoryLoading(true));
+export const getTripsCategory = filters => dispatch => {
+  dispatch(getTripsCategoryLoading(true));
+  // Axios request:
   getTripsRequest(filters)
     .then(response => {
-      dispatch(getCategorySuccess(response.data));
+      dispatch(getTripsCategorySuccess(response.data));
     })
     .catch(error => {
-      dispatch(getCategoryError(error));
+      dispatch(getTripsCategoryError(error));
     });
 };
 
 // ----------------------------- GET A TRIP --------------------------------
 
 // ACTION CREATORs
-export function getTripSuccess(payload) { 
-  return { payload, type: 'GET_TRIP_SUCCESS' }; 
-}
+export const getTripSuccess = payload => ({ payload, type: 'GET_TRIP_SUCCESS' });
 export const getTripLoading = payload => ({ payload, type: 'GET_TRIP_LOADING' });
 export const getTripError = payload => ({ payload, type: 'GET_TRIP_ERROR' });
 
@@ -90,7 +90,7 @@ The inner function can receive the store methods dispatch and getState as parame
 
 
 
-// ======================= AXIOS REQUEST FUNCTION =============================
+// ======================= AXIOS REQUEST FUNCTION for getTripsRequest()  =============================
 function getTripsRequest(filters = {}) {
   const url = `${API_BASE_URL}${API_GET_ALL_TRIPS_URL}?`;
   let urlParams = Object.keys(filters).reduce((total, param) => {
@@ -98,21 +98,4 @@ function getTripsRequest(filters = {}) {
   }, '');
   urlParams = urlParams.substr(0, urlParams.length - 1);
   return axios.get(`${url}${urlParams}`);
-}
-
-
-const moduleDefinition = {
-  getAllTripsSuccess,
-  getAllTripsLoading,
-  getAllTripsError,
-  getTrip,
-  getAllTrips,
-  getCategoryLoading,
-  getCategoryError,
-  getCategorySuccess,
-  getCategory,
-  getTripSuccess,
-  getTripLoading,
-  getTripError,
-}
-export default moduleDefinition;
+};

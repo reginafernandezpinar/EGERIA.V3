@@ -11,7 +11,7 @@ class MainPage extends Component {
       <MainLayout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/category" component={CategoryPage} />
+          <Route path="/category/:id" render={CategoryPage} />} />
         </Switch>
       </MainLayout>
     );
