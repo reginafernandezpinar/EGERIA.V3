@@ -5,8 +5,8 @@ import {
 } from 'reactstrap';
 
 // Presentational Component
-const CardTrip = () => {
-    const { trip } = this.props;
+const CardTrip = (props) => {
+    const { trip } = props;
     return (
         <div>
             <Card>
