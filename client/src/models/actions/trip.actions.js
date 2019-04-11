@@ -90,12 +90,12 @@ The inner function can receive the store methods dispatch and getState as parame
 
 
 
-// ======================= AXIOS REQUEST FUNCTION for getTripsRequest()  =============================
+// ======================= AXIOS REQUEST FUNCTION for getTripsRequest() =============================
 function getTripsRequest(filters = {}) {
   const url = `${API_BASE_URL}${API_GET_ALL_TRIPS_URL}?`;
   let urlParams = Object.keys(filters).reduce((total, param) => {
     return `${total}${param}=${filters[param]}&`;
   }, '');
-  urlParams = urlParams.substr(0, urlParams.length - 1);
+  urlParams = urlParams.substr(0, urlParams.length - 1); // remove the & at the end.
   return axios.get(`${url}${urlParams}`);
 };

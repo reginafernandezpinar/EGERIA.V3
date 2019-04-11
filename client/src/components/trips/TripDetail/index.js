@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 // Import component
-import CardTrip from './globeCardTrip.component';
+import GlobeCardTrip from './TripDetail.component';
 
 // Import action creator
-import { getTrip } from '../../../models';
+import { getTrip } from '../../../models/actions/trip.actions';
 
 // Add Redux State to Component props
 const mapStateToProps = (state) => {
@@ -21,4 +21,4 @@ const mapDispatchToProps = { getTrip };
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CardTrip);
+)(GlobeCardTrip);

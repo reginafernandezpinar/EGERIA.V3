@@ -9,7 +9,7 @@ class GlobeCardTrip extends Component {
         super(props);
     };
     componentDidMount() {
-        this.props.getTrip();
+        this.props.getTrip(this.props.tripId);
     }
     render() {
         const { tripSelected, tripError, tripLoading } = this.props;
@@ -22,19 +22,16 @@ class GlobeCardTrip extends Component {
         return (
             <Card>
                 {
-                    tripSelected.map((trip) => {
-                        return (
-                            <div>
-                                <CardImg top width="100%" src={trip.photo} alt="Card image cap" />
-                                <CardBody>
-                                    <CardTitle>{trip.name}</CardTitle>
-                                    <CardSubtitle>{trip.username}</CardSubtitle>
-                                    <CardText>{trip.description}</CardText>
-                                    <Button>Button</Button>
-                                </CardBody>
-                            </div>
-                        )
-                    })
+                    <div>
+                        <CardImg top width="100%" src={tripSelected.photo} alt="Card image cap" />
+                        <CardBody>
+                            <CardTitle>{tripSelected.name}</CardTitle>
+                            <CardSubtitle>{tripSelected.username}</CardSubtitle>
+                            <CardText>{tripSelected.description}</CardText>
+                            <CardText>{tripSelected.companionship}</CardText>
+                            <CardText>{tripSelected.category}</CardText>
+                        </CardBody>
+                    </div>
                 }
             </Card>
         );

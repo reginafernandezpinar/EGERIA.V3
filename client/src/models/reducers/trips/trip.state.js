@@ -5,7 +5,7 @@ export const initialTripState = {
   selected: {
     loading: false,
     error: null,
-    trip: null
+    trip: {}
   },
   category: {
     loading: false,

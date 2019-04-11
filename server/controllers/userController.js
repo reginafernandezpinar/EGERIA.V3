@@ -18,7 +18,6 @@ function loginUser(req, res) {
                     res.status(401).send({ message: { type: 'error', text: 'bad credentials' } });
                 } else {
                     let token = Token.buildToken(user); // create token with the entire object(user) 
-                    console.log("token:" + token);
                     let userData = {
                         username: user.username,
                         email: user.email,
