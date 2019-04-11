@@ -44,30 +44,31 @@ class CarouselTrip extends Component {
   render() {
     const { tripList, tripError, tripLoading } = this.props;
     const { activeIndex } = this.state;
-    if (tripError) {
-      return <p>Sorry! There was an error loading the trips</p>;
-    }
-    if (tripLoading) {
-      return <p>Loading…</p>;
-    }
+    
     return (
-      <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
-        <CarouselIndicators
-          items={tripList}
-          activeIndex={activeIndex}
-          onClickHandler={this.goToIndex}
-        />
-        {tripList.map(trip => {
-          return (
-            <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
-              <img src={trip.photo} alt="trip photo" className="card-img" />
-              <CarouselCaption captionText={trip.name} captionHeader={trip.category} className="card-img-overlay" />
-            </CarouselItem>
-          );
-        })}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-      </Carousel>
+      <div>
+        {tripLoading && <p>Loading...</p>}
+        {tripError && <p>Sorry! There was an error loading the trips</p>}
+        {!tripLoading && !tripError &&
+          <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
+            <CarouselIndicators
+              items={tripList}
+              activeIndex={activeIndex}
+              onClickHandler={this.goToIndex}
+            />
+            {tripList.map(trip => {
+              return (
+                <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
+                  <img src={trip.photo} alt="trip photo" className="card-img" />
+                  <CarouselCaption captionText={trip.name} captionHeader={trip.category} className="card-img-overlay" />
+                </CarouselItem>
+              );
+            })}
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+          </Carousel>
+        }
+      </div>
     );
   }
 }

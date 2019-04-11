@@ -27,5 +27,3 @@ CategoryPage.propTypes = {
 };
 
 export default CategoryPage;
-
-// Habria que llamar a esta pagina naturePage? o decirselo de forma dinamica aqui que renderice cada una de las categorias

@@ -7,7 +7,7 @@ class Categories extends Component {
     const { categoriesList } = this.props;
 
     return (
-      <Container>
+      <Container>TRIP CATEGORIES
         <Row>
           {categoriesList.map(category => {
             return (

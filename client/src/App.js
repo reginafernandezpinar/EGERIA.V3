@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Store from './models/store';
 import Home from './components/pages/Home';
 import CategoryPage from './components/pages/CategoryPage';
+import TripDetailPage from './components/pages/TripDetailPage';
+import LoginPage from './components/pages/LoginPage';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,6 +23,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/category/:id" component={CategoryPage} />
+            <Route path="/trip/:id" component={TripDetailPage} />
+            <Route path="/login" component={LoginPage} />
           </Switch>
         </Router>
       </Provider>

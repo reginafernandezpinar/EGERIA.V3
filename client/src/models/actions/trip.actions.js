@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+
+// ======================= API TRIPS ENDPOINTS ================================
+
 const API_BASE_URL = '/api/'; // si tenemos el proxi tendremos q dejar este endpoint
 const API_GET_ALL_TRIPS_URL = 'trips';
 const API_GET_TRIP_URL = 'trips/';
+
 
 
 
@@ -69,28 +73,12 @@ export const getTrip = tripId => dispatch => {
     });
 };
 
-/*
-Se declara inicializa y exporta una const que es una funcion: action creator cuyo return es la accion(objeto).
-Este action creator es lo q importamos en nuestro componente.
-Esta func recibe el param payload (ninguno o cqiera q me venga del componente) y retorna un objeto ('action' en el reducer)
-con dos keys: ese valor q se ha pasado payload:payload y el type.
 
-const action = {
-   payload: '<El contenido que queremos cambiar>',
-   type: 'CHANGE_X',
-};
-
-*/
-
-/*
-By default, Redux action creators don’t support asynchronous actions like fetching data, so here’s where we utilise Redux Thunk.
-Thunk allows you to write action creators that return a function instead of an action.
-The inner function can receive the store methods dispatch and getState as parameters, but we'll just use dispatch.
- */
 
 
 
 // ======================= AXIOS REQUEST FUNCTION for getTripsRequest() =============================
+
 function getTripsRequest(filters = {}) {
   const url = `${API_BASE_URL}${API_GET_ALL_TRIPS_URL}?`;
   let urlParams = Object.keys(filters).reduce((total, param) => {

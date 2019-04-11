@@ -55,7 +55,7 @@ const getUserTrips = userId => {
 
 // Create new trip
 const save = (trip, userId, cb) => {
-    let sql = `INSERT INTO trip (user_id, public, name, description, companionship, category, photo) VALUES ('${userId}', '${trip.public}', '${trip.name}', '${trip.description}', '${trip.companionship}', '${trip.category}', '${trip.photo}')`;
+    let sql = `INSERT INTO trip (user_id, public, name, description, companionship, category, starting_point, destination_point, distance, photo) VALUES ('${userId}', '${trip.public}', '${trip.name}', '${trip.description}', '${trip.companionship}', '${trip.category}', '${trip.startingPoint}', '${trip.destinationPoint}', '${trip.distance}', '${trip.photo}')`;
     // console.log(trip.name);
     dbConn.query(sql, function (err, result) {
         if (err) {
@@ -69,6 +69,9 @@ const save = (trip, userId, cb) => {
                 description: trip.description,
                 companionship: trip.companionship,
                 category: trip.category,
+                startingPoint: trip.startingPoint,
+                destinationPoint: trip.destinationPoint,
+                distance: trip.distance,
                 photo: trip.photo
             }
             cb(null, newTrip);
@@ -88,7 +91,7 @@ const deleteTripById = (tripId, userId) => {
 //const removeTripById = id => trips.splice(trips.findIndex(trip => trip.id == id), 1)
 // Update a trip
 const updateTripById = (trip, id, userId) => {
-    let sql = `UPDATE trip SET public = '${trip.public}', name = '${trip.name}', description = '${trip.description}', companionship = '${trip.companionship}', category = '${trip.category}', photo = '${trip.photo}' WHERE id = '${id}' AND user_id = ${userId}`;
+    let sql = `UPDATE trip SET public = '${trip.public}', name = '${trip.name}', description = '${trip.description}', companionship = '${trip.companionship}', category = '${trip.category}', starting_point = '${trip.startingPoint}', destination_point = '${trip.destinationPoint}', distance = '${trip.distance}', photo = '${trip.photo}' WHERE id = '${id}' AND user_id = ${userId}`;
     // console.log(trip.name);
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {
