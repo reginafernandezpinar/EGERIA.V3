@@ -1,7 +1,8 @@
-export const initialTripState = {
+export const initialUserState = {
     token: '',
     username: '',
     email: '',
     loading: false,
-    error: null
+    error: null,
+    register: false
   };
