@@ -59,7 +59,7 @@ class CarouselTrip extends Component {
             {tripList.map(trip => {
               return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
-                  <img src={trip.photo} alt="trip photo" className="card-img" />
+                  <img src={trip.photo} alt="trip" className="card-img" />
                   <CarouselCaption captionText={trip.name} captionHeader={trip.category} className="card-img-overlay" />
                 </CarouselItem>
               );

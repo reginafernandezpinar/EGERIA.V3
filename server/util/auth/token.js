@@ -19,11 +19,12 @@ function verifyToken(req, res, next) {
 
 /* 
 ejemplo: console.log('req.user', req.user);
-req.user { id: 4,
-  email: 'aa@a.com',
-  username: 'aaa',
-  password: '21f4790c5b4ae923c24f35250d4a1e91',
-  registration_date: '2019-03-31T18:35:23.000Z' }
+req.user { 
+    id: 4,
+    email: 'aa@a.com',
+    name: 'aaa',
+    password: '21f4790c5b4ae923c24f35250d4a1e91',
+    registration_date: '2019-03-31T18:35:23.000Z' }
 */
 
 

@@ -1,6 +1,6 @@
 export const initialUserState = {
     token: '',
-    username: '',
+    name: '',
     email: '',
     loading: false,
     error: null,

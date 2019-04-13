@@ -22,7 +22,7 @@ const CardTrip = (props) => {
         </Link>
         <CardBody>
             <CardTitle>{trip.name}</CardTitle>
-            <CardSubtitle>{trip.username}</CardSubtitle>
+            <CardSubtitle>{trip.userName}</CardSubtitle>
             <CardText>{trip.description}</CardText>
           </CardBody>
       </Card>

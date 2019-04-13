@@ -6,7 +6,7 @@ const dbConn = require('../config/db/mysql');
 
 // Get all trips
 const getAll = (limit, category, cb) => {
-    let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id)`;
+    let sql = `SELECT t.*, u.name AS userName FROM trip t inner join user u on (u.id = t.user_id)`;
     // get all trips by category (limit)
     if (category) {
         sql += ` WHERE t.category = '${category}'`;
@@ -19,7 +19,7 @@ const getAll = (limit, category, cb) => {
 };
 // Get a trip
 const getTripById = id => {
-    let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id) WHERE t.id = ${id}`;
+    let sql = `SELECT t.*, u.name AS userName FROM trip t inner join user u on (u.id = t.user_id) WHERE t.id = ${id}`;
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {
             if (err) reject(err);
@@ -29,7 +29,7 @@ const getTripById = id => {
 }
 // // Get all trips by category
 // const getTripsByCategory = category => {
-//     let sql = `SELECT t.*, u.username FROM trip t inner join user u on (u.id = t.user_id) WHERE t.category = '${category}'`;
+//     let sql = `SELECT t.*, u.name AS userName FROM trip t inner join user u on (u.id = t.user_id) WHERE t.category = '${category}'`;
 //     return new Promise ((resolve, reject) => {
 //         dbConn.query(sql, (err, result) => {
 //             if (err) reject(err);

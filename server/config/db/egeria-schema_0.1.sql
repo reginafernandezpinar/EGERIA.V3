@@ -7,7 +7,7 @@ USE egeria;
 CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE NOT NULL,
-    username VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -49,10 +49,10 @@ CREATE TABLE trackpoint (
 
 
 -- ---------------- USER DATA -------------------------
-INSERT INTO user (email, username, password) values ('test@test.com', 'test', 'test');
-INSERT INTO user (email, username, password) values ('aaa@aaa.com', 'aaa', 'aaa');
-INSERT INTO user (email, username, password) values ('bbb@bbb.com', 'bbb', 'bbb');
-INSERT INTO user (email, username, password) values ('regina@regina.com', 'regina', 'regina');
+INSERT INTO user (email, name, password) values ('test@test.com', 'test', 'test');
+INSERT INTO user (email, name, password) values ('aaa@aaa.com', 'aaa', 'aaa');
+INSERT INTO user (email, name, password) values ('bbb@bbb.com', 'bbb', 'bbb');
+INSERT INTO user (email, name, password) values ('regina@regina.com', 'regina', 'regina');
 
 
 -- ---------------- TRIP DATA -----------------------------

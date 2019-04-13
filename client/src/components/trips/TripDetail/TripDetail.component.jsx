@@ -20,7 +20,7 @@ class TripDetail extends Component {
                     <CardImg top width="100%" src={tripSelected.photo} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{tripSelected.name}</CardTitle>
-                        <CardSubtitle>{tripSelected.username}</CardSubtitle>
+                        <CardSubtitle>{tripSelected.userName}</CardSubtitle>
                         <CardText>{tripSelected.description}</CardText>
                         <CardText>
                             tripcategory:{tripSelected.category}

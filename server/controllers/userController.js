@@ -19,7 +19,7 @@ function loginUser(req, res) {
                 } else {
                     let token = Token.buildToken(user); // create token with the entire object(user) 
                     let userData = {
-                        username: user.username,
+                        name: user.name,
                         email: user.email,
                         token: token
                     }

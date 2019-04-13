@@ -12,7 +12,7 @@ class Categories extends Component {
           {categoriesList.map(category => {
             return (
               <Col key={category.id} className="card text-white" xs="6" sm="4">
-                <img src={category.picture} alt="category picture" className="card-img" />
+                <img src={category.picture} alt="category" className="card-img" />
                 <div className="card-img-overlay">
                   <Link to={`/category/${category.id}`}>
                     <h5 className="card-title">{category.label}</h5>

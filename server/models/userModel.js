@@ -14,7 +14,7 @@ const findUserByEmail = ue => {
 
 
 const createUser = user => {
-    let sql = `INSERT INTO user (email, username, password) VALUES ('${user.email}', '${user.username}', '${user.password}')`;
+    let sql = `INSERT INTO user (email, name, password) VALUES ('${user.email}', '${user.name}', '${user.password}')`;
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {
             if (err) reject(err);
