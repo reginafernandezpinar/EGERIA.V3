@@ -49,7 +49,7 @@ class Header extends React.Component {
                 )}
               </NavItem>
               {!isAuth() && (<NavItem><Link className="nav-link" to="/register">
-                Register</Link></NavItem>
+                Sign Up</Link></NavItem>
               )}
               <NavItem>
                 <NavLink href="https://reactstrap.github.io/components/navbar/">navbar</NavLink>

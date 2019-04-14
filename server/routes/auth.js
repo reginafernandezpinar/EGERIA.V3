@@ -8,6 +8,9 @@ const Token = require('../util/auth/token')
 router.post('/register', userController.registerUser);
 router.post('/login', userController.loginUser);
 
+// get user data once the user is login to use them in frontend (localstorage)
+router.get('/whoAmI', Token.verifyToken, userController.whoAmI);
+
 
 // fake logout
 router.get('/logout', function (req, res, next) {

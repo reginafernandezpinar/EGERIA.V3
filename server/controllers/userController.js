@@ -5,8 +5,6 @@ const Token = require('../util/auth/token');
 
 function loginUser(req, res) {
     const userEmail = req.body.email;
-    console.log('userEmail', userEmail);
-    
     userModel.findUserByEmail(userEmail)
         .then(result => {
             if (result.length !== 1) {
@@ -49,8 +47,20 @@ function registerUser (req, res) {
 }
 
 
+function whoAmI (req, res) {
+    // user is injected in the req object by the verifyToken middleware
+    userModel.findUserByEmail(req.user.email)
+        .then(result => { // result is an array whose first position is the user object.
+            let user = result[0]; 
+            res.send(user);
+        }).catch(err => {
+            res.status(500).send({ message: { color: 'red', text: 'something failed' }, error: err });
+    });
+}
+
 
 module.exports = {
     loginUser,
     registerUser,
+    whoAmI
 }
