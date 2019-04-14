@@ -12,19 +12,20 @@ const Token = require('../util/auth/token')
 router.get('/', trackpointController.getAll);
 // Get a trackpoint
 router.get('/:id', trackpointController.getTrackpointById);
-// Get all trackpoints by category
-router.get('/category/:category', trackpointController.getTrackpointByCategory);
-
 
 //============== Protected routes ======================
 
 // Get all trackpoints from an user
 router.get('/user/trackpoints', Token.verifyToken, trackpointController.getUserTrackpoints);
-// Delete a trackpoint from an user
-router.delete('/:id', Token.verifyToken, trackpointController.deleteTrackpointById);
-// Update a trackpoint from an user
-router.patch('/:id', Token.verifyToken, trackpointController.updateTrackpointById);
-// Create a new trackpoint as an user
-router.post('/new', Token.verifyToken, trackpointController.createTrackpoint);
+
+
+// TO DO
+
+// // Delete a trackpoint from an user
+// router.delete('/:id', Token.verifyToken, trackpointController.deleteTrackpointById);
+// // Update a trackpoint from an user
+// router.patch('/:id', Token.verifyToken, trackpointController.updateTrackpointById);
+// // Create a new trackpoint as an user
+// router.post('/new', Token.verifyToken, trackpointController.createTrackpoint);
 
 module.exports = router;

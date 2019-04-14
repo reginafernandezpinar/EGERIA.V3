@@ -36,17 +36,6 @@ const getTrackpointById = id => {
     });
 }
 
-// // Get all trackpoints by category
-// const getTrackpointByCategory = category => {
-//     let sql = `SELECT t.*, u.name AS userName FROM trip t inner join user u on (u.id = t.user_id) WHERE t.category = '${category}'`;
-//     return new Promise ((resolve, reject) => {
-//         dbConn.query(sql, (err, result) => {
-//             if (err) reject(err);
-//             resolve(result);
-//         })
-//     });
-// }
-
 
 
 // ============== Trackpoints Protected routes ======================
@@ -62,15 +51,11 @@ const getUserTrackpoints = (userId) => {
         })
     });
 }
-// pendiente saber q quiero en esta query y modificarla en el controlador si es necesario.
-
 
 
 
 module.exports = {
     getAll,
     getTrackpointById,
-    // getTrackpointByCategory,
     getUserTrackpoints,
-
 };

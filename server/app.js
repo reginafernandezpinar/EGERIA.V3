@@ -7,6 +7,7 @@ var logger = require('morgan');
 // Route handlers
 var tripsRouter = require('./routes/trips');
 var authRouter = require('./routes/auth');
+var trackpointsRouter = require('./routes/trackpoints');
 
 var app = express();
 
@@ -20,6 +21,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //En produccion sustituir esta ruta por el 'if' de abajo.
 app.use('/api/trips', tripsRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/trackpoints', trackpointsRouter);
+
 
 // protected routes
 // app.use('/api/mytrips', tripsRouter);
