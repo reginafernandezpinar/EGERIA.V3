@@ -4,5 +4,6 @@ export const initialUserState = {
     email: '',
     loading: false,
     error: null,
-    auth: false
+    loginSuccessful: false,
+    registrationSuccessful: false
   };

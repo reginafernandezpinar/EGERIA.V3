@@ -38,7 +38,7 @@ class Header extends React.Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 {!isAuth() && (
-                  <Link className="nav-link" to="/auth">
+                  <Link className="nav-link" to="/login">
                     Login
                 </Link>
                 )}
@@ -48,7 +48,7 @@ class Header extends React.Component {
                 </Link>
                 )}
               </NavItem>
-              {!isAuth() && (<NavItem><Link className="nav-link" to="/auth">
+              {!isAuth() && (<NavItem><Link className="nav-link" to="/register">
                 Register</Link></NavItem>
               )}
               <NavItem>

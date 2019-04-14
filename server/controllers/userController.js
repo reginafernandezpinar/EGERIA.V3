@@ -39,8 +39,6 @@ function loginUser(req, res) {
 function registerUser (req, res) {
     let user = req.body;
     user.password = crypt.encrypt(user.password);
-    console.log('user', user);
-    
     userModel.createUser(user)
         .then(result => {
             res.send(result);

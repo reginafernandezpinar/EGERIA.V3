@@ -24,7 +24,7 @@ export const registerUser = registerData => dispatch => {
         .post(`${API_BASE_URL}${API_POST_REGISTER_URL}`, registerData)
         .then( () => {
             dispatch(registerUserSuccess());
-            toastr.success('Thanks for registering! Please login to your account now');
+
         })
         .catch(error => {
             dispatch(registerUserError(error));

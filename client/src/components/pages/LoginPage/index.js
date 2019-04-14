@@ -1,26 +1,27 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // Import component
-import RegisterForm from './registerForm.component';
+import LoginPage from './loginPage.component';
 
 // Import action creator
-import { registerUser } from '../../../models/actions/user.actions';
+import { loginUser } from '../../../models/actions/user.actions';
 
 // Add Redux State to Component props
 const mapStateToProps = state => {
   return {
     loading: state.user.loading,
-    auth: state.user.auth
+    loginSuccessful: state.user.loginSuccessful
   };
 };
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
-    registerUser
+    loginUser
 };
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(RegisterForm);
+)(LoginPage));
