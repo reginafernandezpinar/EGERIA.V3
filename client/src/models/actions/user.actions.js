@@ -51,5 +51,6 @@ export const loginUser = loginData => dispatch => {
         })
         .catch(error => {
             dispatch(loginUserError(error));
+            toastr.error('The user credentials are not correct');
         });
 };
