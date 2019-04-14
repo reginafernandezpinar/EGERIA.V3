@@ -1,14 +1,11 @@
 import axios from 'axios';
-
+import {toastr} from 'react-redux-toastr'
 
 // ======================= API TRIPS ENDPOINTS ================================
 
 const API_BASE_URL = '/api/'; // si tenemos el proxi tendremos q dejar este endpoint
 const API_GET_ALL_TRIPS_URL = 'trips';
 const API_GET_TRIP_URL = 'trips/';
-
-
-
 
 // ------------------------- GET FEATURED/ALL TRIPS -----------------------
 
@@ -30,6 +27,7 @@ export const getAllTrips = filters => dispatch => {
     })
     .catch(error => {
       dispatch(getAllTripsError(error));
+      toastr.error('There was an error retrieving the trips data', error);
     });
 };
 

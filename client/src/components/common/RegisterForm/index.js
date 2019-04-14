@@ -10,7 +10,6 @@ import { registerUser } from '../../../models/actions/user.actions';
 const mapStateToProps = state => {
   return {
     loading: state.user.loading,
-    error: state.user.error,
     auth: state.user.auth
   };
 };

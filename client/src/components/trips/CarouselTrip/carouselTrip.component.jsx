@@ -48,7 +48,6 @@ class CarouselTrip extends Component {
     return (
       <div>
         {tripLoading && <p>Loading...</p>}
-        {tripError && <p>Sorry! There was an error loading the trips</p>}
         {!tripLoading && !tripError &&
           <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
             <CarouselIndicators

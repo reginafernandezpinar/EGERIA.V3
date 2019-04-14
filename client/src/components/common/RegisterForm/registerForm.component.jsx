@@ -55,7 +55,7 @@ export default class RegisterForm extends React.Component {
     }
 
     render() {
-        const { error, loading, auth } = this.props;
+        const { loading, auth } = this.props;
         const { validateFields, nameIsValid, emailIsValid, passwordIsValid } = this.state;
         let nameAtts = {}, emailAtts = {}, passwordAtts = {};
         if (validateFields) {
@@ -92,7 +92,6 @@ export default class RegisterForm extends React.Component {
 
                 <Button onClick={this.handleSubmit}>Submit</Button>
                 {!auth && loading && <p>Loading...</p>}
-                {!auth && error && <p>Sorry, there seems to be an error with the internet connection</p>}
             </Form>
         );
     }
