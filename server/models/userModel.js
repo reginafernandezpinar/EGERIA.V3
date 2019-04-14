@@ -5,7 +5,6 @@ const findUserByEmail = userEmail => {
     let sql = `SELECT * FROM user WHERE email = '${userEmail}'`;
     return new Promise ((resolve, reject) => {
         dbConn.query(sql, (err, result) => {
-            console.log('err usermodel', err);
             if (err) reject(err);
             resolve(result);
         })

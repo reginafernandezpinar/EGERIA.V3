@@ -4,6 +4,12 @@ import Footer from '../Footer';
 
 // Presentational component
 function MainLayout(props) {
+
+  // crear la clase
+  // ComponentDidMount() {
+  //   //coger el token si existe, y crear una accion q llame al whoAmI
+  // }
+
   return (
     <div>
       <Header />

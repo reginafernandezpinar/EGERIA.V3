@@ -23,7 +23,7 @@ function loginUser(req, res) {
                         email: user.email,
                         token: token
                     }
-                    res.send(userData); 
+                    res.send(userData);
                 }
             }
         })
@@ -34,7 +34,7 @@ function loginUser(req, res) {
 }
 
 
-function registerUser (req, res) {
+function registerUser(req, res) {
     let user = req.body;
     user.password = crypt.encrypt(user.password);
     userModel.createUser(user)
@@ -47,15 +47,19 @@ function registerUser (req, res) {
 }
 
 
-function whoAmI (req, res) {
+function whoAmI(req, res) {
     // user is injected in the req object by the verifyToken middleware
     userModel.findUserByEmail(req.user.email)
         .then(result => { // result is an array whose first position is the user object.
-            let user = result[0]; 
-            res.send(user);
+            let userData = {
+                name: result[0].name,
+                email: result[0].email,
+                id: result[0].id
+            }
+            res.send(userData);
         }).catch(err => {
             res.status(500).send({ message: { color: 'red', text: 'something failed' }, error: err });
-    });
+        });
 }
 
 

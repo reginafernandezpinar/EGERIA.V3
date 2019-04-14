@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {toastr} from 'react-redux-toastr'
+import { saveToken } from '../../tools';
 
 // ======================= API USER AUTHORIZATION AND AUTHENTICATION ENDPOINTS ================================
 const API_BASE_URL = '/api/auth';
@@ -47,6 +48,7 @@ export const loginUser = loginData => dispatch => {
     axios
         .post(`${API_BASE_URL}${API_POST_LOGIN_URL}`, loginData)
         .then(response => {
+            saveToken(response.data.token);
             dispatch(loginUserSuccess(response.data));
         })
         .catch(error => {

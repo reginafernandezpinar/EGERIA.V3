@@ -1,8 +1,8 @@
 const TOKEN = 'token';
 
 export const saveToken = token => {
-  if (token && token.auth) {
-    sessionStorage.setItem(TOKEN, JSON.stringify(token.token));
+  if (token) {
+    sessionStorage.setItem(TOKEN, JSON.stringify(token));
   } else {
     sessionStorage.removeItem(TOKEN);
   }

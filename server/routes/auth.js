@@ -8,7 +8,7 @@ const Token = require('../util/auth/token')
 router.post('/register', userController.registerUser);
 router.post('/login', userController.loginUser);
 
-// get user data once the user is login to use them in frontend (localstorage)
+// get user data once the user is login and token is saved in Session Storage, so we can use them in case page is reloaded.
 router.get('/whoAmI', Token.verifyToken, userController.whoAmI);
 
 
