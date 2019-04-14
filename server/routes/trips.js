@@ -12,8 +12,6 @@ const Token = require('../util/auth/token');
 router.get('/', tripController.getAll);
 // Get a trip
 router.get('/:id', tripController.getTripById);
-// Get all trips by category
-// router.get('/category/:category', tripController.getTripsByCategory);
 
 
 

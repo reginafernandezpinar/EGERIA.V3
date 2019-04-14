@@ -16,17 +16,16 @@ export default class RegisterForm extends React.Component {
     }
 
     handleChange = event => {
-        const data = { ...this.state };
+        const newState = { ...this.state };
         const value = event.target.value;
         const field = event.target.name;
-        data[field] = value;
-        this.setState(data);
+        newState[field] = value;
+        this.setState(newState);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         const { name, email, password } = this.state;
-
         if (this.validateForm()) {
             const registerData = { 
                 name,
@@ -48,7 +47,7 @@ export default class RegisterForm extends React.Component {
         const emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         newState.emailIsValid = emailRe.test(String(email).toLowerCase());
         newState.nameIsValid = name !== '';
-        newState.passwordIsValid = password !== '' && password.length >= 8;
+        newState.passwordIsValid = password !== '' && password.length >= 6;
 
         this.setState(newState);
 
@@ -56,8 +55,7 @@ export default class RegisterForm extends React.Component {
     }
 
     render() {
-        console.log('this.state', this.state);
-        const { error, loading } = this.props;
+        const { error, loading, auth } = this.props;
         const { validateFields, nameIsValid, emailIsValid, passwordIsValid } = this.state;
         let nameAtts = {}, emailAtts = {}, passwordAtts = {};
         if (validateFields) {
@@ -88,12 +86,13 @@ export default class RegisterForm extends React.Component {
                     <Label for="passwordRegister">Password</Label>
                     <Input {...passwordAtts} type="password" name="password" id="passwordRegister" placeholder="enter a password" onChange={this.handleChange} />
                     { !passwordIsValid && validateFields &&
-                        <FormFeedback {...passwordAtts} >The password needs to be at least 8 characters long</FormFeedback>
+                        <FormFeedback {...passwordAtts} >The password needs to be at least 6 characters long</FormFeedback>
                     }
                 </FormGroup>
 
                 <Button onClick={this.handleSubmit}>Submit</Button>
-                {loading && <p>Loading...</p>}
+                {!auth && loading && <p>Loading...</p>}
+                {!auth && error && <p>Sorry, there seems to be an error with the internet connection</p>}
             </Form>
         );
     }

@@ -67,18 +67,15 @@ INSERT INTO trip (user_id, name, description, companionship, category, distance,
 
 
 -- ------------- TRACKPOINT DATA -----------------------------
-INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (1, 'granada', 'visit to Alhambra', 7383785, 658273, 'no photo', 'panoramic');
+INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (1, 'Alhambra', 'visit to Alhambra', 7383785, 658273, 'no photo', 'monument');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (1, 'malaga', 'visit to malaga', 7383785, 658273, 'no photo', 'panoramic');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (2, 'fiumicino', 'piazza popolo',  7383785, 658273, 'no photo', 'panoramic');
-INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (2, 'Piazza di Spagna', 'historic Rome', 7383785, 658273, 'no photo', 'panoramic');
+INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (2, 'Piazza di Spagna', 'historic Rome', 7383785, 658273, 'no photo', 'monument');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (3, 'Lanjaron', 'visit to Alpujarra', 7383785, 658273, 'no photo', 'panoramic');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (3, 'Ronda', 'visit to Ronda', 7383785, 658273, 'no photo', 'panoramic');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (2, 'Coloseum', 'a walk in the ancient Rome', 7383785, 658273, 'no photo', 'panoramic');
-INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (1, 'Vittorio Emanuele', 'historic Rome', 7383785, 658273, 'no photo', 'panoramic');
-
-
--- to complete..
-INSERT INTO trackpoint (trip_id, name, lat, lon, description, type, photo) values (1, 'Puerta de Alcala', 7383785, 658273, 'Monument in the city center', 'monument', 'no photo');
+INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (2, 'Vittorio Emanuele', 'historic Rome', 7383785, 658273, 'no photo', 'monument');
+INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) values (1, 'Puerta de Alcala', 'Monument in the city center', 7383785, 658273, 'no photo', 'monument');
 
 
 
@@ -96,3 +93,16 @@ INSERT INTO trackpoint (trip_id, name, lat, lon, description, type, photo) value
 --     PRIMARY KEY(id),
 --     FOREIGN KEY trip_fk(trip_id) REFERENCES trip(id)
 -- );
+
+
+
+-- Get all Trackpoints from trips that belong to an user
+-- SELECT tp.*, u.name AS userName FROM trackpoint tp
+-- inner join trip t on (tp.trip_id = t.id)
+-- inner join user u on (u.id = t.user_id) WHERE u.id = 1;
+
+
+-- Get all Trackpoints from a trip including the name of the owner of the trip
+-- SELECT tp.*, u.name AS userName FROM trackpoint tp
+-- inner join trip t on (tp.trip_id = t.id) AND t.id = 1
+-- inner join user u on (u.id = t.user_id);

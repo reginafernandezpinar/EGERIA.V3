@@ -11,7 +11,7 @@ export function userReducer(state = initialUserState, action) {
       return {
         ...state,
         loading: false,
-        register: true
+        auth: true
       };
       case 'REGISTER_USER_ERROR':
       return {
@@ -30,10 +30,11 @@ export function userReducer(state = initialUserState, action) {
         loading: false,
         error: action.payload
       };
-      case 'REGISTER_LOGIN_SUCCESS':
+      case 'LOGIN_USER_SUCCESS':
       return {
         ...state,
         loading: false,
+        auth: true,
         token: action.payload.token,
         name: action.payload.name,
         email: action.payload.email

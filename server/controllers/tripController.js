@@ -2,10 +2,9 @@ const tripModel = require("../models/tripModel");
 
 //=============== Public routes =====================
 
-// Get all trips
+// Get all (by category /featured) trips
 function getAll (req, res) {
     const limit = req.query.limit;
-    // get all trips limit by category
     const category = req.query.category
     tripModel.getAll(limit, category, (err, result) => {
         if (err) res.send({message: 'something failed', error: err});
@@ -22,17 +21,6 @@ function getTripById(req, res) {
         res.send({message:'something failed', error: err});
     })
 };
-
-// function getTripsByCategory(req, res) {
-//     const category = req.params.category;
-//     tripModel.getTripsByCategory(category)
-//     .then(result => {res.send(result); //=> Promise: resolve
-//     })
-//     .catch(err => { //=> Promise: reject
-//         res.send({message:'something failed', error: err});
-//     })
-// };
-
 
 
 
@@ -88,7 +76,6 @@ function update(req,res){
 module.exports = {
     getAll,
     getTripById,
-    // getTripsByCategory,
     save,
     deleteOne,
     update,

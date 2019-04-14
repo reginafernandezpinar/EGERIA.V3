@@ -9,9 +9,9 @@ import { registerUser } from '../../../models/actions/user.actions';
 // Add Redux State to Component props
 const mapStateToProps = state => {
   return {
-    register: state.user.register,
     loading: state.user.loading,
     error: state.user.error,
+    auth: state.user.auth
   };
 };
 

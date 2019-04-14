@@ -27,16 +27,6 @@ const getTripById = id => {
         })
     });
 }
-// // Get all trips by category
-// const getTripsByCategory = category => {
-//     let sql = `SELECT t.*, u.name AS userName FROM trip t inner join user u on (u.id = t.user_id) WHERE t.category = '${category}'`;
-//     return new Promise ((resolve, reject) => {
-//         dbConn.query(sql, (err, result) => {
-//             if (err) reject(err);
-//             resolve(result);
-//         })
-//     });
-// }
 
 
 
@@ -105,7 +95,6 @@ const updateTripById = (trip, id, userId) => {
 module.exports = {
     getAll,
     getTripById,
-    // getTripsByCategory, 
     save,
     deleteTripById,
     updateTripById,
