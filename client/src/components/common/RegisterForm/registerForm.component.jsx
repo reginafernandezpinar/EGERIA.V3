@@ -59,9 +59,9 @@ export default class RegisterForm extends React.Component {
         const { validateFields, nameIsValid, emailIsValid, passwordIsValid } = this.state;
         let nameAtts = {}, emailAtts = {}, passwordAtts = {};
         if (validateFields) {
-            nameAtts = nameIsValid ? { valid: 'true' } : { invalid: 'true' };
-            emailAtts = emailIsValid ? { valid: 'true' } : { invalid: 'true' };
-            passwordAtts = passwordIsValid ? { valid: 'true' } : { invalid: 'true' };
+            nameAtts = nameIsValid ? { valid: true } : { invalid: true };
+            emailAtts = emailIsValid ? { valid: true } : { invalid: true };
+            passwordAtts = passwordIsValid ? { valid: true } : { invalid: true };
         }
 
         return (

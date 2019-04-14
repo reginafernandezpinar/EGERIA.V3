@@ -4,8 +4,10 @@ const Token = require('../util/auth/token');
 
 
 function loginUser(req, res) {
-    const ue = req.body.email;
-    userModel.findUserByEmail(ue)
+    const userEmail = req.body.email;
+    console.log('userEmail', userEmail);
+    
+    userModel.findUserByEmail(userEmail)
         .then(result => {
             if (result.length !== 1) {
                 res.status(401).send({ message: { type: 'error', text: 'bad credentials' } });
@@ -37,6 +39,8 @@ function loginUser(req, res) {
 function registerUser (req, res) {
     let user = req.body;
     user.password = crypt.encrypt(user.password);
+    console.log('user', user);
+    
     userModel.createUser(user)
         .then(result => {
             res.send(result);

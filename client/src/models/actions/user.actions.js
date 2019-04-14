@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {toastr} from 'react-redux-toastr'
 
 // ======================= API USER AUTHORIZATION AND AUTHENTICATION ENDPOINTS ================================
 const API_BASE_URL = '/api/auth';
@@ -23,9 +24,11 @@ export const registerUser = registerData => dispatch => {
         .post(`${API_BASE_URL}${API_POST_REGISTER_URL}`, registerData)
         .then( () => {
             dispatch(registerUserSuccess());
+            toastr.success('Thanks for registering! Please login to your account now');
         })
         .catch(error => {
             dispatch(registerUserError(error));
+            toastr.error('There was an error in the request', error);
         });
 };
 

@@ -9,24 +9,37 @@ import Home from './components/pages/Home';
 import CategoryPage from './components/pages/CategoryPage';
 import TripDetailPage from './components/pages/TripDetailPage';
 import AuthPage from './components/pages/AuthPage';
+import ReduxToastr from 'react-redux-toastr'
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 
 class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/category/:id" component={CategoryPage} />
-            <Route path="/trip/:id" component={TripDetailPage} />
-            <Route path="/auth" component={AuthPage} />
-          </Switch>
-        </Router>
+        <div>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/category/:id" component={CategoryPage} />
+              <Route path="/trip/:id" component={TripDetailPage} />
+              <Route path="/auth" component={AuthPage} />
+            </Switch>
+          </Router>
+          <ReduxToastr
+              timeOut={4000}
+              newestOnTop={false}
+              preventDuplicates
+              position="top-left"
+              transitionIn="fadeIn"
+              transitionOut="fadeOut"
+              progressBar
+              closeOnToastrClick/>
+        </div>
       </Provider>
     );
   }

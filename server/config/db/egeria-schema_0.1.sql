@@ -6,9 +6,9 @@ USE egeria;
 -- Table structure for table `user`
 CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT,
-    email VARCHAR(50) UNIQUE NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    email VARCHAR(64) UNIQUE NOT NULL,
+    name VARCHAR(256) NOT NULL,
+    password VARCHAR(256) NOT NULL,
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
