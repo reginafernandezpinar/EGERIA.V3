@@ -6,4 +6,4 @@ export const initialUserState = {
     error: null,
     loginSuccessful: false,
     registrationSuccessful: false
-  };
+};

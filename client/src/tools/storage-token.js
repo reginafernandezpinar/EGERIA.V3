@@ -16,6 +16,11 @@ export const getToken = () => {
   return null;
 };
 
+export const deleteToken = () => {
+  sessionStorage.removeItem(TOKEN);
+};
+
+
 export const isAuth = () => {
   return getToken() != null;
-}
+};

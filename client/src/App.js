@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import ReduxToastr from 'react-redux-toastr'
+import ReduxToastr from 'react-redux-toastr';
 
 
 // Import global resources
@@ -11,6 +11,7 @@ import Home from './components/pages/Home';
 import CategoryPage from './components/pages/CategoryPage';
 import TripDetailPage from './components/pages/TripDetailPage';
 import LoginPage from './components/pages/LoginPage';
+import LogoutPage from './components/pages/LogoutPage';
 import RegisterPage from './components/pages/RegisterPage';
 
 // Styles
@@ -30,6 +31,7 @@ class App extends Component {
               <Route path="/category/:id" component={CategoryPage} />
               <Route path="/trip/:id" component={TripDetailPage} />
               <Route path="/login" component={LoginPage} />
+              <Route path="/logout" component={LogoutPage} />
               <Route path="/register" component={RegisterPage} />
             </Switch>
           </Router>

@@ -1,6 +1,8 @@
 import { initialTripState } from './trip.state';
 
-export function tripReducer(state = initialTripState, action) { //recibe el estado global por defecto y la accion 
+import { toastr } from 'react-redux-toastr';
+
+export function tripReducer(state = initialTripState, action) { 
   switch (action.type) {
     case 'GET_ALL_TRIPS_LOADING':
       return {
@@ -14,6 +16,7 @@ export function tripReducer(state = initialTripState, action) { //recibe el esta
         list: action.payload
       };
     case 'GET_ALL_TRIPS_ERROR':
+      toastr.error('There was an error retrieving the trips data');
       return {
         ...state,
         loading: false,

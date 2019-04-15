@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {toastr} from 'react-redux-toastr'
+
 
 // ======================= API TRIPS ENDPOINTS ================================
 
@@ -27,7 +27,6 @@ export const getAllTrips = filters => dispatch => {
     })
     .catch(error => {
       dispatch(getAllTripsError(error));
-      toastr.error('There was an error retrieving the trips data', error);
     });
 };
 
@@ -50,6 +49,7 @@ export const getTripsCategory = filters => dispatch => {
       dispatch(getTripsCategoryError(error));
     });
 };
+
 
 // ----------------------------- GET A TRIP --------------------------------
 

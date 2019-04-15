@@ -5,7 +5,6 @@ const trackpointModel = require("../models/trackpointModel");
 
 // Get all trackpoints (by tripId/ by type / featured)
 function getAll (req, res) {
-    console.log('controller get');
     const limit = req.query.limit;
     const tripId = req.query.tripId;
     const type = req.query.type;

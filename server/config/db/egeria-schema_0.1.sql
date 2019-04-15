@@ -79,6 +79,7 @@ INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo, type) value
 
 
 
+
 -- Table structure for table `track` (Optional)
 -- CREATE TABLE track (
 --     id INT NOT NULL AUTO_INCREMENT,

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { isAuth } from "../../../tools";
 
 import {
   Collapse,
@@ -9,10 +9,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-} from 'reactstrap';
-
-import { isAuth } from '../../../tools';
+  NavLink
+} from "reactstrap";
 
 class Header extends React.Component {
   constructor(props) {
@@ -40,19 +38,25 @@ class Header extends React.Component {
                 {!isAuth() && (
                   <Link className="nav-link" to="/login">
                     Login
-                </Link>
+                  </Link>
                 )}
                 {isAuth() && (
                   <Link className="nav-link" to="/logout">
                     Logout
-                </Link>
+                  </Link>
                 )}
               </NavItem>
-              {!isAuth() && (<NavItem><Link className="nav-link" to="/register">
-                Sign Up</Link></NavItem>
+              {!isAuth() && (
+                <NavItem>
+                  <Link className="nav-link" to="/register">
+                    Sign Up
+                  </Link>
+                </NavItem>
               )}
               <NavItem>
-                <NavLink href="https://reactstrap.github.io/components/navbar/">navbar</NavLink>
+                <NavLink href="https://reactstrap.github.io/components/navbar/">
+                  navbar
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

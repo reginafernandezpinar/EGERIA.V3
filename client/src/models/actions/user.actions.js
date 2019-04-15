@@ -1,6 +1,4 @@
 import axios from 'axios';
-import {toastr} from 'react-redux-toastr'
-import { saveToken } from '../../tools';
 
 // ======================= API USER AUTHORIZATION AND AUTHENTICATION ENDPOINTS ================================
 const API_BASE_URL = '/api/auth';
@@ -12,7 +10,7 @@ const API_POST_LOGIN_URL = '/login';
 // ------------------------- USER REGISTER -----------------------
 
 // ACTION CREATORs
-export const registerUserSuccess = () => ({ type: 'REGISTER_USER_SUCCESS' });
+export const registerUserSuccess = (payload) => ({payload, type: 'REGISTER_USER_SUCCESS' });
 export const registerUserLoading = () => ({ type: 'REGISTER_USER_LOADING' });
 export const registerUserError = payload => ({ payload, type: 'REGISTER_USER_ERROR' });
 
@@ -29,7 +27,6 @@ export const registerUser = registerData => dispatch => {
         })
         .catch(error => {
             dispatch(registerUserError(error));
-            toastr.error('There was an error in the request', error);
         });
 };
 
@@ -48,11 +45,17 @@ export const loginUser = loginData => dispatch => {
     axios
         .post(`${API_BASE_URL}${API_POST_LOGIN_URL}`, loginData)
         .then(response => {
-            saveToken(response.data.token);
             dispatch(loginUserSuccess(response.data));
         })
         .catch(error => {
             dispatch(loginUserError(error));
-            toastr.error('The user credentials are not correct');
         });
 };
+
+
+// -------------------------  USER LOGOUT -----------------------
+
+// ACTION CREATORs
+export const logoutUser = () => ({ type: 'LOGOUT_USER' });
+export const logoutUserLoading= () => ({ type: 'LOGOUT_USER_LOADING' });
+

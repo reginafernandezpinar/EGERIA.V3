@@ -18,7 +18,7 @@ class LoginPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // We check if there was a change in the prop 'loadingSuccessful' from false to true due to 
+    // We check if there was a change in the prop 'loginSuccessful' from false to true due to 
     // a successful login and then we redirect to the home page    
     if (!prevProps.loginSuccessful && this.props.loginSuccessful) {
       this.props.history.push('/');
