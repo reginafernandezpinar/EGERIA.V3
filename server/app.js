@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 
 // routes
-app.use(express.static(path.join(__dirname, 'public'))); //En produccion sustituir esta ruta por el 'if' de abajo.
+app.use(express.static(path.join(__dirname, 'public'))); //DEVELOPMENT
 app.use('/api/trips', tripsRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/trackpoints', trackpointsRouter);
@@ -28,7 +28,7 @@ app.use('/api/trackpoints', trackpointsRouter);
 // app.use('/api/mytrips', tripsRouter);
 
 
-// DEPLOYMENT TO PRODUCTION: (client: npm run start)
+// DEPLOYMENT TO PRODUCTION: (execute in client: npm run build)
 // if (process.env.NODE_ENV === 'production') {
 //   console.log("This is serious! You are in production mode")
 //   app.use(express.static(path.join(__dirname, '../client/build')));

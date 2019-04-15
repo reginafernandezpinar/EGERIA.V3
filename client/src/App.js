@@ -31,8 +31,11 @@ class App extends Component {
               <Route path="/category/:id" component={CategoryPage} />
               <Route path="/trip/:id" component={TripDetailPage} />
               <Route path="/login" component={LoginPage} />
-              <Route path="/logout" component={LogoutPage} />
               <Route path="/register" component={RegisterPage} />
+              <Route path="/logout" component={LogoutPage} />
+              
+              {/*  render={() => console.log('render log out')}  */}
+
             </Switch>
           </Router>
           <ReduxToastr

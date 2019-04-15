@@ -31,7 +31,7 @@ class RegisterPage extends React.Component {
     handleChange = event => {
         const newState = { ...this.state };
         const value = event.target.value;
-        const field = event.target.nam
+        const field = event.target.name;
         newState[field] = value;
         this.setState(newState);
     }
@@ -39,6 +39,7 @@ class RegisterPage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { name, email, password } = this.state;
+        
         if (this.validateForm()) {
             const registerData = {
                 name,

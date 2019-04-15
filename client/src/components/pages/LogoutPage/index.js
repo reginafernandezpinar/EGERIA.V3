@@ -8,21 +8,19 @@ import LogoutPage from "./logoutPage.component";
 import { logoutUser } from "../../../models/actions/user.actions";
 
 // Add Redux State to Component props
-// const mapStateToProps = state => {
-//     return {
-//       loading: state.user.loading,
-//       loginSuccessful: state.user.loginSuccessful
-//     };
-// };
+const mapStateToProps = state => {
+  return {
+    loading: state.user.loading
+  };
+};
+
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = {
     logoutUser
 };
 
-export default withRouter(
-  connect(
-    // mapStateToProps,
-    mapDispatchToProps
-  )(LogoutPage)
-);
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LogoutPage));

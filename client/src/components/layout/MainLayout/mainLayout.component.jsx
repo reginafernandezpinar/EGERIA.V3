@@ -1,23 +1,36 @@
 import React from 'react';
+
+// Import local resources
+import { getToken } from "../../../tools";
+
+// Import Components
 import Header from '../Header';
 import Footer from '../Footer';
 
-// Presentational component
-function MainLayout(props) {
 
-  // crear la clase
-  // ComponentDidMount() {
-  //   //coger el token si existe, y crear una accion q llame al whoAmI
-  // }
+class MainLayout extends React.Component {
 
-  return (
-    <div>
-      <Header />
-      <div id="content">
-        {props.children}
+  componentDidMount() {
+    const { token } = this.props;
+    if (!token) {
+      let sessionstorageToken = getToken();
+      if (sessionStorage) {
+        this.props.whoAmI(sessionstorageToken)
+      }
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <div id="content">
+          {this.props.children}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
+    );
+  }
 }
+
 export default MainLayout;

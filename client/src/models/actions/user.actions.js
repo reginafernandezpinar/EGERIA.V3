@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { toastr } from "react-redux-toastr";
 
 // ======================= API USER AUTHORIZATION AND AUTHENTICATION ENDPOINTS ================================
 const API_BASE_URL = '/api/auth';
 const API_POST_REGISTER_URL = '/register';
 const API_POST_LOGIN_URL = '/login';
+const API_GET_WHOAMI_URL = '/whoAmI'
 
 
 
@@ -27,6 +29,7 @@ export const registerUser = registerData => dispatch => {
         })
         .catch(error => {
             dispatch(registerUserError(error));
+            toastr.error("There was an error in the request");
         });
 };
 
@@ -49,8 +52,42 @@ export const loginUser = loginData => dispatch => {
         })
         .catch(error => {
             dispatch(loginUserError(error));
+            toastr.error("ups! Your email or password is not correct");
         });
 };
+
+
+
+// -------------------------  GET USER DATA (whoAmI) ------------------------
+// get user data once the user is login and token is saved in Session Storage, so we can use them in case page is reloaded.
+
+// ACTION CREATORs 
+// we will use login reducers as we want to modified the Store in the same way login reducers do.
+export const whoAmISuccess= payload => ({payload, type: 'LOGIN_USER_SUCCESS' });
+export const whoAmILoading= () => ({ type: 'LOGIN_USER_LOADING' }); // no lo necesito?
+export const whoAmIError= payload => ({ payload, type: 'LOGIN_USER_ERROR' }); // no lo necesito?
+
+// THUNK
+export const whoAmI = token => dispatch => {
+    dispatch(whoAmILoading()); // no lo necesito?
+    //Axios request:
+    axios({
+            method: 'get',
+            url: `${API_BASE_URL}${API_GET_WHOAMI_URL}`,
+            headers: {
+                Authorization: token
+            }
+        })
+        .then(response => {
+            dispatch(whoAmISuccess(response.data));
+        })
+        .catch(error => {
+            dispatch(whoAmIError(error)); // no lo necesito?
+        });
+};
+
+// falta reducer del whoAmI
+
 
 
 // -------------------------  USER LOGOUT -----------------------

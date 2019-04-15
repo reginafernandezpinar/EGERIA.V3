@@ -1,7 +1,7 @@
 import { initialUserState } from "./user.state";
 
 import { saveToken, deleteToken } from "../../../tools";
-import { toastr } from "react-redux-toastr";
+
 
 export function userReducer(state = initialUserState, action) {
   switch (action.type) {
@@ -17,7 +17,6 @@ export function userReducer(state = initialUserState, action) {
         registerSuccessful: true
       };
     case "REGISTER_USER_ERROR":
-      toastr.error("There was an error in the request");
       return {
         ...state,
         loading: false,
@@ -29,7 +28,7 @@ export function userReducer(state = initialUserState, action) {
         loading: true
       };
     case "LOGIN_USER_ERROR":
-      toastr.error("ups! Your email or password is not correct");
+      
       return {
         ...state,
         loading: false,
@@ -43,7 +42,8 @@ export function userReducer(state = initialUserState, action) {
         loginSuccessful: true,
         token: action.payload.token,
         name: action.payload.name,
-        email: action.payload.email
+        email: action.payload.email,
+        id: action.payload.id
       };
 
     case "LOGOUT_USER_LOADING":
@@ -59,7 +59,8 @@ export function userReducer(state = initialUserState, action) {
         loading: false,
         token: null,
         name: null,
-        email: null
+        email: null,
+        loginSuccessful: false
       };
     default:
       return state;

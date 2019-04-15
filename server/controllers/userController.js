@@ -21,6 +21,7 @@ function loginUser(req, res) {
                     let userData = {
                         name: user.name,
                         email: user.email,
+                        id: user.id,
                         token: token
                     }
                     res.send(userData);
@@ -54,7 +55,8 @@ function whoAmI(req, res) {
             let userData = {
                 name: result[0].name,
                 email: result[0].email,
-                id: result[0].id
+                id: result[0].id,
+                token: req.header('Authorization')
             }
             res.send(userData);
         }).catch(err => {
