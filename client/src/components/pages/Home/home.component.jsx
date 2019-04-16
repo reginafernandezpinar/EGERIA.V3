@@ -41,12 +41,14 @@ class Home extends React.Component {
             </div>
           </div>
 
-          <div >
-            <div className="bg-homepage">
-
+          <div className="container row">
+            <div className="col">
+              <p>Best valued trips</p>
             </div>
-            <div className="container w-50">
-              <CarouselTrip />
+            <div className="col">
+              <div className="container">
+                <CarouselTrip />
+              </div>
             </div>
           </div>
 
