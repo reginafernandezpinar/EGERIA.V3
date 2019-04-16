@@ -22,8 +22,8 @@ class Home extends React.Component {
   render() {
     return (
       <MainLayout>
-        <div>
-          <div className="container-fluid">
+        <main>
+          <div className="container-fluid vh-100">
             <div className="row">
               <div className="py-5 col text-center">
                 {isAuth() && (
@@ -35,27 +35,28 @@ class Home extends React.Component {
                   interesting than usual
                 </h2>
               </div>
-              <div className="col w-50 vh-100">
+              {/* <div className="col w-50 vh-100">
                 <img className="img-fluid" src={landingImg} />
-              </div>
+              </div> */}
             </div>
           </div>
 
-          <div className="container row">
+          <div className="row">
             <div className="col">
-              <p>Best valued trips</p>
-            </div>
-            <div className="col">
-              <div className="container">
+              <div className="container-fluid homepage-carousel">
+                <div className="left-section">
+                  <p>Best valued trips</p>
+                </div>
                 <CarouselTrip />
               </div>
             </div>
           </div>
 
+
           <div className="container">
             <Categories />
           </div>
-        </div>
+        </main>
       </MainLayout>
     );
   }

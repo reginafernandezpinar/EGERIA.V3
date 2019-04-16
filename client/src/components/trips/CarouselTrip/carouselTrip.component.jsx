@@ -46,7 +46,7 @@ class CarouselTrip extends Component {
     const { activeIndex } = this.state;
     
     return (
-      <div>
+      <div className='c-carousel'>
         {tripLoading && <p>Loading...</p>}
         {!tripLoading && !tripError &&
           <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
@@ -57,8 +57,15 @@ class CarouselTrip extends Component {
             />
             {tripList.map(trip => {
               return (
-                <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
-                  <img src={trip.photo} alt="trip" className="card-img" />
+                <CarouselItem  onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
+                  <div className="carousel-image" style={{ 
+                    'background-image': `linear-gradient(
+                        rgba(0, 0, 0, 0.2), 
+                        rgba(0, 0, 0, 0.2)
+                      ), url('${trip.photo}')`,
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center'
+                    }} />
                   <CarouselCaption captionText={trip.name} captionHeader={trip.category} className="card-img-overlay" />
                 </CarouselItem>
               );
