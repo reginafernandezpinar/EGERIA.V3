@@ -64,12 +64,12 @@ export const loginUser = loginData => dispatch => {
 // ACTION CREATORs 
 // we will use login reducers as we want to modified the Store in the same way login reducers do.
 export const whoAmISuccess= payload => ({payload, type: 'LOGIN_USER_SUCCESS' });
-export const whoAmILoading= () => ({ type: 'LOGIN_USER_LOADING' }); // no lo necesito?
-export const whoAmIError= payload => ({ payload, type: 'LOGIN_USER_ERROR' }); // no lo necesito?
+export const whoAmILoading= () => ({ type: 'LOGIN_USER_LOADING' });
+export const whoAmIError= payload => ({ payload, type: 'LOGIN_USER_ERROR' });
 
 // THUNK
 export const whoAmI = token => dispatch => {
-    dispatch(whoAmILoading()); // no lo necesito?
+    dispatch(whoAmILoading());
     //Axios request:
     axios({
             method: 'get',
@@ -82,7 +82,7 @@ export const whoAmI = token => dispatch => {
             dispatch(whoAmISuccess(response.data));
         })
         .catch(error => {
-            dispatch(whoAmIError(error)); // no lo necesito?
+            dispatch(whoAmIError(error));
         });
 };
 

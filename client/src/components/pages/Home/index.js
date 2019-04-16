@@ -9,7 +9,9 @@ import { getCategories } from '../../../models/actions/categories.actions';
 
 
 // Add Redux State to Component props
-// const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  userName: state.user.name
+});
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
@@ -18,7 +20,7 @@ const mapDispatchToProps = {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Home);
 

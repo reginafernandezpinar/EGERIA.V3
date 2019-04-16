@@ -24,3 +24,6 @@ yarn-error.log*
 
 # css files generated from the .scss files
 *.css
+
+# some assets
+/pictures

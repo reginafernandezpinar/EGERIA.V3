@@ -51,7 +51,7 @@ function registerUser(req, res) {
 function whoAmI(req, res) {
     // user is injected in the req object by the verifyToken middleware
     userModel.findUserByEmail(req.user.email)
-        .then(result => { // result is an array whose first position is the user object.
+        .then(result => {
             let userData = {
                 name: result[0].name,
                 email: result[0].email,

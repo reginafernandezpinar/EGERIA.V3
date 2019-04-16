@@ -17,7 +17,7 @@ import RegisterPage from './components/pages/RegisterPage';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 
 class App extends Component {
@@ -33,9 +33,6 @@ class App extends Component {
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               <Route path="/logout" component={LogoutPage} />
-              
-              {/*  render={() => console.log('render log out')}  */}
-
             </Switch>
           </Router>
           <ReduxToastr
