@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // Import global resources
 import { isAuth } from "../../../tools";
-import landingImg from "../../../assets/img/landingImg.jpg";
+import landingVideo from "../../../assets/img/landing-video.mp4";
 
 // Import Components
 import CarouselTrip from "../../trips/CarouselTrip";
@@ -23,8 +23,13 @@ class Home extends React.Component {
     return (
       <MainLayout>
         <main>
-          <div className="container-fluid vh-100">
-            <div className="row">
+          {/* LANDING SECTION */}
+          <div className="landing-container">
+            <div className="video-container">
+              
+              <video loop autoplay muted src={landingVideo}></video>
+              <div class="filter"></div>
+
               <div className="py-5 col text-center">
                 {isAuth() && (
                   <h4 className="my-3">Hi {this.props.userName} !</h4>
@@ -35,24 +40,50 @@ class Home extends React.Component {
                   interesting than usual
                 </h2>
               </div>
-              {/* <div className="col w-50 vh-100">
-                <img className="img-fluid" src={landingImg} />
-              </div> */}
+
+
             </div>
+
+            <div className="homepage-search">
+                  <div className="input-group mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="input your destination"
+                      aria-label="Recipient's username"
+                      aria-describedby="button-addon2"
+                    />
+                    <div className="input-group-append">
+                      <button
+                        className="btn btn-outline-info"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        search
+                      </button>
+                    </div>
+                    <button type="button" className="btn btn-outline-info ml-3">
+                    My trips
+                    </button>
+                  </div>
+                </div>
+
           </div>
 
-          <div className="row">
-            <div className="col">
-              <div className="container-fluid homepage-carousel">
-                <div className="left-section">
-                  <p>Best valued trips</p>
-                </div>
+          {/* CAROUSEL SECTION */}
+          <div className="mt-5 col text-center">
+            <h2>Best valued trips</h2>
+          </div>
+          <div className="mb-5">
+            <div className="col p-0">
+              <div className="homepage-carousel">
+                <div className="left-section" />
                 <CarouselTrip />
               </div>
             </div>
           </div>
 
-
+          {/* CAROUSEL SECTION */}
           <div className="container">
             <Categories />
           </div>

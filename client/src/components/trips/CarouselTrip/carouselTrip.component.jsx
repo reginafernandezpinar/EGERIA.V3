@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
-} from 'reactstrap';
+  CarouselCaption
+} from "reactstrap";
+
+// Import styles
+import "./styles.scss";
 
 class CarouselTrip extends Component {
   constructor(props) {
@@ -27,13 +30,17 @@ class CarouselTrip extends Component {
   next() {
     if (this.animating) return;
     const nextIndex =
-      this.state.activeIndex === this.props.tripList.length - 1 ? 0 : this.state.activeIndex + 1;
+      this.state.activeIndex === this.props.tripList.length - 1
+        ? 0
+        : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
   previous() {
     if (this.animating) return;
     const nextIndex =
-      this.state.activeIndex === 0 ? this.props.tripList.length - 1 : this.state.activeIndex - 1;
+      this.state.activeIndex === 0
+        ? this.props.tripList.length - 1
+        : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
   goToIndex(newIndex) {
@@ -44,12 +51,16 @@ class CarouselTrip extends Component {
   render() {
     const { tripList, tripError, tripLoading } = this.props;
     const { activeIndex } = this.state;
-    
+
     return (
-      <div className='c-carousel'>
+      <div className="c-carousel">
         {tripLoading && <p>Loading...</p>}
-        {!tripLoading && !tripError &&
-          <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
+        {!tripLoading && !tripError && (
+          <Carousel
+            activeIndex={activeIndex}
+            next={this.next}
+            previous={this.previous}
+          >
             <CarouselIndicators
               items={tripList}
               activeIndex={activeIndex}
@@ -57,23 +68,45 @@ class CarouselTrip extends Component {
             />
             {tripList.map(trip => {
               return (
-                <CarouselItem  onExiting={this.onExiting} onExited={this.onExited} key={trip.id}>
-                  <div className="carousel-image" style={{ 
-                    'background-image': `linear-gradient(
+                <CarouselItem
+                  onExiting={this.onExiting}
+                  onExited={this.onExited}
+                  key={trip.id}
+                >
+                  <div
+                    className="carousel-image"
+                    style={{
+                      "background-image": `linear-gradient(
                         rgba(0, 0, 0, 0.2), 
                         rgba(0, 0, 0, 0.2)
                       ), url('${trip.photo}')`,
-                    'background-repeat': 'no-repeat',
-                    'background-position': 'center'
-                    }} />
-                  <CarouselCaption captionText={trip.name} captionHeader={trip.category} className="card-img-overlay" />
+                      "background-repeat": "no-repeat",
+                      "background-position": "center",
+                      "background-size": "cover"
+                    }}
+                  />
+                  <CarouselCaption
+                    captionText={trip.name}
+                    captionHeader={trip.category}
+                    className="card-img-overlay"
+                  />
                 </CarouselItem>
               );
             })}
-            <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-            <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+            <CarouselControl
+              className="carousel-prev"
+              direction="prev"
+              directionText="Previous"
+              onClickHandler={this.previous}
+            />
+            <CarouselControl
+              className="carousel-next"
+              direction="next"
+              directionText="Next"
+              onClickHandler={this.next}
+            />
           </Carousel>
-        }
+        )}
       </div>
     );
   }
@@ -91,12 +124,16 @@ Carousel.propTypes = {
   /* If set to "hover", pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on
    * mouseleave. If set to false, hovering over the carousel won't pause it. (default: "hover")
    */
-  pause: PropTypes.oneOf(['hover', false]),
+  pause: PropTypes.oneOf(["hover", false]),
   // Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.
   // This is how bootstrap defines it... I would prefer a bool named autoplay or something...
-  ride: PropTypes.oneOf(['carousel']),
+  ride: PropTypes.oneOf(["carousel"]),
   // the interval at which the carousel automatically cycles (default: 5000)
-  interval: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
+  interval: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.bool
+  ]),
   children: PropTypes.array,
   // called when the mouse enters the Carousel
   mouseEnter: PropTypes.func,
@@ -104,7 +141,7 @@ Carousel.propTypes = {
   mouseLeave: PropTypes.func,
   // controls whether the slide animation on the Carousel works or not
   slide: PropTypes.bool,
-  cssModule: PropTypes.object,
+  cssModule: PropTypes.object
 };
 
 export default CarouselTrip;

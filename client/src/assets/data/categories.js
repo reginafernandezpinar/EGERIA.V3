@@ -1,33 +1,40 @@
+import nature from "../img/nature-category";
+import rural from "../img/rural-category";
+import urban from "../img/urban-category";
+import monumental from "../img/monument-category";
+import gastro from "../img/gastro-category";
+import family from "../img/family-category";
+
 let categories = [
     {
         id: 'monumental',
         label: 'Monumental',
-        picture: "https://mova.io/images/blog/travel_booking/1.jpg"
+        picture: monumental
     },
     {
         id: 'urban',
         label: 'Urban',
-        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
+        picture: urban
     },
     {
         id: 'nature',
         label: 'Nature',
-        picture: 'http://mova.io/images/blog/travel_booking/1.jpg'
+        picture: nature
     },
     {
         id: 'gastro',
         label: 'Gastro',
-        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
+        picture: gastro
     },
     {
         id: 'rural',
         label: 'Rural',
-        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
+        picture: rural
     },
     {
         id: 'family',
         label: 'Family',
-        picture: 'https://mova.io/images/blog/travel_booking/1.jpg'
+        picture: family
     }
 ];
 export default categories;
