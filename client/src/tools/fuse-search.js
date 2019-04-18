@@ -3,8 +3,7 @@ import Fuse from 'fuse.js';
 const options = {
     keys: ['name', 'description', 'category'],
     shouldSort: true,
-    threshold: 0.6,
-    minMatchCharLength: 1
+    threshold: 0.2
 };
 
 export function searchTrip(trips, text) {

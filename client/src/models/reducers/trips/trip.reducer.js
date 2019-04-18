@@ -52,7 +52,7 @@ export function tripReducer(state = initialTripState, action) {
         ...state,
         category: { ...state.category, loading: false, error: action.payload }
       };
-    case 'SEARCH_TRIP':
+    case 'SET_SEARCH_TRIP_RESULTS':
       return {
         ...state,
         search: {

@@ -11,17 +11,18 @@ class Categories extends Component {
         <Row>
           {categoriesList.map(category => {
             return (
-              <Col key={category.id} className="card text-white" xs="6" sm="4">
-                <img src={category.picture} alt="category" className="card-img" />
-                <div className="card-img-overlay">
-                  <Link to={`/category/${category.id}`}>
-                    <h5 className="card-title">{category.label}</h5>
-                  </Link>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content.
-                  </p>
-                </div>
+              <Col key={category.id} xs="12" sm="6" md="4" className="p-1">
+                <Link to={`/category/${category.id}`}>
+                  <div className="card category-image"
+                    style={{
+                      "background-image": `linear-gradient(
+                      rgba(0, 0, 0, 0.5), 
+                      rgba(0, 0, 0, 0.5)
+                    ),url('${category.picture}')`
+                    }}>
+                      <h4 className="m-4 text-center text-white">{category.label}</h4>
+                  </div>
+                </Link>
               </Col>
             );
           })}

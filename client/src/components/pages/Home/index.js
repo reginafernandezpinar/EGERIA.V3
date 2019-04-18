@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import Home from './home.component';
 
 // Import action creator
-import { getAllTrips, searchTrip } from '../../../models/actions/trip.actions';
+import { getAllTrips, setSearchTripResults } from '../../../models/actions/trip.actions';
 import { getCategories } from '../../../models/actions/categories.actions';
 
 
 // Add Redux State to Component props
 const mapStateToProps = state => ({
-  userName: state.user.name
+  userName: state.user.name,
+  trips: state.trips.list
 });
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
   getAllTrips,
   getCategories,
-  searchTrip 
+  setSearchTripResults 
 };
 
 export default connect(

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 // Import global resources
 import { isAuth } from "../../../tools";
-import landingVideo from "../../../assets/img/landing-video.mp4";
+import landingVideo from "../../../assets/videos/sea.mp4";
+import { searchTrip } from "../../../tools/fuse-search";
 
 // Import Components
 import CarouselTrip from "../../trips/CarouselTrip";
@@ -18,7 +19,7 @@ class Home extends React.Component {
     super(props);
     
     this.state = {
-
+      searchText: ''
     };
   }
 
@@ -35,8 +36,8 @@ class Home extends React.Component {
           <div className="landing-container">
 
             <div className="video-container">
-              <video loop autoPlay muted src={landingVideo}></video>
-              <div className="filter"></div>
+              <video playbackRate="0.3" loop autoPlay muted src={landingVideo}></video>
+              {/* <div className="filter"></div> */}
 
               <div className="py-5 col text-center">
                 {isAuth() && (
@@ -58,12 +59,17 @@ class Home extends React.Component {
                   placeholder="input your destination"
                   aria-label="Recipient's username"
                   aria-describedby="button-addon2"
+                  onChange={(e) => this.setState({ searchText: e.target.value })}
                 />
                 <div className="input-group-append">
                   <button
                     className="btn btn-outline-info"
                     type="button"
                     id="button-addon2"
+                    onClick={() => {
+                      const searchResults = searchTrip(this.props.trips, this.state.searchText);
+                      this.props.setSearchTripResults(searchResults);
+                    }}
                   >
                     search
                   </button>
@@ -91,7 +97,7 @@ class Home extends React.Component {
           <div className="container text-center">
             <h2>Choose a trip by category</h2>
           </div>
-          <div className="container mt-5">
+          <div className="container p-0 mt-5">
             <Categories />
           </div>
         </main>

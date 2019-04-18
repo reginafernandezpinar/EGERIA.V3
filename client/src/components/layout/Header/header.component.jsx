@@ -29,7 +29,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
           <NavbarBrand href="/">Egeria</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -60,7 +60,7 @@ class Header extends React.Component {
               </NavItem>
             </Nav>
           </Collapse>
-        </Navbar>
+        </nav>
       </div>
     );
   }

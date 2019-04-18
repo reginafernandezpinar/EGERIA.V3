@@ -9,8 +9,6 @@ import {
   CarouselCaption
 } from "reactstrap";
 
-// Import styles
-import "./styles.scss";
 
 class CarouselTrip extends Component {
   constructor(props) {
