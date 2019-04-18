@@ -11,7 +11,6 @@ import Home from './components/pages/Home';
 import CategoryPage from './components/pages/CategoryPage';
 import TripDetailPage from './components/pages/TripDetailPage';
 import LoginPage from './components/pages/LoginPage';
-import LogoutPage from './components/pages/LogoutPage';
 import RegisterPage from './components/pages/RegisterPage';
 
 // Styles
@@ -32,7 +31,6 @@ class App extends Component {
               <Route path="/trip/:id" component={TripDetailPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
-              <Route path="/logout" component={LogoutPage} />
             </Switch>
           </Router>
           <ReduxToastr

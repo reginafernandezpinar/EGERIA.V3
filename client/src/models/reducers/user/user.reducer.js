@@ -46,21 +46,10 @@ export function userReducer(state = initialUserState, action) {
         id: action.payload.id
       };
 
-    case "LOGOUT_USER_LOADING":
-      return {
-        ...state,
-        loading: true
-      };
-
-    case "LOGOUT_USER":
+    case "LOGOUT_USER":      
       deleteToken();
       return {
-        ...state,
-        loading: false,
-        token: null,
-        name: null,
-        email: null,
-        loginSuccessful: false
+        initialUserState
       };
     default:
       return state;

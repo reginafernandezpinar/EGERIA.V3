@@ -94,5 +94,4 @@ export const whoAmI = token => dispatch => {
 
 // ACTION CREATORs
 export const logoutUser = () => ({ type: 'LOGOUT_USER' });
-export const logoutUserLoading= () => ({ type: 'LOGOUT_USER_LOADING' });
 

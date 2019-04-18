@@ -41,9 +41,9 @@ class Header extends React.Component {
                   </Link>
                 )}
                 {isAuth() && (
-                  <Link className="nav-link" to="/logout">
+                  <a className="nav-link" href="/" onClick={() => this.props.logoutUser() }>
                     Logout
-                  </Link>
+                  </a>
                 )}
               </NavItem>
               {!isAuth() && (
