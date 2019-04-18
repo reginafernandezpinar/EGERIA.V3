@@ -14,7 +14,7 @@ class LogoutPage extends React.Component {
             <MainLayout>
                 <div className="container">
                     {loading && <p>Loading... </p>} 
-                    <h4>You´ve been successfully log out</h4>
+                    <h4>You've been successfully logged out</h4>
                 </div>
             </MainLayout>
         )

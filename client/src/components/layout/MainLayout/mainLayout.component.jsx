@@ -14,8 +14,9 @@ class MainLayout extends React.Component {
     const { token } = this.props;
     if (!token) {
       let sessionstorageToken = getToken();
+      
       if (sessionStorage) {
-        this.props.whoAmI(sessionstorageToken)
+        this.props.whoAmI(sessionstorageToken);
       }
     }
   };
