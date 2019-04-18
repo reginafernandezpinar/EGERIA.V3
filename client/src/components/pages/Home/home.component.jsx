@@ -14,6 +14,14 @@ import MainLayout from "../../layout/MainLayout";
 import "./styles.scss";
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+
+    };
+  }
+
   componentDidMount() {
     this.props.getAllTrips();
     this.props.getCategories();
@@ -25,10 +33,10 @@ class Home extends React.Component {
         <main>
           {/* LANDING SECTION */}
           <div className="landing-container">
+
             <div className="video-container">
-              
-              <video loop autoplay muted src={landingVideo}></video>
-              <div class="filter"></div>
+              <video loop autoPlay muted src={landingVideo}></video>
+              <div className="filter"></div>
 
               <div className="py-5 col text-center">
                 {isAuth() && (
@@ -40,54 +48,54 @@ class Home extends React.Component {
                   interesting than usual
                 </h2>
               </div>
-
-
             </div>
 
             <div className="homepage-search">
-                  <div className="input-group mb-3">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="input your destination"
-                      aria-label="Recipient's username"
-                      aria-describedby="button-addon2"
-                    />
-                    <div className="input-group-append">
-                      <button
-                        className="btn btn-outline-info"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        search
-                      </button>
-                    </div>
-                    <button type="button" className="btn btn-outline-info ml-3">
-                    My trips
-                    </button>
-                  </div>
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="input your destination"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <div className="input-group-append">
+                  <button
+                    className="btn btn-outline-info"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    search
+                  </button>
                 </div>
-
-          </div>
-
-          {/* CAROUSEL SECTION */}
-          <div className="mt-5 col text-center">
-            <h2>Best valued trips</h2>
-          </div>
-          <div className="mb-5">
-            <div className="col p-0">
-              <div className="homepage-carousel">
-                <div className="left-section" />
-                <CarouselTrip />
+                <button type="button" className="btn btn-outline-info ml-3">
+                  My trips
+                    </button>
               </div>
             </div>
+
           </div>
 
           {/* CAROUSEL SECTION */}
-          <div className="container">
+          <div className="container text-center">
+            <h2>Best valued trips</h2>
+          </div>
+
+          <div className="homepage-carousel">
+            <div className="left-section" />
+            <CarouselTrip />
+          </div>
+
+
+          {/* CATEGORIES SECTION */}
+          <div className="container text-center">
+            <h2>Choose a trip by category</h2>
+          </div>
+          <div className="container mt-5">
             <Categories />
           </div>
         </main>
+
       </MainLayout>
     );
   }

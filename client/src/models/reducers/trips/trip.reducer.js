@@ -2,7 +2,7 @@ import { initialTripState } from './trip.state';
 
 import { toastr } from 'react-redux-toastr';
 
-export function tripReducer(state = initialTripState, action) { 
+export function tripReducer(state = initialTripState, action) {
   switch (action.type) {
     case 'GET_ALL_TRIPS_LOADING':
       return {
@@ -52,7 +52,13 @@ export function tripReducer(state = initialTripState, action) {
         ...state,
         category: { ...state.category, loading: false, error: action.payload }
       };
-
+    case 'SEARCH_TRIP':
+      return {
+        ...state,
+        search: {
+          results: action.payload
+        }
+      };
 
     default:
       return state;

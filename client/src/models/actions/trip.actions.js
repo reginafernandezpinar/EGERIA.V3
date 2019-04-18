@@ -72,7 +72,8 @@ export const getTrip = tripId => dispatch => {
 };
 
 
-
+// ----------------------------- SEARCH A TRIP --------------------------------
+export const searchTrip = payload => ({ payload, type: 'SEARCH_TRIP' });
 
 
 // ======================= AXIOS REQUEST FUNCTION for getTripsRequest() =============================

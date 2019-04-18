@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Home from './home.component';
 
 // Import action creator
-import { getAllTrips } from '../../../models/actions/trip.actions';
+import { getAllTrips, searchTrip } from '../../../models/actions/trip.actions';
 import { getCategories } from '../../../models/actions/categories.actions';
 
 
@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
   getAllTrips,
-  getCategories 
+  getCategories,
+  searchTrip 
 };
 
 export default connect(

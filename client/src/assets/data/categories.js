@@ -1,9 +1,11 @@
-import nature from "../img/nature-category";
-import rural from "../img/rural-category";
-import urban from "../img/urban-category";
-import monumental from "../img/monument-category";
-import gastro from "../img/gastro-category";
-import family from "../img/family-category";
+import monumental from "assets/img/monument-category.jpg";
+import nature from "assets/img/nature-category.jpg";
+import rural from "assets/img/rural-category.jpg";
+import urban from "assets/img/urban-category.jpg";
+import gastro from "assets/img/gastro-category.jpg";
+import family from "assets/img/family-category.jpg";
+
+
 
 let categories = [
     {
@@ -37,4 +39,6 @@ let categories = [
         picture: family
     }
 ];
+
+
 export default categories;

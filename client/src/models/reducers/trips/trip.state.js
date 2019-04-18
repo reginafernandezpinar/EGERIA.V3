@@ -11,5 +11,8 @@ export const initialTripState = {
     loading: false,
     error: null,
     list: []
+  },
+  search: {
+    results: []
   }
 };
