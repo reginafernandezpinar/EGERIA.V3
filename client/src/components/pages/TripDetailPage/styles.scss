@@ -7,25 +7,28 @@
     background-size: cover;
 
     .container {
-        padding-top: 30px;
-
-        .card {
-            border: none;
-    
+        
+        .detail-container {
+            display: flex;
+            
             .trip-card-image {
+                width: 60%;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
-                height: 300px;
                 border: none;   
             }
     
             .card-body {
+                padding-bottom: 0;
                 h5 {
                     color: grey;
                 }
-                .card-user, .card-title {
-                    text-align: center;
+                .distance-container {
+                    display: flex;
+                    p {
+                        margin-right: 10px;
+                    }
                 }
             }
         }

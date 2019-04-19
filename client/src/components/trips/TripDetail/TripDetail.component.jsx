@@ -12,34 +12,40 @@ class TripDetail extends Component {
             return <p>Loading…</p>;
         }
         return (
-            <div className="card">
-                <div className="card-img-top trip-card-image"
-                    style={{ "background-image": `url(${tripSelected.photo})` }}>
-                </div>
-                <div className="card-body">
+            <div className="detail-container">
 
+                <div className="card-body">
                     <div className="card-title">
                         <h4 >{tripSelected.name}</h4>
-                    </div>
-                    <div className="card-user">
-                        <h5>@{tripSelected.userName}</h5>
                     </div>
                     <div className="card-description">
                         <h5>Description</h5>
                         <p>{tripSelected.description}</p>
                     </div>
                     <div className="card-category">
+                        <h5>Category</h5>
                         <p>{tripSelected.category}</p>
                     </div>
                     <div className="card-text">
-                        <p>My companionship: {tripSelected.companionship}</p>
+                        <h5>Companionship</h5>
+                        <p>{tripSelected.companionship}</p>
                     </div>
                     <div className="card-text">
-                        <p>My trip starts in {tripSelected.startingPoint} and finish in {tripSelected.destinationPoint}</p>
+                        <h5>My trip starts in</h5>
+                        <p>{tripSelected.startingPoint}</p>
+                        <h5>and finish in</h5>
+                        <p>{tripSelected.destinationPoint}</p>
                     </div>
-                    <div className="card-text">
-                        <p>Km: {tripSelected.distance}</p>
+                    <div className="card-text distance-container">
+                        <p>{tripSelected.distance}</p>
+                        <h5>Km</h5>
                     </div>
+                    <div className="card-user">
+                        <p>@{tripSelected.userName}</p>
+                    </div>
+                </div>
+                <div className="trip-card-image"
+                    style={{ "background-image": `url(${tripSelected.photo})` }}>
                 </div>
             </div>
         );
