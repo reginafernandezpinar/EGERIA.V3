@@ -29,7 +29,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
           <NavbarBrand href="/">Egeria</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

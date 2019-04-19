@@ -9,9 +9,12 @@ class Categories extends Component {
     return (
       <Container>
         <Row>
-          {categoriesList.map(category => {
+          {categoriesList.map((category,i) => {
+            const fullwidth = i%3 == 0;
+            let md = fullwidth ? 12 : 6;
+            
             return (
-              <Col key={category.id} xs="12" sm="6" md="4" className="p-1">
+              <Col key={category.id} xs="12" sm="6" md={md} className="p-1">
                 <Link to={`/category/${category.id}`}>
                   <div className="card category-image"
                     style={{

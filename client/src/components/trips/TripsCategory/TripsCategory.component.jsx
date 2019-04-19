@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CardTrip from '../CardTrip/cardTrip.component';
+import TripCard from '../TripCard/tripCard.component';
 
 class TripsCategory extends Component {
-    
+
     render() {
         const { tripsCategory, tripsCategoryError, tripsCategoryLoading } = this.props;
         if (tripsCategoryError) {
@@ -14,15 +14,15 @@ class TripsCategory extends Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <div className="col-sm-4 mb-3">
-                        {
-                            tripsCategory.map((trip) => {
-                                return (
-                                    <CardTrip key={trip.id} trip={trip} />
-                                );
-                            })
-                        }
-                    </div>
+                    {
+                        tripsCategory.map((trip) => {
+                            return (
+                                <div className="col-sm-12 col-md-6 col-lg-4">
+                                    <TripCard key={trip.id} trip={trip} />
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         )

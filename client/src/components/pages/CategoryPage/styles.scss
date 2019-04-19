@@ -1,0 +1,18 @@
+// =========== CATEGORY PAGE
+.category-page {
+    .card {
+        height: 350px;
+        .trip-card-image {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 200px;
+            border: none;   
+        }
+
+        .card-text {
+            height: 50px;
+        }
+    }
+    
+}

@@ -17,7 +17,7 @@ import "./styles.scss";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       searchText: ''
     };
@@ -36,8 +36,8 @@ class Home extends React.Component {
           <div className="landing-container">
 
             <div className="video-container">
-              <video playbackRate="0.3" loop autoPlay muted src={landingVideo}></video>
-              {/* <div className="filter"></div> */}
+              <video playbackRate="0.2" loop autoPlay muted src={landingVideo}></video>
+              <div className="filter"></div>
 
               <div className="py-5 col text-center">
                 {isAuth() && (
@@ -76,7 +76,10 @@ class Home extends React.Component {
                 </div>
                 <button type="button" className="btn btn-outline-info ml-3">
                   My trips
-                    </button>
+                </button>
+                <button type="button" className="btn btn-outline-info ml-3">
+                  Start a trip
+                </button>
               </div>
             </div>
 
