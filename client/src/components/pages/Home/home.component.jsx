@@ -4,25 +4,18 @@ import PropTypes from "prop-types";
 // Import global resources
 import { isAuth } from "../../../tools";
 import landingVideo from "../../../assets/videos/sea.mp4";
-import { searchTrip } from "../../../tools/fuse-search";
 
 // Import Components
 import CarouselTrip from "../../trips/CarouselTrip";
 import Categories from "../../trips/Categories";
 import MainLayout from "../../layout/MainLayout";
+import TripsSearch from "../../trips/TripsSearch";
 
 // Import styles
 import "./styles.scss";
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      searchText: ''
-    };
-  }
-
+  
   componentDidMount() {
     this.props.getAllTrips();
     this.props.getCategories();
@@ -52,37 +45,8 @@ class Home extends React.Component {
             </div>
 
             <div className="homepage-search">
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="input your destination"
-                  aria-label="Recipient's username"
-                  aria-describedby="button-addon2"
-                  onChange={(e) => this.setState({ searchText: e.target.value })}
-                />
-                <div className="input-group-append">
-                  <button
-                    className="btn btn-outline-info"
-                    type="button"
-                    id="button-addon2"
-                    onClick={() => {
-                      const searchResults = searchTrip(this.props.trips, this.state.searchText);
-                      this.props.setSearchTripResults(searchResults);
-                    }}
-                  >
-                    search
-                  </button>
-                </div>
-                <button type="button" className="btn btn-outline-info ml-3">
-                  My trips
-                </button>
-                <button type="button" className="btn btn-outline-info ml-3">
-                  Start a trip
-                </button>
-              </div>
+              <TripsSearch />
             </div>
-
           </div>
 
           {/* CAROUSEL SECTION */}

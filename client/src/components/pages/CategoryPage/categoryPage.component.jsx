@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import TripsCategory from '../../trips/TripsCategory';
 import PropTypes from 'prop-types';
+
+// Import Components
 import MainLayout from '../../layout/MainLayout';
+import TripsCategory from '../../trips/TripsCategory';
 
 // Import styles
 import "./styles.scss";
@@ -14,7 +16,7 @@ class CategoryPage extends Component {
     this.props.getTripsCategory({ category: this.props.match.params.id });
 
     // categoriesList will be lost when page is reloaded, so we need it to be dispatch again
-    if (this.props.categoriesList.length == 0) {
+    if (this.props.categoriesList.length === 0) {
       this.props.getCategories();
     }
   }

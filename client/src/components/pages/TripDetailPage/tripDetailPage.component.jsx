@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import TripDetail from '../../trips/TripDetail';
 import PropTypes from 'prop-types';
+
+// Import components
+import TripDetail from '../../trips/TripDetail';
 import MainLayout from '../../layout/MainLayout';
 
+// Import global resources
+import mapImage from "../../../assets/img/mapImage.png";
+
+// Import styles
+import "./styles.scss";
 
 class TripDetailPage extends Component {
 
@@ -13,9 +20,10 @@ class TripDetailPage extends Component {
   render() {
     return (
       <MainLayout>
-        <div>
-          <h3>Trip detail Page</h3>
-          <TripDetail/>
+        <div className="trip-detail-page"  style={{ "background-image": `url(${mapImage})` }}>
+          <div className="container">
+            <TripDetail/>
+          </div>
         </div>
       </MainLayout>
     );

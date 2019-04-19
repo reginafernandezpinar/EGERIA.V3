@@ -1,0 +1,33 @@
+// =========== TRIP DETAIL PAGE
+.trip-detail-page {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .container {
+        padding-top: 30px;
+
+        .card {
+            border: none;
+    
+            .trip-card-image {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 300px;
+                border: none;   
+            }
+    
+            .card-body {
+                h5 {
+                    color: grey;
+                }
+                .card-user, .card-title {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

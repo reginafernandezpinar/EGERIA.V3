@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle
-} from 'reactstrap';
+
 
 class TripDetail extends Component {
-    
+
     render() {
         const { tripSelected, tripError, tripLoading } = this.props;
         if (tripError) {
@@ -15,23 +12,36 @@ class TripDetail extends Component {
             return <p>Loading…</p>;
         }
         return (
-            <Card>
-                <div>
-                    <CardImg top width="100%" src={tripSelected.photo} alt="Card image cap" />
-                    <CardBody>
-                        <CardTitle>{tripSelected.name}</CardTitle>
-                        <CardSubtitle>{tripSelected.userName}</CardSubtitle>
-                        <CardText>{tripSelected.description}</CardText>
-                        <CardText>
-                            tripcategory:{tripSelected.category}
-                            I travel with: {tripSelected.companionship}
-                            startingPoint: {tripSelected.startingPoint}
-                            destinationPoint: {tripSelected.destinationPoint}
-                            Km: {tripSelected.distance}
-                        </CardText>
-                    </CardBody>
+            <div className="card">
+                <div className="card-img-top trip-card-image"
+                    style={{ "background-image": `url(${tripSelected.photo})` }}>
                 </div>
-            </Card>
+                <div className="card-body">
+
+                    <div className="card-title">
+                        <h4 >{tripSelected.name}</h4>
+                    </div>
+                    <div className="card-user">
+                        <h5>@{tripSelected.userName}</h5>
+                    </div>
+                    <div className="card-description">
+                        <h5>Description</h5>
+                        <p>{tripSelected.description}</p>
+                    </div>
+                    <div className="card-category">
+                        <p>{tripSelected.category}</p>
+                    </div>
+                    <div className="card-text">
+                        <p>My companionship: {tripSelected.companionship}</p>
+                    </div>
+                    <div className="card-text">
+                        <p>My trip starts in {tripSelected.startingPoint} and finish in {tripSelected.destinationPoint}</p>
+                    </div>
+                    <div className="card-text">
+                        <p>Km: {tripSelected.distance}</p>
+                    </div>
+                </div>
+            </div>
         );
     }
 };

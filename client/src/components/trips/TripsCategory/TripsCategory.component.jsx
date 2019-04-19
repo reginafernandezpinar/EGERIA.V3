@@ -25,7 +25,7 @@ class TripsCategory extends Component {
                     }
                 </div>
             </div>
-        )
+        );
     }
 }
 

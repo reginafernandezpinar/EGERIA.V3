@@ -10,7 +10,7 @@ class Categories extends Component {
       <Container>
         <Row>
           {categoriesList.map((category,i) => {
-            const fullwidth = i%3 == 0;
+            const fullwidth = i%3 === 0;
             let md = fullwidth ? 12 : 6;
             
             return (
