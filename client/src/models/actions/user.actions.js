@@ -63,9 +63,9 @@ export const loginUser = loginData => dispatch => {
 
 // ACTION CREATORs 
 // we will use login reducers as we want to modified the Store in the same way login reducers do.
-export const whoAmISuccess= payload => ({payload, type: 'LOGIN_USER_SUCCESS' });
-export const whoAmILoading= () => ({ type: 'LOGIN_USER_LOADING' });
-export const whoAmIError= payload => ({ payload, type: 'LOGIN_USER_ERROR' });
+export const whoAmISuccess= payload => ({payload, type: 'WHO_AM_I_SUCCESS' });
+export const whoAmILoading= () => ({ type: 'WHO_AM_I_LOADING' });
+export const whoAmIError= payload => ({ payload, type: 'WHO_AM_I_ERROR' });
 
 // THUNK
 export const whoAmI = token => dispatch => {

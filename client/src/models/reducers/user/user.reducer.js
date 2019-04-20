@@ -28,11 +28,10 @@ export function userReducer(state = initialUserState, action) {
         loading: true
       };
     case "LOGIN_USER_ERROR":
-      
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
       };
     case "LOGIN_USER_SUCCESS":
       saveToken(action.payload.token);
@@ -45,7 +44,26 @@ export function userReducer(state = initialUserState, action) {
         email: action.payload.email,
         id: action.payload.id
       };
-
+    case "WHO_AM_I_SUCCESS": 
+      return {
+        ...state,
+        loading: false,
+        loginSuccessful: true,
+        token: action.payload.token,
+        name: action.payload.name,
+        email: action.payload.email,
+        id: action.payload.id
+      };
+    case "WHO_AM_I_ERROR": 
+      return {
+        ...state,
+        loading: false,
+        loginSuccessful: false,
+        token: null,
+        name: null,
+        email: null,
+        id: null
+      };
     case "LOGOUT_USER":      
       deleteToken();
       return {

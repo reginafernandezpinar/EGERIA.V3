@@ -19,8 +19,3 @@ export const getToken = () => {
 export const deleteToken = () => {
   sessionStorage.removeItem(TOKEN);
 };
-
-
-export const isAuth = () => {
-  return getToken() != null;
-};

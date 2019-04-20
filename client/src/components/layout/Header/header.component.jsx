@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { isAuth } from "../../../tools";
 
 import {
   Collapse,
@@ -27,6 +26,8 @@ class Header extends React.Component {
     });
   }
   render() {
+    const { user } = this.props;
+    const isAuthenticated = user.name !== null;
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -35,18 +36,18 @@ class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                {!isAuth() && (
+                {!isAuthenticated && (
                   <Link className="nav-link" to="/login">
                     Login
                   </Link>
                 )}
-                {isAuth() && (
+                {isAuthenticated && (
                   <a className="nav-link" href="/" onClick={() => this.props.logoutUser() }>
                     Logout
                   </a>
                 )}
               </NavItem>
-              {!isAuth() && (
+              {!isAuthenticated && (
                 <NavItem>
                   <Link className="nav-link" to="/register">
                     Sign Up

@@ -4,6 +4,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 
 // Import components
 import MainLayout from '../../layout/MainLayout';
+import TripForm from '../../trips/TripForm';
 
 // Import styles
 import "./styles.scss";
@@ -57,12 +58,17 @@ class MyTripsPage extends Component {
             <MainLayout>
                 <div className="my-trips-page">
                     <div className="container-fluid">
-                        {trips.length > 0 &&
-                            <BootstrapTable keyField="id"
-                                data={trips}
-                                columns={columns}
-                                selectRow={selectRow} />
-                        }
+                        <div>
+                            {trips.length > 0 &&
+                                <BootstrapTable keyField="id"
+                                    data={trips}
+                                    columns={columns}
+                                    selectRow={selectRow} />
+                            }
+                        </div>
+                        <div>
+                            <TripForm />
+                        </div>
                     </div>
                 </div>
             </MainLayout>

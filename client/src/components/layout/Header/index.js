@@ -11,7 +11,11 @@ const mapDispatchToProps = {
     logoutUser
 };
 
+const mapStateToProps = state => ({
+    user: state.user
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(Header);

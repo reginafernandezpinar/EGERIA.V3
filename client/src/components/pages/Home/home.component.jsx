@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Import global resources
-import { isAuth } from "../../../tools";
 import landingVideo from "../../../assets/videos/sea.mp4";
 
 // Import Components
@@ -22,6 +21,7 @@ class Home extends React.Component {
   }
 
   render() {
+    const { userName } = this.props;
     return (
       <MainLayout>
         <main>
@@ -33,8 +33,8 @@ class Home extends React.Component {
               <div className="filter"></div>
 
               <div className="py-5 col text-center">
-                {isAuth() && (
-                  <h4 className="my-3">Hi {this.props.userName} !</h4>
+                {userName !== null && (
+                  <h4 className="my-3">Hi {userName} !</h4>
                 )}
                 <h1 className="my-5">Plan your trip</h1>
                 <h2>
