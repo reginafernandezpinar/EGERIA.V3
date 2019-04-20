@@ -60,12 +60,48 @@ export function tripReducer(state = initialTripState, action) {
         }
       };
 
+    // -----------------------------TRIP CRUD REDUCERS---------------------------
+    case 'GET_USER_TRIPS_LOADING':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: true }
+    };
+  case 'GET_USER_TRIPS_SUCCESS':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: false, list: action.payload }
+    };
+  case 'GET_USER_TRIPS_ERROR':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: false, error: action.payload }
+    };
+
+
+
+    case 'CREATE_TRIP_LOADING':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: true }
+    };
+  case 'CREATE_TRIP_SUCCESS':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: false, list: [...state.mytrips.list, action.payload] }
+    };
+  case 'CREATE_TRIP_ERROR':
+    return {
+      ...state,
+      mytrips: { ...state.mytrips, loading: false, error: action.payload }
+    };
+
+
     default:
       return state;
   }
 }
 
 
-
+//const removeTripById = id => trips.splice(trips.findIndex(trip => trip.id == id), 1)
 
 // every reducer will return a discrete property of the state, regardless of how many conditions are inside that reducer.

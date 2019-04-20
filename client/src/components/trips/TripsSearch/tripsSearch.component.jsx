@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import { searchTrip } from "../../../tools/fuse-search";
 
@@ -43,10 +44,13 @@ class TripsSearch extends Component {
                         search
                     </button>
                 </div>
-                <button type="button" className="btn btn-outline-info ml-3">
+                <button
+                    className="btn btn-outline-info ml-3"
+                    onClick={() => this.props.history.push('/mytrips')}
+                >
                     My trips
                 </button>
-                <button type="button" className="btn btn-outline-info ml-3">
+                <button className="btn btn-outline-info ml-3">
                     Start a trip
                 </button>
             </div>
@@ -54,5 +58,5 @@ class TripsSearch extends Component {
     }
 }
 
-export default TripsSearch;
+export default withRouter(TripsSearch);
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import {
   Carousel,
@@ -85,8 +86,8 @@ class CarouselTrip extends Component {
                     }}
                   />
                   <CarouselCaption
-                    captionText={trip.name}
-                    captionHeader={trip.category}
+                    captionText={<Link to={`/trip/${trip.id}`}>{trip.name}</Link>}
+                    captionHeader={<Link to={`/category/${trip.category}`}>{trip.category}</Link>}
                     className="card-img-overlay"
                   />
                 </CarouselItem>

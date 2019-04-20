@@ -14,5 +14,17 @@ export const initialTripState = {
   },
   search: {
     results: []
+  },
+  mytrips: {
+    list: [],
+    loading: false,
+    error: null,
+    selected: null,
+    trackpoints: {
+      list: [],
+      loading: false,
+      error: null,
+      selected: null
+    }
   }
 };

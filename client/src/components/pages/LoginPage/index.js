@@ -8,12 +8,10 @@ import LoginPage from './loginPage.component';
 import { loginUser } from '../../../models/actions/user.actions';
 
 // Add Redux State to Component props
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     loading: state.user.loading,
     loginSuccessful: state.user.loginSuccessful
-  };
-};
+});
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 

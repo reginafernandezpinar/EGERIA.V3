@@ -86,8 +86,6 @@ export const whoAmI = token => dispatch => {
         });
 };
 
-// falta reducer del whoAmI
-
 
 
 // -------------------------  USER LOGOUT -----------------------

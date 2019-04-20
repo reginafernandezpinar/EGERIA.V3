@@ -40,7 +40,6 @@ function getUserTrips (req, res) {
 }
 // Create new trip 
 function save(req, res) {
-    console.log('save req.body', req.body);
     const trip = req.body;
     const userId = req.user.id;
     tripModel.save(trip, userId, (err, result) => {

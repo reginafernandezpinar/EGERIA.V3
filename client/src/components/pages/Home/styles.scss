@@ -6,6 +6,10 @@
   display: flex;
   margin-bottom: 5rem;
 
+  a {
+    text-decoration: none;
+  }
+
   .video-container {
     width: 100%;
     height: calc(100% + 60px);
@@ -24,9 +28,7 @@
     }
 
     .filter {
-        // background-color: #cccccc;
         background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
-        // opacity: 0.8;
         height: 100%;
         width: 100%;
         position: absolute;
@@ -77,17 +79,25 @@
       //   left: 105%
       // }
     }
+
+    .carousel-caption {
+      a {
+        color: white;
+        cursor: pointer;
+      }
+    }
   }
 }
 
 // ========= CATEGORIES SECTION
 .card {
+  
+  &:hover {
+    cursor: pointer;
+  }
+
   &.category-image {
     border:none;
-
-    &:hover {
-    
-    }
   }
 }
 .category-image {
