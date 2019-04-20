@@ -26,7 +26,8 @@ class MyTripsPage extends Component {
         super(props);
 
         this.state = {
-            selectedTripId: null
+            selectedTripId: null,
+            tripMode: 'new'
         };
 
         // Bindings
@@ -46,12 +47,16 @@ class MyTripsPage extends Component {
     }
 
     handleOnSelect(row) {
-        this.setState({ selectedTripId: row.id });
+        this.setState({
+            selectedTripId: row.id,
+            tripMode: 'update'
+        });
         this.props.setSelectedTrip(row);
     }
 
     render() {
         const { trips } = this.props;
+        const { tripMode } = this.state;
         const selectRow = {
             mode: 'radio',
             clickToSelect: true,
@@ -74,12 +79,15 @@ class MyTripsPage extends Component {
                             }
                         </div>
                         <div className="button-container">
-                            <button onClick={() => this.props.setSelectedTrip({})}>
+                            <button onClick={() => {
+                                this.setState({ tripMode: 'new' });
+                                this.props.setSelectedTrip({}); 
+                            }}>
                                 New Trip
                             </button>
                         </div>
                         <div>
-                            <TripForm />
+                            <TripForm mode={tripMode} />
                         </div>
                     </div>
                 </div>

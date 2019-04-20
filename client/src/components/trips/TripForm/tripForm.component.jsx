@@ -45,18 +45,32 @@ class TripForm extends React.Component {
     }
 
     handleSubmit = (e) => {
+        const { mode, token } = this.props;
+        const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;
         e.preventDefault();
+        
+        if (mode === 'new') {
+            this.props.createTrip(token, { 
+                name,
+                description,
+                photo,
+                companionship,
+                category,
+                distance,
+                starting_point: startingPoint,
+                destination_point: destinationPoint
+            });
+        } else if (mode === 'update') {
 
-
+        }
     }
 
     render() {
-        const { loading } = this.props;
+        const { loading, mode } = this.props;
         const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;        
 
         return (
             <div className="">
-
                 <Form>
                     <FormGroup>
                         <Label for="tripName">Name</Label>
@@ -102,10 +116,11 @@ class TripForm extends React.Component {
                         <Label for="tripPhoto">Photo</Label>
                         <Input type="text" name="photo" id="tripPhoto" placeholder="Trip photo" onChange={this.handleChange} value={photo} />
                     </FormGroup>
-                    <Button onClick={this.handleSubmit}>Submit</Button>
-                    {loading && <p>Loading...</p>}
+                    <Button onClick={this.handleSubmit}>
+                        {mode === 'new' && 'Create trip'}
+                        {mode === 'update' && 'Update trip'}
+                    </Button>
                 </Form>
-
             </div>
         );
     }

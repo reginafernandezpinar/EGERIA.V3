@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toastr } from "react-redux-toastr";
 
 
 // ======================= API TRIPS ENDPOINTS ================================
@@ -132,6 +133,7 @@ export const createTrip = (token, trip) => dispatch => {
   })
   .then( (response) => {
       dispatch(createTripSuccess(response.data));
+      toastr.success('A new trip has been successfully created!');
   })
   .catch(error => {
       dispatch(createTripError(error));

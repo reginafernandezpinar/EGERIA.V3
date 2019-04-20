@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 // Import global resources
 import landingVideo from "../../../assets/videos/sea.mp4";
-import image360 from "../../../assets/img/360Image.jpg";
 
 // Import Components
 import CarouselTrip from "../../trips/CarouselTrip";
