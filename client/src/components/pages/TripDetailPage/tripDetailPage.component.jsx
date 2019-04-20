@@ -21,8 +21,8 @@ class TripDetailPage extends Component {
     return (
       <MainLayout>
         <div className="trip-detail-page"  style={{ "background-image": `url(${mapImage})` }}>
-          <div className="container">
-            <TripDetail/>
+          <div className="container-fluid">
+              <TripDetail/>
           </div>
         </div>
       </MainLayout>

@@ -81,6 +81,15 @@
 }
 
 // ========= CATEGORIES SECTION
+.card {
+  &.category-image {
+    border:none;
+
+    &:hover {
+    
+    }
+  }
+}
 .category-image {
   background-repeat: no-repeat;
   background-position: center;
