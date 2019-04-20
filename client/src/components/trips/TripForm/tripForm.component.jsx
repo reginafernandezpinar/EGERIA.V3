@@ -6,20 +6,34 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 class TripForm extends React.Component {
     constructor(props) {
         super(props);
+        const { trip } = props;
         this.state = {
-            name: '',
-            description: '',
-            companionship: '',
-            category: '',
-            startingPoint: '',
-            destionationPoint: '',
-            photo: '',
-            distance: 0
+            name: trip.name,
+            description: trip.description,
+            companionship: trip.companionship,
+            category: trip.category,
+            startingPoint: trip.starting_point,
+            destinationPoint: trip.destination_point,
+            photo: trip.photo,
+            distance: trip.distance
         };
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) {                
+        if (prevProps.trip !== this.props.trip) {
+            const { trip } = this.props;
 
+            this.setState({
+                name: trip.name || '',
+                description: trip.description || '',
+                companionship: trip.companionship || '',
+                category: trip.category || '',
+                startingPoint: trip.starting_point || '',
+                destinationPoint: trip.destination_point || '',
+                photo: trip.photo || '',
+                distance: trip.distance || ''
+            });
+        }
     }
 
     handleChange = event => {
@@ -38,6 +52,7 @@ class TripForm extends React.Component {
 
     render() {
         const { loading } = this.props;
+        const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;        
 
         return (
             <div className="">
@@ -45,15 +60,15 @@ class TripForm extends React.Component {
                 <Form>
                     <FormGroup>
                         <Label for="tripName">Name</Label>
-                        <Input type="text" name="name" id="tripName" placeholder="Trip name" onChange={this.handleChange} />
+                        <Input type="text" name="name" id="tripName" placeholder="Trip name" onChange={this.handleChange} value={name} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripName">Description</Label>
-                        <Input type="textarea" name="description" id="tripDescription" placeholder="Trip description" onChange={this.handleChange} />
+                        <Input type="textarea" name="description" id="tripDescription" placeholder="Trip description" onChange={this.handleChange} value={description} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripCategory">Category</Label>
-                        <Input type="select" name="category" id="tripCategory" placeholder="Trip category" onChange={this.handleChange}>
+                        <Input type="select" name="category" id="tripCategory" placeholder="Trip category" onChange={this.handleChange} value={category}>
                             <option value="gastro">Gastro</option>
                             <option value="family">Family</option>
                             <option value="monumental">Monumental</option>
@@ -64,7 +79,7 @@ class TripForm extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripCompanionship">companionship</Label>
-                        <Input type="select" name="companionship" id="tripCompanionship" placeholder="Trip companionship" onChange={this.handleChange}>
+                        <Input type="select" name="companionship" id="tripCompanionship" placeholder="Trip companionship" onChange={this.handleChange} value={companionship}>
                             <option value="couple">Couple</option>
                             <option value="family">Family</option>
                             <option value="friends">Friends</option>
@@ -73,19 +88,19 @@ class TripForm extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripStartingPoint">Starting Point</Label>
-                        <Input type="text" name="starting_point" id="tripStartingPoint" placeholder="Trip starting point" onChange={this.handleChange} />
+                        <Input type="text" name="starting_point" id="tripStartingPoint" placeholder="Trip starting point" onChange={this.handleChange} value={startingPoint} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="tripDestinationPoint">Starting Point</Label>
-                        <Input type="text" name="destination_point" id="tripDestinationPoint" placeholder="Trip destination point" onChange={this.handleChange} />
+                        <Label for="tripDestinationPoint">Destination Point</Label>
+                        <Input type="text" name="destination_point" id="tripDestinationPoint" placeholder="Trip destination point" onChange={this.handleChange} value={destinationPoint} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="tripDistance">Starting Point</Label>
-                        <Input type="text" name="distance" id="tripDistance" placeholder="Trip distance" onChange={this.handleChange} />
+                        <Label for="tripDistance">Distance</Label>
+                        <Input type="text" name="distance" id="tripDistance" placeholder="Trip distance" onChange={this.handleChange} value={distance}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripPhoto">Photo</Label>
-                        <Input type="text" name="photo" id="tripPhoto" placeholder="Trip photo" onChange={this.handleChange} />
+                        <Input type="text" name="photo" id="tripPhoto" placeholder="Trip photo" onChange={this.handleChange} value={photo} />
                     </FormGroup>
                     <Button onClick={this.handleSubmit}>Submit</Button>
                     {loading && <p>Loading...</p>}

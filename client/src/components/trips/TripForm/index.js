@@ -6,6 +6,7 @@ import TripForm from './tripForm.component';
 
 // Add Redux State to Component props
 const mapStateToProps = (state) => ({
+    trip: state.trips.mytrips.selected
 });
 
 

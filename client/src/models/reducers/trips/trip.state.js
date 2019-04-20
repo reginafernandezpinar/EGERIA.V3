@@ -19,12 +19,16 @@ export const initialTripState = {
     list: [],
     loading: false,
     error: null,
-    selected: null,
+    selected: {
+      
+    },
     trackpoints: {
       list: [],
       loading: false,
       error: null,
-      selected: null
+      selected: {
+        
+      }
     }
   }
 };

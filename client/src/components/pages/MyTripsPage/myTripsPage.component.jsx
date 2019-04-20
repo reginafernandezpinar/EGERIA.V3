@@ -33,14 +33,21 @@ class MyTripsPage extends Component {
         this.handleOnSelect = this.handleOnSelect.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.user.token) {
+            this.props.getUserTrips(this.props.user.token);
+        }
+    }
+
     componentDidUpdate(prevProps) {
         if (!prevProps.user.token && this.props.user.token) {
             this.props.getUserTrips(this.props.user.token);
         }
     }
 
-    handleOnSelect(row, isSelect) {
+    handleOnSelect(row) {
         this.setState({ selectedTripId: row.id });
+        this.props.setSelectedTrip(row);
     }
 
     render() {
@@ -58,13 +65,18 @@ class MyTripsPage extends Component {
             <MainLayout>
                 <div className="my-trips-page">
                     <div className="container-fluid">
-                        <div>
+                        <div className="trips-table">
                             {trips.length > 0 &&
                                 <BootstrapTable keyField="id"
                                     data={trips}
                                     columns={columns}
                                     selectRow={selectRow} />
                             }
+                        </div>
+                        <div className="button-container">
+                            <button onClick={() => this.props.setSelectedTrip({})}>
+                                New Trip
+                            </button>
                         </div>
                         <div>
                             <TripForm />

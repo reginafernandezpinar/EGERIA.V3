@@ -59,41 +59,49 @@ export function tripReducer(state = initialTripState, action) {
           results: action.payload
         }
       };
+    case 'SET_SELECTED_TRIP':
+      return {
+        ...state,
+        mytrips: {
+          ...state.mytrips,
+          selected: action.payload
+        }
+      };
 
     // -----------------------------TRIP CRUD REDUCERS---------------------------
     case 'GET_USER_TRIPS_LOADING':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: true }
-    };
-  case 'GET_USER_TRIPS_SUCCESS':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: false, list: action.payload }
-    };
-  case 'GET_USER_TRIPS_ERROR':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: false, error: action.payload }
-    };
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: true }
+      };
+    case 'GET_USER_TRIPS_SUCCESS':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, list: action.payload }
+      };
+    case 'GET_USER_TRIPS_ERROR':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, error: action.payload }
+      };
 
 
 
     case 'CREATE_TRIP_LOADING':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: true }
-    };
-  case 'CREATE_TRIP_SUCCESS':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: false, list: [...state.mytrips.list, action.payload] }
-    };
-  case 'CREATE_TRIP_ERROR':
-    return {
-      ...state,
-      mytrips: { ...state.mytrips, loading: false, error: action.payload }
-    };
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: true }
+      };
+    case 'CREATE_TRIP_SUCCESS':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, list: [...state.mytrips.list, action.payload] }
+      };
+    case 'CREATE_TRIP_ERROR':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, error: action.payload }
+      };
 
 
     default:

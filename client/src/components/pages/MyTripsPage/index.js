@@ -5,14 +5,15 @@ import { withRouter } from 'react-router-dom';
 import MyTripsPage from './myTripsPage.component';
 
 // Import action creator
-import { createTrip, deleteTrip, updateTrip, getUserTrips } from '../../../models/actions/trip.actions';
+import { createTrip, deleteTrip, updateTrip, getUserTrips, setSelectedTrip } from '../../../models/actions/trip.actions';
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = {
     createTrip,
     deleteTrip,
     updateTrip,
-    getUserTrips
+    getUserTrips,
+    setSelectedTrip
 };
 
 // Add Redux map state to props

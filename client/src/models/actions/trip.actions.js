@@ -195,6 +195,7 @@ export const updateTrip = (trip, token, tripId) => dispatch => {
 };
 
 
+export const setSelectedTrip = payload => ({ payload, type: 'SET_SELECTED_TRIP' });
 
 
 
