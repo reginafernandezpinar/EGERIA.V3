@@ -199,6 +199,7 @@ export const updateTrip = (token, trip) => dispatch => {
 };
 
 
+// ------------- Select a trip action creator to use in UPDATE and DELETE TRIP
 export const setSelectedTrip = payload => ({ payload, type: 'SET_SELECTED_TRIP' });
 
 

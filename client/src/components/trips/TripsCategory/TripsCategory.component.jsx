@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+// Import Component
 import TripCard from '../TripCard/tripCard.component';
 
 class TripsCategory extends Component {

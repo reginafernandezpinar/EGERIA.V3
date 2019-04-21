@@ -1,4 +1,6 @@
+// Import Fuse Liibrary
 import Fuse from 'fuse.js';
+
 
 const options = {
     keys: ['name', 'description', 'category'],

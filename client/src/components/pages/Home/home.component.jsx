@@ -25,6 +25,7 @@ class Home extends React.Component {
     return (
       <MainLayout>
         <main>
+
           {/* LANDING SECTION */}
           <div className="landing-container">
 
@@ -67,6 +68,7 @@ class Home extends React.Component {
           <div className="container p-0 mt-5">
             <Categories />
           </div>
+          
         </main>
 
       </MainLayout>

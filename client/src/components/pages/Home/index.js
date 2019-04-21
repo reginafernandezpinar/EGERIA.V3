@@ -29,20 +29,19 @@ export default connect(
 
 
 /*
-1 param. mapsStateToProps ==> Function that accepts state
+1st param. mapsStateToProps ==> Function that accepts state
 map Redux's state and returns an object of props that are connected as comp props.
-(esto va al payload)
+(this is what we called payload)
 Prop de lectura
 
-2 param. mapDispatchToProps ==> Object of action creators
+2nd param. mapDispatchToProps ==> Object of action creators
 map the dispatching of our action creators to component props. Conecta la prop del comp a la accion(objeto): {getAllTrips} en este caso
 Prop de escritura
 */
 
 
 
-
 /*
-Source files for the react-redux's mapDispatchToProps.js which is used in connect,
+There´s no need to use 'bindCreators': Source files for the react-redux's mapDispatchToProps.js which is used in connect,
 internally use bindActionCreators.
 */

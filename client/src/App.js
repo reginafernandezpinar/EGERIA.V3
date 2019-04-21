@@ -13,6 +13,7 @@ import TripDetailPage from './components/pages/TripDetailPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import MyTripsPage from "./components/pages/MyTripsPage";
+import SearchPage from "./components/pages/SearchPage";
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +34,7 @@ class App extends Component {
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               <Route path="/mytrips" component={MyTripsPage} />
+              <Route path="/search" component={SearchPage} />
             </Switch>
           </Router>
           <ReduxToastr

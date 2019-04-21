@@ -52,6 +52,8 @@ export function tripReducer(state = initialTripState, action) {
         ...state,
         category: { ...state.category, loading: false, error: action.payload }
       };
+
+    // ================== SEARCH TRIP REDUCER  ==================
     case 'SET_SEARCH_TRIP_RESULTS':
       return {
         ...state,
@@ -59,6 +61,8 @@ export function tripReducer(state = initialTripState, action) {
           results: action.payload
         }
       };
+
+    // ========= SELECTED TRIP ==============  
     case 'SET_SELECTED_TRIP':
       return {
         ...state,
@@ -68,7 +72,8 @@ export function tripReducer(state = initialTripState, action) {
         }
       };
 
-    // -----------------------------TRIP CRUD REDUCERS---------------------------
+    // ==================  TRIP CRUD REDUCERS  ==================
+
     case 'GET_USER_TRIPS_LOADING':
       return {
         ...state,
