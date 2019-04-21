@@ -9,6 +9,7 @@ import CarouselTrip from "../../trips/CarouselTrip";
 import Categories from "../../trips/Categories";
 import MainLayout from "../../layout/MainLayout";
 import TripsSearch from "../../trips/TripsSearch";
+import TripsGlobe from "../../trips/TripsGlobe";
 
 // Import styles
 import "./styles.scss";
@@ -48,6 +49,11 @@ class Home extends React.Component {
             <div className="homepage-search">
               <TripsSearch />
             </div>
+          </div>
+
+          {/* GLOBE SECTION */}
+          <div className="">
+            <TripsGlobe />
           </div>
 
           {/* CAROUSEL SECTION */}
