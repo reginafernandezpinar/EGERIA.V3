@@ -25,16 +25,26 @@ class TripsGlobe extends Component {
             sceneModePicker: false,
             baseLayerPicker: false,
             navigationHelpButton: false,
-            animation: false
+            animation: false,
+            targetFrameRate: 24,
+            alpha : true,
+            fullscreenButton: false
         }
+
+        // We need to do all this to get rid of the default black background
         this.viewer = new Cesium.Viewer('cesiumContainer', globeOptions );
+        this.viewer.scene.skyBox.destroy();
+        this.viewer.scene.skyBox = undefined;
+        this.viewer.scene.sun.destroy();
+        this.viewer.scene.sun = undefined;
+        this.viewer.scene.skyAtmosphere.destroy();
+        this.viewer.scene.skyAtmosphere = undefined;
+        this.viewer.scene.backgroundColor = new Cesium.Color(255,255,255,0);
     }
     
     render() {
         return (
-            <div id='cesiumContainer' className="trips-globe">
-                
-            </div>
+            <div id='cesiumContainer' className="trips-globe" />
         );
     }
 }

@@ -47,12 +47,15 @@ class Home extends React.Component {
             </div>
 
             <div className="homepage-search">
-              <TripsSearch />
+              <TripsSearch showTripButtons={true} redirectToSearchPage={true} />
             </div>
           </div>
 
           {/* GLOBE SECTION */}
-          <div className="">
+          <div className="globe-section">
+            <div className="section-title">
+              <h2>Explore the world</h2>
+            </div>
             <TripsGlobe />
           </div>
 
@@ -74,7 +77,7 @@ class Home extends React.Component {
           <div className="container p-0 mt-5">
             <Categories />
           </div>
-          
+
         </main>
 
       </MainLayout>

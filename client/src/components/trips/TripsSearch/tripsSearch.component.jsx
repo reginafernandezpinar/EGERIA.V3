@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { toastr } from "react-redux-toastr";
+import PropTypes from 'prop-types';
 
 // Import global resources
 import { searchTrip } from "../../../tools/fuse-search";
@@ -14,17 +14,21 @@ class TripsSearch extends Component {
             searchText: ''
         };
     }
-    
+
     searchTrips = () => {
+        const { redirectToSearchPage } = this.props;
         // We search in trips list any match with the input text
         const search = searchTrip(this.props.trips, this.state.searchText);
         // Dispatch the search results to redux store
         this.props.setSearchTripResults(search);
         // Now we redirect to the search results page
-        this.props.history.push('/search');
+        if (redirectToSearchPage) {
+            this.props.history.push('/search');
+        }
     }
 
     render() {
+        const { showTripButtons } = this.props;
         return (
             <div className="input-group mb-3">
                 <input
@@ -46,18 +50,27 @@ class TripsSearch extends Component {
                         search
                     </button>
                 </div>
-                <button
-                    className="btn btn-outline-info ml-3"
-                    onClick={() => this.props.history.push('/mytrips')}
-                >
-                    My trips
-                </button>
-                <button className="btn btn-outline-info ml-3">
-                    Start a trip
-                </button>
+                {showTripButtons &&
+                    <button
+                        className="btn btn-outline-info ml-3"
+                        onClick={() => this.props.history.push('/mytrips')}
+                    >
+                        My trips
+                    </button>
+                }
+                {showTripButtons &&
+                    <button className="btn btn-outline-info ml-3">
+                        Start a trip
+                    </button>
+                }
             </div>
         );
     }
+}
+
+TripsSearch.propTypes = {
+    showTripButtons: PropTypes.bool,
+    redirectToSearchPage: PropTypes.bool
 }
 
 export default withRouter(TripsSearch);
