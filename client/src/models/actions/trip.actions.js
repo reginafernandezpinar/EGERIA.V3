@@ -160,11 +160,12 @@ export const deleteTrip = (token, tripId) => dispatch => {
     }
   })
   .then( () => {
-      dispatch(deleteTripSuccess());
-
+      dispatch(deleteTripSuccess(tripId));
+      toastr.success('Trip removed successfully!');
   })
   .catch(error => {
       dispatch(deleteTripError(error));
+      toastr.error('There was an error with the request');
   });
 };
 
@@ -176,23 +177,24 @@ export const updateTripLoading = payload => ({ payload, type: 'UPDATE_TRIP_LOADI
 export const updateTripError = payload => ({ payload, type: 'UPDATE_TRIP_ERROR' });
 
 // THUNK
-export const updateTrip = (trip, token, tripId) => dispatch => {
+export const updateTrip = (token, trip) => dispatch => {
   dispatch(updateTripLoading());
   //Axios request:
   axios({
     method: 'patch',
-    url: `${API_BASE_URL}${API_DELETEorUPDATE_TRIP_URL}${tripId}`,
+    url: `${API_BASE_URL}${API_DELETEorUPDATE_TRIP_URL}${trip.id}`,
     data: trip,
     headers: {
       Authorization: token
     }
   })
-  .then( () => {
-      dispatch(updateTripSuccess());
-
+  .then( (response) => {
+      toastr.success('Trip updated successfully!');
+      dispatch(updateTripSuccess(trip));
   })
   .catch(error => {
       dispatch(updateTripError(error));
+      toastr.error('There was a problem with the request');
   });
 };
 

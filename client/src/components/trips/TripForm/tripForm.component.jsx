@@ -1,5 +1,6 @@
 // Import libraries
 import React from 'react';
+import { toastr } from "react-redux-toastr";
 import { withRouter } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
@@ -15,7 +16,8 @@ class TripForm extends React.Component {
             startingPoint: trip.starting_point,
             destinationPoint: trip.destination_point,
             photo: trip.photo,
-            distance: trip.distance
+            distance: trip.distance,
+            id: trip.id
         };
     }
 
@@ -31,7 +33,8 @@ class TripForm extends React.Component {
                 startingPoint: trip.starting_point || '',
                 destinationPoint: trip.destination_point || '',
                 photo: trip.photo || '',
-                distance: trip.distance || ''
+                distance: trip.distance || '',
+                id: trip.id
             });
         }
     }
@@ -46,7 +49,7 @@ class TripForm extends React.Component {
 
     handleSubmit = (e) => {
         const { mode, token } = this.props;
-        const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;
+        const { id, name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;
         e.preventDefault();
         
         if (mode === 'new') {
@@ -58,11 +61,32 @@ class TripForm extends React.Component {
                 category,
                 distance,
                 starting_point: startingPoint,
-                destination_point: destinationPoint
+                destination_point: destinationPoint,
+                public: 1
             });
         } else if (mode === 'update') {
-
+            this.props.updateTrip(token, { 
+                name,
+                description,
+                photo,
+                companionship,
+                category,
+                distance,
+                starting_point: startingPoint,
+                destination_point: destinationPoint,
+                public: 1,
+                id
+            });
         }
+    }
+
+    handleDeleteTrip = (e) => {
+        const { token } = this.props;
+        const { id, name } = this.state;
+        toastr.confirm(`Are you sure you want to remove the trip with name: ${name}?`, { 
+            onOk: () => this.props.deleteTrip(token, id)
+        });
+
     }
 
     render() {
@@ -120,6 +144,11 @@ class TripForm extends React.Component {
                         {mode === 'new' && 'Create trip'}
                         {mode === 'update' && 'Update trip'}
                     </Button>
+                    {mode === 'update' &&
+                        <Button onClick={this.handleDeleteTrip}>
+                            Delete trip
+                        </Button>
+                    }
                 </Form>
             </div>
         );

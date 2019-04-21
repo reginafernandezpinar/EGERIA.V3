@@ -85,7 +85,7 @@ export function tripReducer(state = initialTripState, action) {
         mytrips: { ...state.mytrips, loading: false, error: action.payload }
       };
 
-
+    // ---------------- CREATE ---------
 
     case 'CREATE_TRIP_LOADING':
       return {
@@ -103,6 +103,44 @@ export function tripReducer(state = initialTripState, action) {
         mytrips: { ...state.mytrips, loading: false, error: action.payload }
       };
 
+    // ---------------- UPDATE ---------
+
+    case 'UPDATE_TRIP_LOADING':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: true }
+      };
+    case 'UPDATE_TRIP_SUCCESS':
+      const array = state.mytrips.list;
+      const elementIndex = array.findIndex((elem) => elem.id === action.payload.id);
+      const newArray = [...array];
+      newArray[elementIndex] = action.payload;
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, list: newArray }
+      };
+    case 'UPDATE_TRIP_ERROR':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, error: action.payload }
+      };
+
+    // ---------------- DELETE ---------
+    case 'DELETE_TRIP_LOADING':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: true }
+      };
+    case 'DELETE_TRIP_SUCCESS':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, list: state.mytrips.list.filter(e => e.id !== action.payload) }
+      };
+    case 'DELETE_TRIP_ERROR':
+      return {
+        ...state,
+        mytrips: { ...state.mytrips, loading: false, error: action.payload }
+      };
 
     default:
       return state;

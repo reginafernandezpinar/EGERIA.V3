@@ -81,7 +81,7 @@ class MyTripsPage extends Component {
                         <div className="button-container">
                             <button onClick={() => {
                                 this.setState({ tripMode: 'new' });
-                                this.props.setSelectedTrip({}); 
+                                this.props.setSelectedTrip({ category: 'gastro', companionship: 'couple' }); // These two are added so that they have a selection by default 
                             }}>
                                 New Trip
                             </button>

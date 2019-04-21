@@ -42,7 +42,7 @@ class Header extends React.Component {
                   </Link>
                 )}
                 {isAuthenticated && (
-                  <a className="nav-link" href="/" onClick={() => this.props.logoutUser() }>
+                  <a className="nav-link" href="/" onClick={() => this.props.logoutUser()}>
                     Logout
                   </a>
                 )}
@@ -54,11 +54,13 @@ class Header extends React.Component {
                   </Link>
                 </NavItem>
               )}
-              <NavItem>
-                <NavLink href="https://reactstrap.github.io/components/navbar/">
-                  navbar
-                </NavLink>
-              </NavItem>
+              {isAuthenticated && (
+                <NavItem>
+                  <Link className="nav-link" to="/mytrips">
+                    My trips
+                </Link>
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </nav>
