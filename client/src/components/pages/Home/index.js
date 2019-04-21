@@ -6,18 +6,21 @@ import Home from './home.component';
 // Import action creator
 import { getAllTrips } from '../../../models/actions/trip.actions';
 import { getCategories } from '../../../models/actions/categories.actions';
+import { getAllTrackpoints } from '../../../models/actions/trackpoints.actions';
 
 
 // Add Redux State to Component props
 const mapStateToProps = state => ({
   userName: state.user.name,
-  trips: state.trips.list
+  trips: state.trips.list,
+  trackpoints: state.trackpoints.list
 });
 
 // Add Redux dispatch to Component props
 const mapDispatchToProps = { 
   getAllTrips,
-  getCategories 
+  getCategories,
+  getAllTrackpoints
 };
 
 export default connect(

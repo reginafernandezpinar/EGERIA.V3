@@ -2,15 +2,11 @@ export const initialTrackpointState = {
     list: [],
     loading: false,
     error: null,
-    tripId: {
+    tripTrackpoints: {
+        tripId: null,
         loading: false,
         error: null,
         list: []
-    },
-    category: {
-      loading: false,
-      error: null,
-      list: []
     },
     selected: {
       loading: false,

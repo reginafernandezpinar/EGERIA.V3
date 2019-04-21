@@ -8,7 +8,7 @@ import TripsGlobe from './tripsGlobe.component';
 
 // Add Redux State to Component props
 const mapStateToProps = state => ({
-   
+   trackpoints: state.trackpoints.list
 });
 
 // Add Redux dispatch to Component props

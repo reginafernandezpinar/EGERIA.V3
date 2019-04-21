@@ -18,6 +18,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.getAllTrips();
+    this.props.getAllTrackpoints();
     this.props.getCategories();
   }
 

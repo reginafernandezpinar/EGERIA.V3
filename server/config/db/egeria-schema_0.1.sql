@@ -24,8 +24,8 @@ CREATE TABLE trip (
     category VARCHAR(11) NOT NULL, -- monumental, nature, gastro, rural, urban, family, relax
     starting_point VARCHAR (50) NOT NULL,
     destination_point VARCHAR(50) NOT NULL,
-    distance FLOAT (10, 2) NOT NULL, -- num de km
-    photo VARCHAR(200) null, -- url
+    distance FLOAT (30, 10) NOT NULL, -- num de km
+    photo TEXT null, -- url
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
     FOREIGN KEY user_fk(user_id) REFERENCES user(id)
@@ -36,10 +36,10 @@ CREATE TABLE trackpoint (
     id INT NOT NULL AUTO_INCREMENT,
     trip_id INT NOT NULL,
     name VARCHAR(500) NOT NULL,
-    lat INT NOT NULL,
-    lon INT NOT NULL,
+    lat FLOAT (30, 10) NOT NULL,
+    lon FLOAT (30, 10) NOT NULL,
     description TEXT NULL,
-    photo VARCHAR(200) NULL, -- url
+    photo TEXT NULL, -- url
     creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
     FOREIGN KEY trip_fk(trip_id) REFERENCES trip(id)
@@ -64,7 +64,7 @@ INSERT INTO trip (user_id, name, description, companionship, category, distance,
 
 
 -- ------------- TRACKPOINT DATA -----------------------------
-INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (1, 'San Pedro de Atacama', 'Church near San Pedro', -22.909339, -68.188493, 'https://news.southamerica.travel/wp-content/uploads/2016/11/Church-Near-San-Pedro.jpg', 'monument');
+INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (1, 'San Pedro de Atacama', 'Church near San Pedro', -22.909339, -68.188493, 'https://news.southamerica.travel/wp-content/uploads/2016/11/Church-Near-San-Pedro.jpg');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (1, 'Valle de la Luna', 'Sunset in Valle de la Luna', -22.922556, -68.298912, 'http://www.turistour.cl/img/fotos_atacama/valleluna-01-m.jpg');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (1, 'Geyser', 'Geyser near San Pedro de Atacama', -22.436964, -67.960372, 'http://www.sanpedrodeatacama.net/media/com_hikashop/upload/geyser01_85690000.jpg');
 INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (2, 'Piazza del Popolo', 'One of the most beautiful squares in central Rome',  41.910511, 12.476162, 'https://www.romasegreta.it/images/piazza-del-popolo.jpg');

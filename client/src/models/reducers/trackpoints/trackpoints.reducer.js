@@ -1,6 +1,6 @@
-import { initialTrackpointState } from './trackpoint.state';
+import { initialTrackpointState } from './trackpoints.state';
 
-export function trackpointReducer(state = initialTrackpointState, action) { 
+export function trackpointsReducer(state = initialTrackpointState, action) {
   switch (action.type) {
     case 'GET_ALL_TRACKPOINTS_LOADING':
       return {
@@ -21,20 +21,20 @@ export function trackpointReducer(state = initialTrackpointState, action) {
       };
 
 
-      case 'GET_ALL_TRACKPOINTS_BYTRIPID_LOADING':
+    case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_LOADING':
       return {
         ...state,
-        tripId: {...state.tripId, loading: true} 
+        tripId: { ...state.tripId, loading: true }
       };
-    case 'GET_ALL_TRACKPOINTS_BYTRIPID_SUCCESS':
+    case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_SUCCESS':
       return {
         ...state,
-        tripId: {...state.tripId, loading: false, list: action.payload } 
+        tripId: { ...state.tripId, loading: false, list: action.payload }
       };
-    case 'GET_ALL_TRACKPOINTS_BYTRIPID_ERROR':
+    case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_ERROR':
       return {
         ...state,
-        tripId: {...state.tripId, loading: false, error: action.payload }
+        tripId: { ...state.tripId, loading: false, error: action.payload }
       };
 
 

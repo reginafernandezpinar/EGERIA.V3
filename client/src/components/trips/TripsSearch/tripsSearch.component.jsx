@@ -23,7 +23,7 @@ class TripsSearch extends Component {
         this.props.setSearchTripResults(search);
         // Now we redirect to the search results page
         if (redirectToSearchPage) {
-
+            this.props.history.push('/search');
         }
     }
 

@@ -123,5 +123,19 @@
   .cesium-viewer-bottom {
     display: none;
   }
+  .cesium-infoBox-camera {
+    display: none;
+  }
+  .cesium-infoBox-visible {
+    display: none;
+  }
+
+  .cesium-infoBox-iframe {
+    min-height: 350px;
+
+    .infobox-image {
+      max-width: 150px;
+    }
+  }
 }
 
