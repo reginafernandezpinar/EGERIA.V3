@@ -27,10 +27,9 @@ class SearchPage extends React.Component {
         return (
             <MainLayout>
                 <div className="search-results-page" style={{ "background-image": `url(${mapImage})` }}>
-                    <div className="homepage-search">
+                    <div className="container homepage-search">
                         <TripsSearch showTripButtons={false} redirectToSearchPage={false} />
                     </div>
-                    <h1>Your Search Results</h1>
                     <div className='container'>
                         <div className='row'>
                             {
@@ -43,12 +42,11 @@ class SearchPage extends React.Component {
                                 })
                             }
                         </div>
-                    </div>
-                    <div>
-                        <h5>Still is not what you´re looking for? Try it again</h5>
+                        {searchResults.length === 0 &&
+                            <div>Sorry but your search didn't trigger any results...</div>
+                        }
                     </div>
                 </div>
-
             </MainLayout>
         );
     }

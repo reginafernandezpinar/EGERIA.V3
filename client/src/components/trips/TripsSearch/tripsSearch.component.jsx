@@ -23,7 +23,7 @@ class TripsSearch extends Component {
         this.props.setSearchTripResults(search);
         // Now we redirect to the search results page
         if (redirectToSearchPage) {
-            this.props.history.push('/search');
+
         }
     }
 
@@ -34,7 +34,6 @@ class TripsSearch extends Component {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="input your destination"
                     aria-label="Recipient's username"
                     aria-describedby="button-addon2"
                     onChange={(e) => this.setState({ searchText: e.target.value })}

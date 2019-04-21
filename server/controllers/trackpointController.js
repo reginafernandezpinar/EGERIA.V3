@@ -3,12 +3,11 @@ const trackpointModel = require("../models/trackpointModel");
 
 //=============== Trackpoints Public routes =====================
 
-// Get all trackpoints (by tripId/ by type / featured)
+// Get all trackpoints (by tripId / featured)
 function getAll (req, res) {
     const limit = req.query.limit;
     const tripId = req.query.tripId;
-    const type = req.query.type;
-    trackpointModel.getAll(limit, tripId, type, (err, result) => {
+    trackpointModel.getAll(limit, tripId, (err, result) => {
         if (err) res.send({message: 'something failed', error: err});
         res.send(result);
     });

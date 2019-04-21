@@ -3,20 +3,12 @@ const dbConn = require('../config/db/mysql');
 
 //=============== Trackpoints Public routes =====================
 
-// Get all trackpoints (by tripId/ by category / featured)
-const getAll = (limit, tripId, type, cb) => {
+// Get all trackpoints (by tripId / featured)
+const getAll = (limit, tripId, cb) => {
     let sql = `SELECT * FROM trackpoint`;
     // get all trips by tripId 
     if (tripId) {
         sql += ` WHERE trip_id = ${tripId}`;
-        if (type) {
-            sql += ` AND type = '${type}'`;
-        }
-    } else {
-        // get all trips by category
-        if (type) {
-            sql += ` WHERE type = '${type}'`;
-        }
     }
     // get featured trackpoints
     if (limit) {
