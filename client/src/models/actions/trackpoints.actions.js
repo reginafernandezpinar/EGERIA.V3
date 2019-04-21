@@ -72,6 +72,10 @@ export const getTrip = trackpointId => dispatch => {
     });
 };
 
+// ----------------------------- SET SELECTED TRACKPOINT --------------------------------
+export const setSelectedTrackpoint = payload => ({ payload, type: 'SET_SELECTED_TRACKPOINT' });
+
+
 // ======================= AXIOS REQUEST FUNCTION for getTrackpointsRequest() =============================
 
 function getTrackpointsRequest(filters = {}) {

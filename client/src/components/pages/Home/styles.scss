@@ -129,12 +129,37 @@
   .cesium-infoBox-visible {
     display: none;
   }
+  
+  .trips-globe {
+    position: relative;
 
-  .cesium-infoBox-iframe {
-    min-height: 350px;
+    .selected-trackpoint-container {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      min-height: 200px;
+      min-width: 200px;
+      max-height: 350px;
+      max-width: 300px;
+      background-color: grey;
+      border-width: 1px;
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
 
-    .infobox-image {
-      max-width: 150px;
+      .description-container {
+        max-height: 100px;
+        overflow: auto;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        overflow: auto;
+        img {
+          max-height: 150px;
+        }
+      }
     }
   }
 }

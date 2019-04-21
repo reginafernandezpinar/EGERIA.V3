@@ -11,6 +11,6 @@ export const initialTrackpointState = {
     selected: {
       loading: false,
       error: null,
-      trackpoint: {}
+      trackpoint: null
     },
 };

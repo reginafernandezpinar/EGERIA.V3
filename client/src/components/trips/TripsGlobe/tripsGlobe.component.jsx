@@ -46,20 +46,21 @@ class TripsGlobe extends Component {
         scene.skyAtmosphere = undefined;
         scene.backgroundColor = new Cesium.Color(255, 255, 255, 0);
 
+        console.log('this', this);
+
         // Interaction with entities from the globe (markers)
         let handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-        handler.setInputAction(function (movement) {
-            var pickedObject = scene.pick(movement.position);
+        handler.setInputAction((movement) => {
+            let pickedObject = scene.pick(movement.position);
             if (Cesium.defined(pickedObject)) {
-                console.log('click object', pickedObject.id.name);
-                
+                // Dispatch action to select trackpoint
+                this.props.setSelectedTrackpoint(pickedObject.id.name);
+
             }
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     }
 
     componentDidUpdate(prevProps) {
-        console.log('prevProps', prevProps, 'this.props', this.props);
-
         if (prevProps.trackpoints.length === 0 && this.props.trackpoints.length !== 0) {
             this.createMarkers();
         }
@@ -73,14 +74,10 @@ class TripsGlobe extends Component {
             let marker = this.viewer.entities.add({
                 position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
                 point: {
-                    pixelSize: 20
+                    pixelSize: 20,
+                    color: Cesium.Color.RED
                 },
-                name: trackpoint.id,
-                billboard: {
-                    image: trackpoint.photo,
-                    width: 60,
-                    height: 40
-                }
+                name: trackpoint.id
             });
             // billboards.add({
             //     position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
@@ -94,8 +91,26 @@ class TripsGlobe extends Component {
     }
 
     render() {
+        const { selectedTrackpoint } = this.props;
         return (
-            <div id='cesiumContainer' className="trips-globe" />
+            <div className="trips-globe">
+                <div id='cesiumContainer' className="trips-globe">
+                </div>
+                {selectedTrackpoint &&
+                    <div
+                        className="selected-trackpoint-container"
+                        onClick={() => this.props.history.push(`/trip/${selectedTrackpoint.trip_id}`)}
+                    >
+                        <h5>{selectedTrackpoint.name}</h5>
+                        <div className="description-container">
+                            <p>{selectedTrackpoint.description}</p>
+                        </div>
+                        <div className="image-container">
+                            <img src={selectedTrackpoint.photo} />
+                        </div>
+                    </div>
+                }
+            </div>
         );
     }
 }

@@ -54,21 +54,13 @@ export function trackpointsReducer(state = initialTrackpointState, action) {
         selected: { ...state.selected, loading: false, error: action.payload }
       };
 
-
-    case 'GET_TRACKPOINTS_CATEGORY_LOADING':
+    case 'SET_SELECTED_TRACKPOINT':
       return {
         ...state,
-        category: { ...state.type, loading: true }
-      };
-    case 'GET_TRACKPOINTS_CATEGORY_SUCCESS':
-      return {
-        ...state,
-        category: { ...state.category, loading: false, list: action.payload }
-      };
-    case 'GET_TRACKPOINTS_CATEGORY_ERROR':
-      return {
-        ...state,
-        category: { ...state.category, loading: false, error: action.payload }
+        selected: {
+          ...state.selected,
+          trackpoint: state.list.find(e => e.id === action.payload)
+        } 
       };
 
     default:
