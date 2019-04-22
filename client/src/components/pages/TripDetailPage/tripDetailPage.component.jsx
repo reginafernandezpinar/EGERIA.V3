@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Import components
+import TripTrackpoints from '../../trackpoints/TripTrackpoints';
 import TripDetail from '../../trips/TripDetail';
 import MainLayout from '../../layout/MainLayout';
 
@@ -22,9 +23,7 @@ class TripDetailPage extends Component {
       <MainLayout>
         <div className="trip-detail-page" >
             <TripDetail/>
-        </div>
-        <div>
-      
+            <TripTrackpoints/>
         </div>
       </MainLayout>
     );
