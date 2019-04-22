@@ -56,16 +56,18 @@ class CarouselTrip extends Component {
       <div className="c-carousel">
         {tripLoading && <p>Loading...</p>}
         {!tripLoading && !tripError && (
+          
           <Carousel
             activeIndex={activeIndex}
             next={this.next}
             previous={this.previous}
           >
-            <CarouselIndicators
+            {/* <CarouselIndicators
               items={tripList}
               activeIndex={activeIndex}
               onClickHandler={this.goToIndex}
-            />
+            /> */}
+
             {tripList.map(trip => {
               return (
                 <CarouselItem
@@ -86,21 +88,20 @@ class CarouselTrip extends Component {
                     }}
                   />
                   <CarouselCaption
-                    captionText={<Link to={`/trip/${trip.id}`}>{trip.name}</Link>}
-                    captionHeader={<Link to={`/category/${trip.category}`}>{trip.category}</Link>}
+                    captionHeader={<Link to={`/trip/${trip.id}`}>{trip.name}</Link>}
+                    // captionText={<Link to={`/category/${trip.category}`}>{trip.category}</Link>}
+                    captionText={`@${trip.userName}`}
                     className="card-img-overlay"
                   />
                 </CarouselItem>
               );
             })}
             <CarouselControl
-              className="carousel-prev"
               direction="prev"
               directionText="Previous"
               onClickHandler={this.previous}
             />
             <CarouselControl
-              className="carousel-next"
               direction="next"
               directionText="Next"
               onClickHandler={this.next}

@@ -60,7 +60,7 @@ export const getTrackpointLoading = payload => ({ payload, type: 'GET_TRACKPOINT
 export const getTrackpointError = payload => ({ payload, type: 'GET_TRACKPOINT_ERROR' });
 
 // THUNK
-export const getTrip = trackpointId => dispatch => {
+export const getTrackpoint = trackpointId => dispatch => {
   dispatch(getTrackpointLoading(true));
   axios
     .get(`${API_BASE_URL}${API_GET_TRACKPOINT_URL}${trackpointId}`)

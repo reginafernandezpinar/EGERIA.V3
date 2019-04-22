@@ -91,7 +91,7 @@ INSERT INTO trackpoint (trip_id, name, description, lat, lon, photo) values (5, 
 
 
 
--- Get all Trackpoints from trips that belong to an user
+-- Get all Trackpoints that belong to an user
 -- SELECT tp.*, u.name AS userName FROM trackpoint tp
 -- inner join trip t on (tp.trip_id = t.id)
 -- inner join user u on (u.id = t.user_id) WHERE u.id = 1;

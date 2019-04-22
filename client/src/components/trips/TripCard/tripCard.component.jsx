@@ -9,15 +9,15 @@ const TripCard = (props) => {
   return (
     <div className="card">
       <Link to={`/trip/${trip.id}`}>
-        <div className="card-img-top trip-card-image"
+        <div className="card-img-top"
           style={{ "background-image": `url(${trip.photo})` }}>
         </div>
       </Link>
       <div className="card-body">
-        <h4 className="card-title">{trip.name}</h4>
-        <h5>{trip.userName}</h5>
+        <h5>{trip.name}</h5>
+        <p>@{trip.userName}</p>
         <div className="card-text overflow-hidden">
-          <p>{trip.description}</p>
+        {trip.description}
         </div>
       </div>
     </div>

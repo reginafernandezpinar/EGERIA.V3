@@ -1,39 +1,63 @@
 // =========== TRIP DETAIL PAGE ===============
 .trip-detail-page {
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 
-    .container-fluid {
+    // ----------- trip detail section -------------
+    .trip-detail {
+        width: 100%;
+        padding-right: 45px;
+        padding-left: 45px;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
-        .trip-detail {
-            .row > * {
-                padding-right: 5px;
-                padding-left: 5px;
-            }
-            .trip-card-image {
-                min-width: 100%;
-                min-height: 300px;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-            }
-        
-            .card-body {
-                background-color: whitesmoke;
-                h5 {
-                    color: grey;
+        .row {
+            padding-top: 10px;
+        }
+
+        .row > * {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .trip-card-image {
+            min-width: 100%;
+            min-height: 300px;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    
+        .card-body {
+            background-color: #e3e3e3;
+
+            .card-title{
+                div {
+                    color: #89bdd3;
                 }
-                .distance-container {
-                    display: flex;
-                    p {
-                        margin-right: 10px;
-                    }
+            }
+            .card-text {
+                div {
+                    color: #89bdd3;
+                }
+                p {
+                    margin-bottom: 12px;
                 }
             }
-        } 
+            .card-user{
+                margin-top: 12px;
+            }
+        }
+
+        .card-description {
+            background-color: #e3e3e3;
+            padding: 1.25rem;
+            div {
+                color: #89bdd3;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
     }
+
+    // ----------- trackpoint detail section -------------
 }

@@ -53,7 +53,7 @@ export function tripReducer(state = initialTripState, action) {
         category: { ...state.category, loading: false, error: action.payload }
       };
 
-    // ================== SEARCH TRIP REDUCER  ==================
+    // ==================== SEARCH TRIP REDUCER  ==================
     case 'SET_SEARCH_TRIP_RESULTS':
       return {
         ...state,
@@ -62,7 +62,7 @@ export function tripReducer(state = initialTripState, action) {
         }
       };
 
-    // ========= SELECTED TRIP ==============  
+    // ==================== SELECTED TRIP ==============  
     case 'SET_SELECTED_TRIP':
       return {
         ...state,

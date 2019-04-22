@@ -20,24 +20,24 @@ export function trackpointsReducer(state = initialTrackpointState, action) {
         error: action.payload
       };
 
-
+// ----------- Get all trackpoints by trip Id --------------
     case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_LOADING':
       return {
         ...state,
-        tripId: { ...state.tripId, loading: true }
+        tripTrackpoints: { ...state.tripTrackpoints, loading: true }
       };
     case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_SUCCESS':
       return {
         ...state,
-        tripId: { ...state.tripId, loading: false, list: action.payload }
+        tripTrackpoints: { ...state.tripTrackpoints, loading: false, tripId: action.payload[0].trip_id, list: action.payload }
       };
     case 'GET_ALL_TRACKPOINTS_BY_TRIP_ID_ERROR':
       return {
         ...state,
-        tripId: { ...state.tripId, loading: false, error: action.payload }
+        tripTrackpoints: { ...state.tripTrackpoints, loading: false, error: action.payload }
       };
 
-
+// ----------- Get a specific trackpoint --------------
     case 'GET_TRACKPOINT_LOADING':
       return {
         ...state,

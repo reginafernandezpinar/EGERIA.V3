@@ -15,18 +15,18 @@ class Categories extends Component {
 
             return (
               <Col key={category.id} xs="12" sm="6" md={md} className="p-1">
-
-                <div className="card category-image"
+                <div 
+                  className="card category-image"
                   style={{
                     "background-image": `linear-gradient(
-                      rgba(0, 0, 0, 0.5), 
-                      rgba(0, 0, 0, 0.5)
+                      rgba(0, 0, 0, 0.3), 
+                      rgba(0, 0, 0, 0.3)
                     ),url('${category.picture}')`
                   }}
                   onClick={() => {
                     this.props.history.push(`/category/${category.id}`);
                   }}>
-                  <h4 className="m-4 text-center text-white">{category.label}</h4>
+                  <h3>{category.label}</h3>
                 </div>
               </Col>
             );

@@ -35,13 +35,13 @@ class Home extends React.Component {
               <video playbackRate="0.2" loop autoPlay muted src={landingVideo}></video>
               <div className="filter"></div>
 
-              <div className="py-5 col text-center">
+              <div className="title-container">
                 {userName !== null && (
                   <h4 className="my-3">Hi {userName} !</h4>
                 )}
-                <h1 className="my-5">Plan your trip</h1>
+                <h1>Plan your trip</h1>
                 <h2>
-                  For the avid driver, Egeria can make a journey far more
+                  For the avid traveller, Egeria can make a journey far more
                   interesting than usual
                 </h2>
               </div>

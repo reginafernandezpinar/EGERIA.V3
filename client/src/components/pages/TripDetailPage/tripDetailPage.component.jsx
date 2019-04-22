@@ -5,25 +5,26 @@ import PropTypes from 'prop-types';
 import TripDetail from '../../trips/TripDetail';
 import MainLayout from '../../layout/MainLayout';
 
-// Import global resources
-import mapImage from "../../../assets/img/mapImage.png";
 
 // Import styles
 import "./styles.scss";
 
 class TripDetailPage extends Component {
 
-  componentDidMount() {      
+  componentDidMount() {
+    // we use the match prop to get the trip_id from the url params      
     this.props.getTrip(this.props.match.params.id);
+    this.props.getAllTrackpointsbyTripId({tripId: this.props.match.params.id})
   }
 
   render() {
     return (
       <MainLayout>
-        <div className="trip-detail-page"  style={{ "background-image": `url(${mapImage})` }}>
-          <div className="container-fluid">
-              <TripDetail/>
-          </div>
+        <div className="trip-detail-page" >
+            <TripDetail/>
+        </div>
+        <div>
+      
         </div>
       </MainLayout>
     );
