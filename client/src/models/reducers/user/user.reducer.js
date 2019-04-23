@@ -5,6 +5,7 @@ import { saveToken, deleteToken } from "../../../tools";
 
 export function userReducer(state = initialUserState, action) {
   switch (action.type) {
+    // -------------- user registration --------------------- 
     case "REGISTER_USER_LOADING":
       return {
         ...state,
@@ -14,7 +15,7 @@ export function userReducer(state = initialUserState, action) {
       return {
         ...state,
         loading: false,
-        registerSuccessful: true
+        registrationSuccessful: true
       };
     case "REGISTER_USER_ERROR":
       return {
@@ -22,6 +23,8 @@ export function userReducer(state = initialUserState, action) {
         loading: false,
         error: action.payload
       };
+
+    // ------------------ user login --------------------
     case "LOGIN_USER_LOADING":
       return {
         ...state,
@@ -44,6 +47,8 @@ export function userReducer(state = initialUserState, action) {
         email: action.payload.email,
         id: action.payload.id
       };
+
+    // ----------- user whoIam ----------------------
     case "WHO_AM_I_SUCCESS": 
       return {
         ...state,
@@ -64,6 +69,8 @@ export function userReducer(state = initialUserState, action) {
         email: null,
         id: null
       };
+
+    // ------------ user log out
     case "LOGOUT_USER":      
       deleteToken();
       return {

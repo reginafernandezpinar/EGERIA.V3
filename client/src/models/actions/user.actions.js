@@ -9,7 +9,7 @@ const API_GET_WHOAMI_URL = '/whoAmI'
 
 
 
-// ------------------------- USER REGISTER -----------------------
+// ------------------------- USER REGISTRATION -----------------------
 
 // ACTION CREATORs
 export const registerUserSuccess = (payload) => ({payload, type: 'REGISTER_USER_SUCCESS' });
@@ -58,7 +58,7 @@ export const loginUser = loginData => dispatch => {
 
 
 
-// -------------------------  GET USER DATA (whoAmI) ------------------------
+// -------------------------  GET USER DATA - whoAmI ------------------------
 // get user data once the user is login and token is saved in Session Storage, so we can use them in case page is reloaded.
 
 // ACTION CREATORs 

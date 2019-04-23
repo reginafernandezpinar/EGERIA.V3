@@ -74,7 +74,7 @@ class TripsGlobe extends Component {
             let marker = this.viewer.entities.add({
                 position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
                 point: {
-                    pixelSize: 20,
+                    pixelSize: 10,
                     color: Cesium.Color.RED
                 },
                 name: trackpoint.id

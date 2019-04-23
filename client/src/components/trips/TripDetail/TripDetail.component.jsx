@@ -19,7 +19,7 @@ class TripDetail extends Component {
 
                             <div className="card-title">
                                 <div>Trip name</div>
-                                <h4 >{tripSelected.name}</h4>
+                                <h3 >{tripSelected.name}</h3>
                             </div>
 
                             <div className="card-text">

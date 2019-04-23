@@ -29,7 +29,7 @@ class Header extends React.Component {
     const isAuthenticated = user.name !== null;
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
           <NavbarBrand href="/">Egeria</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

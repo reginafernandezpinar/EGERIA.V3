@@ -6,6 +6,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import MainLayout from '../../layout/MainLayout';
 import TripForm from '../../trips/TripForm';
 
+
 // Import styles
 import "./styles.scss";
 
@@ -55,21 +56,29 @@ class MyTripsPage extends Component {
     }
 
     render() {
-        const { trips } = this.props;
+        const { trips, user } = this.props;
         const { tripMode } = this.state;
         const selectRow = {
             mode: 'radio',
             clickToSelect: true,
             classes: 'selection-row',
             hideSelectColumn: true,
-            bgColor: '#00BFFF',
+            bgColor: '#9ad3de',
             onSelect: this.handleOnSelect,
         };
 
         return (
             <MainLayout>
                 <div className="my-trips-page">
-                    <div className="container-fluid">
+
+                    <div className="top-my-tryps-page">
+                        <div className="my-trips-image">
+                            <h3>{user.name}´s trips</h3>
+                        </div>
+                    </div>
+
+                    <div className="my-trips-container">
+
                         <div className="trips-table">
                             {trips.length > 0 &&
                                 <BootstrapTable keyField="id"
@@ -79,17 +88,19 @@ class MyTripsPage extends Component {
                             }
                         </div>
                         <div className="button-container">
-                            <button onClick={() => {
+                            <button className="btn-blue" onClick={() => {
                                 this.setState({ tripMode: 'new' });
                                 this.props.setSelectedTrip({ category: 'gastro', companionship: 'couple' }); // These two are added so that they have a selection by default 
                             }}>
                                 New Trip
                             </button>
                         </div>
+                        
                         <div>
                             <TripForm mode={tripMode} />
                         </div>
                     </div>
+
                 </div>
             </MainLayout>
         );

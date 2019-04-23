@@ -23,6 +23,9 @@ class TripDetailPage extends Component {
       <MainLayout>
         <div className="trip-detail-page" >
             <TripDetail/>
+            <div className="title-tp-section">
+              <h2>Points of interest</h2>
+            </div>
             <TripTrackpoints/>
         </div>
       </MainLayout>

@@ -1,10 +1,16 @@
 // Import libraries
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+
+// Import Components
+import MainLayout from '../../layout/MainLayout';
 
 // Import global resources
-import MainLayout from '../../layout/MainLayout';
+import loginImg from "../../../assets/img/login.jpg";
+
+// Import styles
+import "./styles.scss";
 
 
 class RegisterPage extends React.Component {
@@ -39,7 +45,7 @@ class RegisterPage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { name, email, password } = this.state;
-        
+
         if (this.validateForm()) {
             const registerData = {
                 name,
@@ -80,34 +86,44 @@ class RegisterPage extends React.Component {
 
         return (
             <MainLayout>
-                <div className="container">
+                <div className="register-page">
 
-                    <Form>
-                        <FormGroup>
-                            <Label for="nameRegister">Name</Label>
-                            <Input {...nameAtts} type="text" name="name" id="nameRegister" placeholder="enter your name" onChange={this.handleChange} />
-                            {!nameIsValid && validateFields &&
-                                <FormFeedback {...nameAtts} >The name field cannot be empty</FormFeedback>
-                            }
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="emailRegister">Email Address</Label>
-                            <Input {...emailAtts} type="text" name="email" id="emailRegister" placeholder="enter your email address" onChange={this.handleChange} />
-                            {!emailIsValid && validateFields &&
-                                <FormFeedback {...emailAtts} >This is not a valid email address</FormFeedback>
-                            }
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="passwordRegister">Password</Label>
-                            <Input {...passwordAtts} type="password" name="password" id="passwordRegister" placeholder="enter a password" onChange={this.handleChange} />
-                            {!passwordIsValid && validateFields &&
-                                <FormFeedback {...passwordAtts} >The password needs to be at least 6 characters long</FormFeedback>
-                            }
-                        </FormGroup>
-                        <Button onClick={this.handleSubmit}>Submit</Button>
-                        {loading && <p>Loading...</p>}
-                    </Form>
-                    
+                    <div className="register-image"
+                        style={{
+                            "backgroundImage": `url('${loginImg}')`
+                        }}>
+                        <div className="register-img-filter"></div>
+                    </div>
+
+                    <div className="register-container">
+                        <Form>
+                            <FormGroup>
+                                <Label for="nameRegister">Name</Label>
+                                <Input {...nameAtts} type="text" name="name" id="nameRegister" placeholder="enter your name" onChange={this.handleChange} />
+                                {!nameIsValid && validateFields &&
+                                    <FormFeedback {...nameAtts} >The name field cannot be empty</FormFeedback>
+                                }
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="emailRegister">Email Address</Label>
+                                <Input {...emailAtts} type="text" name="email" id="emailRegister" placeholder="enter your email address" onChange={this.handleChange} />
+                                {!emailIsValid && validateFields &&
+                                    <FormFeedback {...emailAtts} >This is not a valid email address</FormFeedback>
+                                }
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="passwordRegister">Password</Label>
+                                <Input {...passwordAtts} type="password" name="password" id="passwordRegister" placeholder="enter a password" onChange={this.handleChange} />
+                                {!passwordIsValid && validateFields &&
+                                    <FormFeedback {...passwordAtts} >The password needs to be at least 6 characters long</FormFeedback>
+                                }
+                            </FormGroup>
+
+                            <button className="btn-blue" onClick={this.handleSubmit}>Sign me up</button>
+                            {loading && <p>Loading...</p>}
+                        </Form>
+                    </div>
+
                 </div>
             </MainLayout>
         );

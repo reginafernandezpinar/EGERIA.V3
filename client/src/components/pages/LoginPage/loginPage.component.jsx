@@ -1,10 +1,16 @@
 // Import libraries
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
+
+// Import Components
+import MainLayout from '../../layout/MainLayout';
 
 // Import global resources
-import MainLayout from '../../layout/MainLayout';
+import loginImg from "../../../assets/img/login.jpg";
+
+// Import styles
+import "./styles.scss";
 
 
 class LoginPage extends React.Component {
@@ -35,24 +41,42 @@ class LoginPage extends React.Component {
     const { loading } = this.props;
     return (
       <MainLayout>
-        <h4>Login</h4>
-        <div className="container">
+        <div className="login-page">
 
-        <Form>
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-            <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool"
-              onChange={(e) => this.setState({ email: e.target.value })} />
-          </FormGroup>
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="examplePassword" className="mr-sm-2">Password</Label>
-            <Input type="password" name="password" id="examplePassword" placeholder="don't tell!"
-              onChange={(e) => this.setState({ password: e.target.value })} />
-          </FormGroup>
-          <Button type="submit" onClick={this.handleSubmit}>Submit</Button>
-          {loading && <p>Loading...</p>}
-        </Form>
-        
+          <div className="login-image"
+            style={{
+              "backgroundImage": `url('${loginImg}')`
+            }}>
+            <div className="login-img-filter"></div>
+          </div>
+
+          <div className="login-container">
+            <Form>
+              <FormGroup className="mb-3">
+                <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+                <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool"
+                  onChange={(e) => this.setState({ email: e.target.value })} />
+              </FormGroup>
+
+              <FormGroup className="mb-3">
+                <Label for="examplePassword" className="mr-sm-2">Password</Label>
+                <Input type="password" name="password" id="examplePassword" placeholder="don't tell!"
+                  onChange={(e) => this.setState({ password: e.target.value })} />
+              </FormGroup>
+
+              <button className="btn-blue" type="submit" onClick={this.handleSubmit}>Submit</button>
+
+              {loading && <p>Loading...</p>}
+            </Form>
+          </div>
+
+          <div className="boton-login-container">
+            <h6>I don´t have an account yet</h6>
+            <div>
+              <button className="btn-blue" >Sign up</button>
+            </div>
+          </div>
+          {/* onClick={this.props.history.push('/register')} */}
         </div>
       </MainLayout>
 

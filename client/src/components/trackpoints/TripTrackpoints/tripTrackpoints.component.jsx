@@ -14,8 +14,8 @@ class TripTrackpoints extends Component {
             return <p>Loading…</p>;
         }
         return (
-            <div className='container'>
-                <div className='row'>
+            <div className='trackpoint-detail'>
+                <div className="row">
                     {
                         tripTrackpoints.map((trackpoint) => {
                             return (

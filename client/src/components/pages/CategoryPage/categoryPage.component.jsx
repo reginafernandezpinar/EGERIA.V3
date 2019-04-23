@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import MainLayout from '../../layout/MainLayout';
 import TripsCategory from '../../trips/TripsCategory';
 
+
 // Import styles
 import "./styles.scss";
 
@@ -42,9 +43,7 @@ class CategoryPage extends Component {
                 rgba(0, 0, 0, 0.15)
               ),url('${categoryPicture}')`
               }}>
-              <h1 className="">
-                {categoryLabel}
-              </h1>
+              <h1>{categoryLabel}</h1>
             </div>
           </div>
 

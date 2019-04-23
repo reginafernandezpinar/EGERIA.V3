@@ -4,9 +4,9 @@
     // ----------- trip detail section -------------
     .trip-detail {
         width: 100%;
-        padding-right: 45px;
-        padding-left: 45px;
-        margin-top: 30px;
+        padding-right: 50px;
+        padding-left: 50px;
+        margin-top: 25px;
         margin-bottom: 30px;
 
         .row {
@@ -59,37 +59,56 @@
         }
     }
 
+    .title-tp-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 60px;
+    }
+
     // ----------- trackpoint detail section -------------
 
-    .card {
-        height: 300px;
-        border: none; 
-
-        .card-img-top {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 200px;
-            border: none; 
-        }
-
-        .card-body {
-           padding: 0;
-            h5 {
-                margin-top: .2px;
-                margin-bottom: .2px; 
-            }
-            p {
-                font-size: 14px;
-                margin: 0
+    .trackpoint-detail {
+        width: 100%;
+        padding-right: 40px;
+        padding-left: 40px;
+    
+        .card {
+            height: 300px;
+            border: none;
+            
+            &:hover {
+                cursor: default;
             }
 
-           .card-text {
-            height: 30px;
-            margin: 0;
+            .card-img-top {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 200px;
+                border: none; 
+            }
+
+            .card-body {
+                padding: 0;
+                    h5 {
+                        margin-top: .2px;
+                        margin-bottom: .2px; 
+                    }
+                    p {
+                        font-size: 14px;
+                        margin: 0
+                    }
+
+                .card-text {
+                    height: 30px;
+                    margin: 0;
+                }
             }
         }
     }
+    
 
     
 }

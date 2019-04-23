@@ -1,10 +1,12 @@
+// ========================== HOME PAGE ===========================
+
 // =========== LANDING SECTION
 .landing-container {
   height: 80vh;
   width: 100%;
   position: relative;
   display: flex;
-  margin-bottom: 5rem;
+  margin-bottom: 110px;
 
   a {
     text-decoration: none;
@@ -18,7 +20,7 @@
     left: 0;
     z-index: -1;
     overflow: hidden;
-    color: white;
+    color: #e3e3e3;
 
     video {
       height: 100%;
@@ -26,9 +28,9 @@
       object-fit: cover;
       position: absolute;
     }
-
+  
     .filter {
-        background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        background-image: linear-gradient(to bottom, rgba(137, 189, 211, 0.2), rgba(137, 189, 211, 0.2));
         height: 100%;
         width: 100%;
         position: absolute;
@@ -62,6 +64,11 @@
     padding: 40px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.15);
   }
+
+  .btn-outline-info {
+    color: #89bdd3;
+    border-color: #89bdd3;
+  }
 }
 
 // ======== CAROUSEL SECTION
@@ -71,17 +78,17 @@
   position: relative;
   width: 100%;
   margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 100px;
 
   .left-section {
     height: 100%;
     width: 30%;
-    background-color: #053d533b;
+    background-color: #89bdd3;
   }
 
   .c-carousel {
     position: absolute;
-    top: 15%;
+    top: 16%;
     left: 20%;
     right: 10%;
 
@@ -95,7 +102,7 @@
       bottom: 0;
       top: 60%;
         a {
-          color: white;
+          color: #e3e3e3;
           cursor: pointer;
         }
     }
@@ -106,6 +113,7 @@
       .carousel-control-next-icon {
         width: 25px;
         height: 25px;
+        color: #e3e3e3;
       }
     }
     .carousel-control-prev {
@@ -114,6 +122,7 @@
       .carousel-control-prev-icon {
         width: 25px;
         height: 25px;
+        color: #e3e3e3;
       }
     }
 
@@ -154,15 +163,9 @@
 
 // ========= GLOBE SECTION ======
 .globe-section {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 100px;
 
-  .section-title {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-  }
   .cesium-viewer-bottom {
     display: none;
   }
@@ -204,5 +207,16 @@
         }
       }
     }
+  }
+}
+
+// ==================== SECTIONS TITLE ========================
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  h2 {
+    margin-bottom: 15px;
   }
 }
