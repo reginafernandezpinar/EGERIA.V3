@@ -71,9 +71,9 @@ class MyTripsPage extends Component {
             <MainLayout>
                 <div className="my-trips-page">
 
-                    <div className="top-my-tryps-page">
-                        <div className="my-trips-image">
-                            <h3>{user.name}´s trips</h3>
+                    <div className="top-my-trips-page">
+                        <div className="my-trips-background">
+                            <h2>{user.name}´s trips</h2>
                         </div>
                     </div>
 

@@ -52,23 +52,24 @@
         margin-right: 100px;
       }
     }
-
   }
 
-  .homepage-search {
+  .search-homepage {
     background-color: white;
     position: absolute;
     left: 100px;
     right: 100px;
     bottom: -20px;
-    padding: 40px;
+    padding: 50px 40px 30px 40px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+      
+    .btn-outline-info {
+      color: #89bdd3;
+      border-color: #89bdd3;
+    }
   }
 
-  .btn-outline-info {
-    color: #89bdd3;
-    border-color: #89bdd3;
-  }
+ 
 }
 
 // ======== CAROUSEL SECTION
@@ -83,7 +84,7 @@
   .left-section {
     height: 100%;
     width: 30%;
-    background-color: #89bdd3;
+    background-color: #e3e3e3;
   }
 
   .c-carousel {
@@ -187,7 +188,7 @@
       min-width: 200px;
       max-height: 350px;
       max-width: 300px;
-      background-color: grey;
+      background-color: #e3e3e3;
       border-width: 1px;
       border-radius: 10px;
       padding: 20px;

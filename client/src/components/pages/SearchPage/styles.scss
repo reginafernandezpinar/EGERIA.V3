@@ -1,0 +1,65 @@
+// ========================= SEARCH RESULTS PAGE ===============
+
+.search-results-page {
+
+    .top-search-page {
+        position: relative;
+        height: 80px;
+        margin-bottom: 5px;
+
+        .search-background{
+            display: flex;
+            align-items: flex-end; 
+            justify-content: center;
+            height: calc(100% + 60px);
+            width: 100%;
+            position: absolute;
+            top: -60px;
+            z-index: -1;
+            background-image: linear-gradient(to top, rgba(137, 189, 211, 0), rgba(137, 189, 211, 1));
+        }
+    }
+
+    .search-container {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 60px; 
+
+        .btn-outline-info {
+            color: #89bdd3;
+            border-color: #89bdd3;
+        }
+    }
+
+    .card {
+        height: 300px;
+        border: none; 
+
+        .card-img-top {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 200px;
+            border: none; 
+        }
+
+        .card-body {
+           padding: 0;
+            h5 {
+                margin-top: .2px;
+                margin-bottom: .2px; 
+            }
+            p {
+                font-size: 14px;
+                margin: 0
+            }
+
+           .card-text {
+            height: 30px;
+            margin: 0;
+            }
+        }
+    }
+
+}

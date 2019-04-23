@@ -5,10 +5,7 @@ import { withRouter } from 'react-router-dom';
 // Import Components
 import MainLayout from '../../layout/MainLayout';
 import TripCard from '../../trips/TripCard/tripCard.component';
-import TripsSearch from "../../trips/TripsSearch";
-
-// Import global resources
-import mapImage from "../../../assets/img/mapImage.png";
+import TripsSearch from "../../trips/TripsSearch"
 
 // Import styles
 import "./styles.scss";
@@ -26,8 +23,13 @@ class SearchPage extends React.Component {
         const { searchResults } = this.props;
         return (
             <MainLayout>
-                <div className="search-results-page" style={{ "background-image": `url(${mapImage})` }}>
-                    <div className="container homepage-search">
+                <div className="search-results-page">
+
+                    <div className="top-search-page">
+                        <div className="search-background"></div>
+                    </div>
+
+                    <div className="search-container">
                         <TripsSearch showTripButtons={false} redirectToSearchPage={false} />
                     </div>
                     <div className='container'>
@@ -43,7 +45,7 @@ class SearchPage extends React.Component {
                             }
                         </div>
                         {searchResults.length === 0 &&
-                            <div>Sorry but your search didn't trigger any results...</div>
+                            <div className="container">Sorry but your search didn't trigger any results...</div>
                         }
                     </div>
                 </div>

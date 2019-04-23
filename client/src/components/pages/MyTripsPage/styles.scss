@@ -1,12 +1,12 @@
 // ========================= MY TRIPS PAGE ===============
 .my-trips-page {
 
-    .top-my-tryps-page {
+    .top-my-trips-page {
         position: relative;
         height: 80px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
 
-        .my-trips-image{
+        .my-trips-background{
             display: flex;
             align-items: flex-end; 
             justify-content: center;
@@ -15,10 +15,15 @@
             position: absolute;
             top: -60px;
             z-index: -1;
-            background-image: linear-gradient(to top, rgba(201, 201, 201,0), rgba(201, 201, 201,1));
+            background-color: #e3e3e3;
            
-            h3  {
+            h2  { 
                 color: #89bdd3;
+
+                text-align: center;
+                font-size: 4rem;
+                line-height: 0.8;
+                margin-bottom: 0
             }
         }
     }

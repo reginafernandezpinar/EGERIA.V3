@@ -47,7 +47,7 @@ class Home extends React.Component {
               </div>
             </div>
 
-            <div className="homepage-search">
+            <div className="search-homepage">
               <TripsSearch showTripButtons={true} redirectToSearchPage={true} />
             </div>
           </div>
