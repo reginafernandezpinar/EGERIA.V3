@@ -8,7 +8,7 @@ class TripTrackpoints extends Component {
     render() {
         const { tripTrackpoints, tripTrackpointsError, tripTrackpointsLoading } = this.props;
         if (tripTrackpointsError) {
-            return <p>Sorry! There was an error loading the trips</p>;
+            return <p>Sorry! There was an error loading the trackpoints</p>;
         }
         if (tripTrackpointsLoading) {
             return <p>Loading…</p>;

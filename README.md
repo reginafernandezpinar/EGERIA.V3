@@ -3,7 +3,7 @@ Final Project Codespace Bootcamp
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -49,7 +49,28 @@ The client should then be running on the default port _(localhost://3000)_
 
 ## Built With
 
+### Client
+
 * [CRA](https://github.com/facebook/create-react-app) - Create React Application
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
+* [Cesium.js](https://cesiumjs.org/) - An open-source JavaScript library for world-class 3D globes and maps.
+* [Resium.js](https://resium.darwineducation.com/) - A library of React components for 🌍Cesium
+* [Craco-cesium](https://github.com/darwin-education/craco-cesium) - 🌍Cesium + create-react-app
+* [Fuse.js](https://fusejs.io/) - Lightweight fuzzy-search library.
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
+* [Bootstrap](https://getbootstrap.com/) - an open source toolkit for developing with HTML, CSS, and JS.
+* [Reactstrap](https://reactstrap.github.io/) - Easy to use React Bootstrap 4 components
+* [react-bootstrap-table2](https://github.com/react-bootstrap-table/react-bootstrap-table2) - Next Generation of react-bootstrap-table
+* [react-redux-toastr](https://github.com/diegoddox/react-redux-toastr) - a toastr message implemented with Redux
+
+
+
+### Server
+* [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+* [JWT](https://jwt.io/) - JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.
+
+
 
 
 ## Authors
