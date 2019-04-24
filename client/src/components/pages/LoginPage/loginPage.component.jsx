@@ -73,10 +73,9 @@ class LoginPage extends React.Component {
           <div className="boton-login-container">
             <h6>I don´t have an account yet</h6>
             <div>
-              <button className="btn-blue">Sign up</button>
+              <button className="btn-blue" onClick={() => this.props.history.push('/register')}>Sign up</button>
             </div>
           </div>
-          {/* <button className="btn-blue" onClick={this.props.history.push('/register')}>Sign up</button> */}
         </div>
       </MainLayout>
 

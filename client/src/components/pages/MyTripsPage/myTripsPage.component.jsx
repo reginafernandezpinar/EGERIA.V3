@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BootstrapTable from 'react-bootstrap-table-next';
+import { withRouter } from 'react-router-dom';
 
 // Import components
 import MainLayout from '../../layout/MainLayout';
@@ -38,6 +39,8 @@ class MyTripsPage extends Component {
     componentDidMount() {
         if (this.props.user.token) {
             this.props.getUserTrips(this.props.user.token);
+        } else {
+            this.props.history.push('/login');
         }
     }
 
@@ -73,7 +76,7 @@ class MyTripsPage extends Component {
 
                     <div className="top-my-trips-page">
                         <div className="my-trips-background">
-                            <h2>{user.name}´s trips</h2>
+                            <h2>{user.name}'s trips</h2>
                         </div>
                     </div>
 
@@ -113,4 +116,4 @@ MyTripsPage.propTypes = {
     updateTrip: PropTypes.func.isRequired
 };
 
-export default MyTripsPage;
+export default withRouter(MyTripsPage);

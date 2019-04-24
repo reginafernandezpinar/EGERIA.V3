@@ -12,11 +12,8 @@ import Cesium from "cesium";
 class TripsGlobe extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-        };
-
         this.createMarkers = this.createMarkers.bind(this);
+        this.markersCreated = false;
     }
 
     componentDidMount() {
@@ -46,8 +43,6 @@ class TripsGlobe extends Component {
         scene.skyAtmosphere = undefined;
         scene.backgroundColor = new Cesium.Color(255, 255, 255, 0);
 
-        console.log('this', this);
-
         // Interaction with entities from the globe (markers)
         let handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
         handler.setInputAction((movement) => {
@@ -60,17 +55,20 @@ class TripsGlobe extends Component {
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.trackpoints.length === 0 && this.props.trackpoints.length !== 0) {
+    componentWillUnmount() {
+        this.props.setSelectedTrackpoint({});
+    }
+
+    componentDidUpdate(prevProps) {        
+        if ((prevProps.trackpoints.length === 0 && this.props.trackpoints.length !== 0) ||
+            (!this.markersCreated && this.props.trackpoints.length !== 0)) {
             this.createMarkers();
         }
     }
 
     createMarkers() {
         const { trackpoints } = this.props;
-        // let billboards = this.viewer.scene.primitives.add(new Cesium.BillboardCollection());
         trackpoints.forEach(trackpoint => {
-
             let marker = this.viewer.entities.add({
                 position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
                 point: {
@@ -79,15 +77,8 @@ class TripsGlobe extends Component {
                 },
                 name: trackpoint.id
             });
-            // billboards.add({
-            //     position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
-            //     distance: 10,
-            //     image: trackpoint.photo,
-            //     width: 60,
-            //     height: 40
-            // });
-
         });
+        this.markersCreated = true;
     }
 
     render() {

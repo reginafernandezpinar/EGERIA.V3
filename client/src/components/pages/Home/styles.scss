@@ -208,6 +208,25 @@
         }
       }
     }
+
+    .cesium-viewer-toolbar{
+      right: 40px;
+
+      input {
+        background-color: #e3e3e3;
+        color: black;
+      }
+
+      .cesium-geocoder-searchButton {
+        background-color: rgb(37, 93, 117);
+      }
+
+      .search-results {
+        z-index: 9999999;
+        background-color: #e3e3e3;
+        color: black;
+      }
+    }
   }
 }
 

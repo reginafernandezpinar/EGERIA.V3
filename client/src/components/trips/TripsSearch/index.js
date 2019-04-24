@@ -11,7 +11,8 @@ import { setSearchTripResults } from '../../../models/actions/trip.actions';
 const mapStateToProps = state => {
     return {
       trips: state.trips.list,
-      searchResults: state.trips.search.results
+      searchResults: state.trips.search.results,
+      user: state.user
     };
 };
 

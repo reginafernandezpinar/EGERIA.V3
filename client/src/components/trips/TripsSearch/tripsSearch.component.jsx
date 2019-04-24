@@ -49,16 +49,20 @@ class TripsSearch extends Component {
                         search
                     </button>
                 </div>
+
+
                 {showTripButtons &&
                     <button
-                        className="btn btn-outline-info ml-3"
+                        className="btn btn-outline-info ml-4"
                         onClick={() => this.props.history.push('/mytrips')}
                     >
                         My trips
                     </button>
                 }
                 {showTripButtons &&
-                    <button className="btn btn-outline-info ml-3">
+                    <button className="btn btn-outline-info ml-4"
+                    onClick={() => this.props.history.push('/mytrips')}
+                    >
                         Start a trip
                     </button>
                 }
