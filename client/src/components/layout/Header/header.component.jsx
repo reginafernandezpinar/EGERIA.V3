@@ -24,15 +24,30 @@ class Header extends React.Component {
     });
   }
   render() {
-    const { user } = this.props;
+    const { user, className } = this.props;
     const isAuthenticated = user.name !== null;
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <nav className={`navbar navbar-expand-lg navbar-dark bg-transparent ${className}`}>
           <NavbarBrand href="/">Egeria</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              <NavItem>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/category/family">Family</a>
+                    <a class="dropdown-item" href="/category/gastro">Gastro</a>
+                    <a class="dropdown-item" href="/category/monumental">Monumental</a>
+                    <a class="dropdown-item" href="/category/nature">Nature</a>
+                    <a class="dropdown-item" href="/category/rural">Rural</a>
+                    <a class="dropdown-item" href="/category/urban">Urban</a>
+                  </div>
+                </li>
+              </NavItem>
               <NavItem>
                 {!isAuthenticated && (
                   <Link className="nav-link" to="/login">
@@ -56,7 +71,7 @@ class Header extends React.Component {
                 <NavItem>
                   <Link className="nav-link" to="/mytrips">
                     My trips
-                </Link>
+                  </Link>
                 </NavItem>
               )}
             </Nav>

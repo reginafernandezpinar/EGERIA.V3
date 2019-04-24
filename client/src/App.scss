@@ -9,3 +9,17 @@ footer {
 .AppLoader {
 	text-align: center;
 }
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+	border: none;
+}
+
+.black-text {
+	a {
+		color: black!important;
+	}
+}

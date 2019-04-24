@@ -40,7 +40,7 @@ class LoginPage extends React.Component {
   render() {
     const { loading } = this.props;
     return (
-      <MainLayout>
+      <MainLayout headerClassName="black-text">
         <div className="login-page">
 
           <div className="login-image"

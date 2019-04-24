@@ -22,9 +22,10 @@ class MainLayout extends React.Component {
   };
 
   render() {
+    const { headerClassName } = this.props;
     return (
       <div>
-        <Header />
+        <Header className={headerClassName} />
         <div id="content">
           {this.props.children}
         </div>

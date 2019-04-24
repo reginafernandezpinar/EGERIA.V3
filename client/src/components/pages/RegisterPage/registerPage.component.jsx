@@ -85,7 +85,7 @@ class RegisterPage extends React.Component {
         }
 
         return (
-            <MainLayout>
+            <MainLayout headerClassName="black-text">
                 <div className="register-page">
 
                     <div className="register-image"

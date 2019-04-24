@@ -73,6 +73,7 @@ class Home extends React.Component {
 
 
           {/* CATEGORIES SECTION */}
+          
           <div className="section-title">
             <h2>Categories</h2>
             <h4>Choose a trip by the style you want to travel</h4>

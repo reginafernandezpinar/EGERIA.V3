@@ -20,7 +20,7 @@ class TripDetailPage extends Component {
 
   render() {
     return (
-      <MainLayout>
+      <MainLayout headerClassName="black-text">
         <div className="trip-detail-page" >
             <TripDetail/>
             <div className="title-tp-section">

@@ -73,7 +73,7 @@ class TripsGlobe extends Component {
                 position: Cesium.Cartesian3.fromDegrees(trackpoint.lon, trackpoint.lat),
                 point: {
                     pixelSize: 10,
-                    color: Cesium.Color.RED
+                    color: Cesium.Color.YELLOW
                 },
                 name: trackpoint.id
             });
