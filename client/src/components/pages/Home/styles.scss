@@ -68,9 +68,14 @@
       border-color: #89bdd3;
     }
   }
-
- 
 }
+
+.btn {
+  &:hover {
+    color: white!important;
+  }
+}
+
 
 // ======== CAROUSEL SECTION
 .homepage-carousel {
@@ -132,6 +137,15 @@
 
 
 // ========= CATEGORIES SECTION
+
+.category-container {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
 .card {
   
   &:hover {
@@ -155,6 +169,7 @@
   height: 200px;
   border: none; 
 }
+
 
 .highlighted-places-container {
   height: 500px;
@@ -218,7 +233,7 @@
       }
 
       .cesium-geocoder-searchButton {
-        background-color: rgb(37, 93, 117);
+        background-color: #1e5564;
       }
 
       .search-results {
@@ -241,8 +256,3 @@
   }
 }
 
-.btn {
-  &:hover {
-    color: white!important;
-  }
-}

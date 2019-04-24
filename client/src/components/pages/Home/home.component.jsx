@@ -78,7 +78,7 @@ class Home extends React.Component {
             <h2>Categories</h2>
             <h4>Choose a trip by the style you want to travel</h4>
           </div>
-          <div className="container p-0 mt-5">
+          <div className="category-container">
             <Categories />
           </div>
 

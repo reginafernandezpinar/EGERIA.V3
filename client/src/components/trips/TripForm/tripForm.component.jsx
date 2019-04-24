@@ -2,7 +2,7 @@
 import React from 'react';
 import { toastr } from "react-redux-toastr";
 import { withRouter } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 class TripForm extends React.Component {
     constructor(props) {
@@ -81,16 +81,20 @@ class TripForm extends React.Component {
     }
 
     handleDeleteTrip = (e) => {
+        e.preventDefault();
         const { token } = this.props;
         const { id, name } = this.state;
         toastr.confirm(`Are you sure you want to remove the trip with name: ${name}?`, { 
-            onOk: () => this.props.deleteTrip(token, id)
+            onOk: () => {
+                this.props.deleteTrip(token, id);
+                this.props.setSelectedTrip({ category: 'gastro', companionship: 'couple' });
+            }
         });
 
     }
 
     render() {
-        const { loading, mode } = this.props;
+        const { mode } = this.props;
         const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;        
 
         return (
@@ -140,14 +144,17 @@ class TripForm extends React.Component {
                         <Label for="tripPhoto">Photo</Label>
                         <Input type="text" name="photo" id="tripPhoto" placeholder="Trip photo" onChange={this.handleChange} value={photo} />
                     </FormGroup>
-                    <Button onClick={this.handleSubmit}>
+                    <div className="photo-container">
+                        <img src={photo} />
+                    </div>
+                    <button className="btn-green" onClick={this.handleSubmit}>
                         {mode === 'new' && 'Create trip'}
                         {mode === 'update' && 'Update trip'}
-                    </Button>
+                    </button>
                     {mode === 'update' &&
-                        <Button onClick={this.handleDeleteTrip}>
+                        <button className="btn-green" onClick={this.handleDeleteTrip}>
                             Delete trip
-                        </Button>
+                        </button>
                     }
                 </Form>
             </div>

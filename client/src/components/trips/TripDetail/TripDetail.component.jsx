@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 
 class TripDetail extends Component {
@@ -24,7 +25,7 @@ class TripDetail extends Component {
 
                             <div className="card-text">
                                 <div>Category</div>
-                                <p>{tripSelected.category}</p>
+                                <Link to={`/category/${tripSelected.category}`}><p>{tripSelected.category}</p></Link>
                             </div>
                             <div className="card-text">
                                 <div>Companionship</div>

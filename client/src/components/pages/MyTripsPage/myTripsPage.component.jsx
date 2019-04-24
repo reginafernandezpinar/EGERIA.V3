@@ -1,3 +1,4 @@
+// Import libraries
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -6,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 // Import components
 import MainLayout from '../../layout/MainLayout';
 import TripForm from '../../trips/TripForm';
-
 
 // Import styles
 import "./styles.scss";
@@ -37,16 +37,16 @@ class MyTripsPage extends Component {
     }
 
     componentDidMount() {
-        if (this.props.user.token) {
-            this.props.getUserTrips(this.props.user.token);
-        } else {
-            this.props.history.push('/login');
-        }
+        this.props.getUserTrips(this.props.user.token);
     }
 
     componentDidUpdate(prevProps) {
-        if (!prevProps.user.token && this.props.user.token) {
-            this.props.getUserTrips(this.props.user.token);
+        if (this.props.user.token) {
+            if (!prevProps.user.token && this.props.user.token) {
+                this.props.getUserTrips(this.props.user.token);
+            }
+        } else {
+            this.props.history.push('/login');
         }
     }
 
@@ -98,7 +98,7 @@ class MyTripsPage extends Component {
                                 New Trip
                             </button>
                         </div>
-                        
+
                         <div>
                             <TripForm mode={tripMode} />
                         </div>
