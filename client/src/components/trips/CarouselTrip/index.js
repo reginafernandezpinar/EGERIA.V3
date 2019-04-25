@@ -6,7 +6,7 @@ import carouselTrip from './carouselTrip.component';
 // Add Redux State to Component props
 const mapStateToProps = state => {
   return {
-    tripList: Array.isArray(state.trips.list) ? state.trips.list.slice(0, 4): [],
+    tripList: Array.isArray(state.trips.list) ? state.trips.list.slice(0, 6): [],
     tripLoading: state.trips.loading,
     tripError: state.trips.error,
   };

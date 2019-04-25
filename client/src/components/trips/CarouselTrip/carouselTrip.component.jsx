@@ -60,12 +60,8 @@ class CarouselTrip extends Component {
             activeIndex={activeIndex}
             next={this.next}
             previous={this.previous}
+            interval={7000}
           >
-            {/* <CarouselIndicators
-              items={tripList}
-              activeIndex={activeIndex}
-              onClickHandler={this.goToIndex}
-            /> */}
 
             {tripList.map(trip => {
               return (
@@ -88,7 +84,6 @@ class CarouselTrip extends Component {
                   />
                   <CarouselCaption
                     captionHeader={<Link to={`/trip/${trip.id}`}>{trip.name}</Link>}
-                    // captionText={<Link to={`/category/${trip.category}`}>{trip.category}</Link>}
                     captionText={`@${trip.userName}`}
                     className="card-img-overlay"
                   />
