@@ -4,9 +4,9 @@
     // ----------- trip detail section -------------
     .trip-detail {
         width: 100%;
-        padding-right: 50px;
-        padding-left: 50px;
-        margin-top: 25px;
+        padding-right: 65px;
+        padding-left: 65px;
+        margin-top: 15px;
         margin-bottom: 30px;
 
         .row {
@@ -31,15 +31,19 @@
 
             .card-title{
                 div {
-                    color: #89bdd3;
+                    color: #006c78;
                 }
             }
             .card-text {
                 div {
-                    color: #89bdd3;
+                    color: #006c78;
                 }
                 p {
                     margin-bottom: 12px;
+                }
+                a {
+                    text-decoration: none;
+                    color: black;
                 }
             }
             .card-user{
@@ -51,7 +55,7 @@
             background-color: #e3e3e3;
             padding: 1.25rem;
             div {
-                color: #89bdd3;
+                color: #006c78;
             }
             p {
                 margin-bottom: 0;
@@ -59,20 +63,20 @@
         }
     }
 
+    // ----------- trackpoint detail section -------------
+
     .title-tp-section {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         margin-top: 60px;
     }
 
-    // ----------- trackpoint detail section -------------
-
     .trackpoint-detail {
         width: 100%;
-        padding-right: 40px;
-        padding-left: 40px;
+        padding-right: 60px;
+        padding-left: 60px;
     
         .card {
             height: 300px;

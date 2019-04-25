@@ -66,7 +66,7 @@ class MyTripsPage extends Component {
             clickToSelect: true,
             classes: 'selection-row',
             hideSelectColumn: true,
-            bgColor: '#9ad3de',
+            bgColor: '#fae596',
             onSelect: this.handleOnSelect,
         };
 

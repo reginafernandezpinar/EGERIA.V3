@@ -27,11 +27,11 @@ class SearchPage extends React.Component {
 
                     <div className="top-search-page">
                         <div className="search-background"></div>
+                        <div className="search-container">
+                            <TripsSearch showTripButtons={false} redirectToSearchPage={false} />
+                        </div>
                     </div>
 
-                    <div className="search-container">
-                        <TripsSearch showTripButtons={false} redirectToSearchPage={false} />
-                    </div>
                     <div className='container'>
                         <div className='row'>
                             {

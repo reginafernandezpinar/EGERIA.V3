@@ -4,8 +4,8 @@
 
     .top-search-page {
         position: relative;
-        height: 80px;
-        margin-bottom: 5px;
+        height: 130px;
+        margin-bottom: 90px;
 
         .search-background{
             display: flex;
@@ -16,19 +16,24 @@
             position: absolute;
             top: -60px;
             z-index: -1;
-            background-image: linear-gradient(to top, rgba(137, 189, 211, 0), rgba(137, 189, 211, 1));
+            background-color: rgb(0, 108, 120);
         }
-    }
+    
+        .search-container {
+            margin-top: 30px;
+            background-color: white;
+            position: absolute;
+            left: 150px;
+            right: 150px;
+            // bottom: -20px;
+            
+            padding: 50px 40px 30px 40px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.15); 
 
-    .search-container {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 60px; 
-
-        .btn-outline-info {
-            color: #89bdd3;
-            border-color: #89bdd3;
+            .btn-outline-info {
+                color: #006c78;
+                border-color: #006c78;
+            }
         }
     }
 

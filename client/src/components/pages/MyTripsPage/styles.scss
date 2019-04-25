@@ -18,7 +18,7 @@
             background-color: #e3e3e3;
            
             h2  { 
-                color: #89bdd3;
+                color: rgb(0, 108, 120);
 
                 text-align: center;
                 font-size: 4rem;
@@ -47,8 +47,8 @@
 
     .btn-blue {
         color: #fff;
-        background-color: #89bdd3;
-        border-color: #89bdd3;
+        background-color: #006c78;
+        border-color: #006c78;
         text-align: center;
         vertical-align: middle;
         border-radius: .25rem;
@@ -56,15 +56,15 @@
         display: inline-block;
         border: 1px solid transparent;
         &:hover {
-            background-color: #6795a8;
+            background-color: #004952;
         }
     }
 
     .btn-green {
         margin-right: 10px;
-        color: #fff;
-        background-color: #9ad3de;
-        border-color: #9ad3de;
+        color: #006c78;
+        background-color: #a9bec3;
+        border-color: #a9bec3;
         text-align: center;
         vertical-align: middle;
         border-radius: .25rem;
@@ -73,6 +73,7 @@
         border: 1px solid transparent;
         &:hover {
             background-color: #6b98a1;
+            color: white;
         }
 
     }

@@ -14,7 +14,7 @@ class TripsCategory extends Component {
             return <p>Loading…</p>;
         }
         return (
-            <div className='container'>
+            <div className='container p-0'>
                 <div className='row'>
                     {
                         tripsCategory.map((trip) => {
