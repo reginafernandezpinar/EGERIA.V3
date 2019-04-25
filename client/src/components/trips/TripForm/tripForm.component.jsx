@@ -13,8 +13,8 @@ class TripForm extends React.Component {
             description: trip.description,
             companionship: trip.companionship,
             category: trip.category,
-            startingPoint: trip.starting_point,
-            destinationPoint: trip.destination_point,
+            starting_point: trip.starting_point,
+            destination_point: trip.destination_point,
             photo: trip.photo,
             distance: trip.distance,
             id: trip.id
@@ -30,8 +30,8 @@ class TripForm extends React.Component {
                 description: trip.description || '',
                 companionship: trip.companionship || '',
                 category: trip.category || '',
-                startingPoint: trip.starting_point || '',
-                destinationPoint: trip.destination_point || '',
+                starting_point: trip.starting_point || '',
+                destination_point: trip.destination_point || '',
                 photo: trip.photo || '',
                 distance: trip.distance || '',
                 id: trip.id
@@ -49,33 +49,17 @@ class TripForm extends React.Component {
 
     handleSubmit = (e) => {
         const { mode, token } = this.props;
-        const { id, name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;
         e.preventDefault();
         
         if (mode === 'new') {
             this.props.createTrip(token, { 
-                name,
-                description,
-                photo,
-                companionship,
-                category,
-                distance,
-                starting_point: startingPoint,
-                destination_point: destinationPoint,
+                ...this.state,
                 public: 1
             });
         } else if (mode === 'update') {
             this.props.updateTrip(token, { 
-                name,
-                description,
-                photo,
-                companionship,
-                category,
-                distance,
-                starting_point: startingPoint,
-                destination_point: destinationPoint,
-                public: 1,
-                id
+                ...this.state,
+                public: 1
             });
         }
     }
@@ -95,7 +79,7 @@ class TripForm extends React.Component {
 
     render() {
         const { mode } = this.props;
-        const { name, description, photo, companionship, category, distance, startingPoint, destinationPoint } = this.state;        
+        const { name, description, photo, companionship, category, distance, starting_point, destination_point } = this.state;        
 
         return (
             <div className="">
@@ -130,11 +114,11 @@ class TripForm extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripStartingPoint">Starting Point</Label>
-                        <Input type="text" name="starting_point" id="tripStartingPoint" placeholder="Trip starting point" onChange={this.handleChange} value={startingPoint} />
+                        <Input type="text" name="starting_point" id="tripStartingPoint" placeholder="Trip starting point" onChange={this.handleChange} value={starting_point} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripDestinationPoint">Destination Point</Label>
-                        <Input type="text" name="destination_point" id="tripDestinationPoint" placeholder="Trip destination point" onChange={this.handleChange} value={destinationPoint} />
+                        <Input type="text" name="destination_point" id="tripDestinationPoint" placeholder="Trip destination point" onChange={this.handleChange} value={destination_point} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="tripDistance">Distance</Label>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // Import component
 import TripForm from './tripForm.component';
-import { createTrip, updateTrip, deleteTrip } from '../../../models/actions/trip.actions';
+import { createTrip, updateTrip, deleteTrip, setSelectedTrip } from '../../../models/actions/trip.actions';
 
 
 // Add Redux State to Component props
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     createTrip,
     updateTrip,
-    deleteTrip
+    deleteTrip,
+    setSelectedTrip
 };
 
 
