@@ -131,12 +131,13 @@ class TripForm extends React.Component {
                     <div className="photo-container">
                         <img src={photo} />
                     </div>
-                    <button className="btn-green" onClick={this.handleSubmit}>
+
+                    <button className="btn-blue" onClick={this.handleSubmit}>
                         {mode === 'new' && 'Create trip'}
                         {mode === 'update' && 'Update trip'}
                     </button>
                     {mode === 'update' &&
-                        <button className="btn-green" onClick={this.handleDeleteTrip}>
+                        <button className="btn-blue ml-2" onClick={this.handleDeleteTrip}>
                             Delete trip
                         </button>
                     }
