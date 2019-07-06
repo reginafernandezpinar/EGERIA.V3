@@ -55,7 +55,7 @@ class Home extends React.Component {
           {/* GLOBE SECTION */}
           <div className="section-title">
               <h2>Explore the world</h2>
-              <h4>Look for points of interest spotted by the travellers</h4>
+              <h4>Find out points of interest spotted by travellers around de world</h4>
           </div>
           <div className="globe-section">
             <TripsGlobe />
@@ -63,8 +63,8 @@ class Home extends React.Component {
 
           {/* CAROUSEL SECTION */}
           <div className="section-title">
-            <h2>Selected trips</h2>
-            <h4>Best valued trips from our travellers</h4>
+            <h2>Highlighted trips</h2>
+            <h4>Best valued trips from travellers</h4>
           </div>
           <div className="homepage-carousel">
             <div className="left-section" />
@@ -76,7 +76,7 @@ class Home extends React.Component {
           
           <div className="section-title">
             <h2>Categories</h2>
-            <h4>Choose a trip by the style you want to travel</h4>
+            <h4>Choose a trip based on your preferences</h4>
           </div>
           <div className="category-container">
             <Categories />
