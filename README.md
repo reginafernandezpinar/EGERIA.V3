@@ -30,7 +30,7 @@ Go to the folder `server` and run the following commands
 
 ```
 npm install
-set PORT=5000
+set PORT=5000 ($env:PORT = 5000 for PowerShell users)
 npm start
 ```
 
