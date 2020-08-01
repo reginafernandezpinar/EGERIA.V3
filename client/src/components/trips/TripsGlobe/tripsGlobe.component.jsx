@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { toastr } from "react-redux-toastr";
-import Cesium from "cesium";
+import Cesium from 'cesium';
 
 // Import global resources
 
