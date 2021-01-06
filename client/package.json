@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "dependencies": {
     "@craco/craco": "^4.1.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "cesium": "^1.71.0",
     "craco-cesium": "^1.2.0",
