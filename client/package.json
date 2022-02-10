@@ -7,7 +7,7 @@
     "bootstrap": "^4.5.0",
     "cesium": "^1.71.0",
     "craco-cesium": "^1.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-bootstrap-table-next": "^3.3.5",
